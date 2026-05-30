@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>極致美學廚具 | 職人打造烹飪空間</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="logo">MODERN KITCHEN</div>
+    <ul class="nav-links">
+      <li><a href="#">品牌故事</a></li>
+      <li><a href="#">經典廚具</a></li>
+      <li><a href="#">智能家電</a></li>
+      <li><a href="#">聯絡我們</a></li>
+    </ul>
+  </nav>
+
+  <header class="hero-section">
+    <div class="hero-content">
+      <h1>打造內斂奢華的烹飪舞台</h1>
+      <p>1.2mm 隨紋不鏽鋼檯面 ✕ C型隱形把手美學，兼具耐用與極簡線條</p>
+      <a href="#products" class="btn-primary">探索經典系列</a>
+    </div>
+  </header>
+
+  <section id="products" class="product-section">
+    <h2>精選作品集</h2>
+    <div class="product-grid">
+      
+      <div class="product-card">
+        <div class="product-img-placeholder">隨紋不鏽鋼中島系列</div>
+        <div class="product-info">
+          <h3>職人隨紋不鏽鋼中島</h3>
+          <p>採用 1.2mm 厚實不鏽鋼，獨特亂紋打磨工藝，抗刮耐磨，完美融入現代居家。</p>
+          <span class="price">客製化定製</span>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-img-placeholder">C-Type 隱形把手極簡櫥櫃</div>
+        <div class="product-info">
+          <h3>C-Type 極簡無把手下櫃</h3>
+          <p>極致純平立面設計，內嵌式 C 型槽工藝，開合順暢，消弭視覺雜訊。</p>
+          <span class="price">客製化定製</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+</body>
+</html>
+/* 基礎設定 */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Helvetica Neue", Arial, "Noto Sans TC", sans-serif;
+}
+
+body {
+  background-color: #fcfcfc;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* 導覽列 */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  background-color: #fff;
+  border-bottom: 1px solid #eee;
+}
+
+.logo {
+  font-size: 20px;
+  font-weight: bold;
+  letter-spacing: 2px;
+  color: #1a1a1a;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 30px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #666;
+  font-size: 15px;
+  transition: color 0.3s;
+}
+
+.nav-links a:hover {
+  color: #000;
+}
+
+/* 主視覺橫幅 */
+.hero-section {
+  background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=1200&q=80') no-repeat center center/cover;
+  height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #fff;
+  padding: 0 20px;
+}
+
+.hero-content h1 {
+  font-size: 42px;
+  margin-bottom: 15px;
+  font-weight: 500;
+  letter-spacing: 1px;
+}
+
+.hero-content p {
+  font-size: 18px;
+  margin-bottom: 30px;
+  font-weight: 300;
+}
+
+.btn-primary {
+  display: inline-block;
+  padding: 12px 32px;
+  background-color: #333;
+  color: #fff;
+  text-decoration: none;
+  font-size: 15px;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+}
+
+.btn-primary:hover {
+  background-color: #555;
+}
+
+/* 商品展示區 */
+.product-section {
+  padding: 80px 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.product-section h2 {
+  text-align: center;
+  font-size: 28px;
+  margin-bottom: 50px;
+  position: relative;
+  font-weight: 500;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 40px;
+}
+
+.product-card {
+  background: #fff;
+  border: 1px solid #e5e5e5;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+}
+
+/* 商品圖片預留區（帶有一點金屬亂紋的灰色調感） */
+.product-img-placeholder {
+  height: 250px;
+  background-color: #d1d5db; /* 金屬不鏽鋼意象底色 */
+  background: linear-gradient(135deg, #e5e7eb 25%, #d1d5db 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #6b7280;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.product-info {
+  padding: 25px;
+}
+
+.product-info h3 {
+  font-size: 20px;
+  margin-bottom: 10px;
+  color: #111;
+}
+
+.product-info p {
+  color: #666;
+  font-size: 14px;
+  margin-bottom: 20px;
+  height: 44px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.price {
+  font-weight: bold;
+  color: #333;
+  font-size: 16px;
+  display: block;
+  border-top: 1px solid #eee;
+  padding-top: 15px;
+}
