@@ -90,9 +90,11 @@
       color: #666;
       line-height: 1.6;
     }
+    
+    /* 修正手機版響應式設計：僅針對內容區塊，不干涉置頂導覽列 */
     @media (max-width: 768px) {
       .brand-section, .brand-section.reverse, .info-grid {
-        flex-direction: column;
+        flex-direction: column !important;
         gap: 30px;
       }
     }
@@ -100,7 +102,6 @@
 </head>
 <body>
 
-  <!-- 修正：補上原本漏掉的導覽列開頭標籤，這樣 CSS 才能成功橫向排版 -->
   <nav class="navbar">
     <a href="index.html" class="logo-link">
       <img src="https://i.meee.com.tw/0ZesFkh.jpg" alt="凱勤廚具 LOGO" class="logo-img">
