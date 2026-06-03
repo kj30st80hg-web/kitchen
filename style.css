@@ -1,58 +1,3 @@
-<!DOCTYPE html>
-<html lang="zh-TW">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>極致美學廚具 | 職人打造烹飪空間</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-
-  <nav class="navbar">
-    <div class="logo">MODERN KITCHEN</div>
-    <ul class="nav-links">
-      <li><a href="#">品牌故事</a></li>
-      <li><a href="#">經典廚具</a></li>
-      <li><a href="#">智能家電</a></li>
-      <li><a href="#">聯絡我們</a></li>
-    </ul>
-  </nav>
-
-  <header class="hero-section">
-    <div class="hero-content">
-      <h1>打造內斂奢華的烹飪舞台</h1>
-      <p>1.2mm 隨紋不鏽鋼檯面 ✕ C型隱形把手美學，兼具耐用與極簡線條</p>
-      <a href="#products" class="btn-primary">探索經典系列</a>
-    </div>
-  </header>
-
-  <section id="products" class="product-section">
-    <h2>精選作品集</h2>
-    <div class="product-grid">
-      
-      <div class="product-card">
-        <div class="product-img-placeholder">隨紋不鏽鋼中島系列</div>
-        <div class="product-info">
-          <h3>職人隨紋不鏽鋼中島</h3>
-          <p>採用 1.2mm 厚實不鏽鋼，獨特亂紋打磨工藝，抗刮耐磨，完美融入現代居家。</p>
-          <span class="price">客製化定製</span>
-        </div>
-      </div>
-
-      <div class="product-card">
-        <div class="product-img-placeholder">C-Type 隱形把手極簡櫥櫃</div>
-        <div class="product-info">
-          <h3>C-Type 極簡無把手下櫃</h3>
-          <p>極致純平立面設計，內嵌式 C 型槽工藝，開合順暢，消弭視覺雜訊。</p>
-          <span class="price">客製化定製</span>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-</body>
-</html>
 /* 基礎設定 */
 * {
   margin: 0;
@@ -67,39 +12,52 @@ body {
   line-height: 1.6;
 }
 
-/* 導覽列 */
+/* 導覽列：強迫左圖右字水平對齊，絕對不往下掉 */
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 15px 40px;
-  flex-wrap: nowrap;
+  padding: 10px 40px;             /* 縮減上下間距，完美搭配大 LOGO */
+  flex-wrap: nowrap;              /* 強迫留在同一行，絕對不往下掉 */
   background-color: #fff;
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid #eee;  /* 質感淺灰下襯線 */
 }
 
-.logo {
-  font-size: 36px;
-  font-weight: bold;
-  letter-spacing: 2px;
-  color: #1a1a1a;
+/* 控管 LOGO 連結的外框 */
+.logo-link {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;                 /* 確保 LOGO 寬度不會被擠壓變形 */
 }
 
+/* 控制 LOGO 圖片大小：實測 65px - 75px 之間最安全大氣 */
+.logo-img {
+  height: 70px;                   /* 維持大氣尺寸，且不推擠右側文字 */
+  width: auto;                    /* 寬度隨比例縮放，絕對不變形 */
+  display: block;
+}
+
+/* 右側選單文字外框 */
 .nav-links {
   display: flex;
   list-style: none;
-  gap: 30px;
+  gap: 30px;                      /* 每個分頁按鈕之間的固定間距 */
+  flex-shrink: 0;                 /* 強迫選單絕對不能被擠到下一行 */
+  margin: 0;
+  padding: 0;
 }
 
+/* 右側選單文字本身 */
 .nav-links a {
   text-decoration: none;
-  color: #666;
-  font-size: 20px;
+  color: #333;                    /* 顏色加深，更有高級感 */
+  font-weight: bold;              /* 加粗文字，與左側大 LOGO 平衡 */
+  font-size: 18px;                /* 改大後的精緻字體尺寸 */
   transition: color 0.3s;
 }
 
 .nav-links a:hover {
-  color: #000;
+  color: #004d80;                 /* 滑過去時變成與 LOGO 一致的經典深藍色 */
 }
 
 /* 主視覺橫幅 */
@@ -176,10 +134,10 @@ body {
   box-shadow: 0 10px 20px rgba(0,0,0,0.05);
 }
 
-/* 商品圖片預留區（帶有一點金屬亂紋的灰色調感） */
+/* 商品圖片預留區 */
 .product-img-placeholder {
   height: 250px;
-  background-color: #d1d5db; /* 金屬不鏽鋼意象底色 */
+  background-color: #d1d5db;
   background: linear-gradient(135deg, #e5e7eb 25%, #d1d5db 100%);
   display: flex;
   align-items: center;
@@ -223,17 +181,6 @@ body {
 .product-img {
   width: 100%;
   height: 250px;
-  object-fit: cover; /* 讓圖片自動裁切填滿，不變形 */
-  display: block;
-}
-/* 控制導覽列新 LOGO 圖片的大小與排列 */
-.logo-link {
-  display: flex;
-  align-items: center;
-}
-
-.logo-img {
-  height: 120px;      /* 固定高度，讓導覽列維持精緻 */
-  width: auto;       /* 寬度隨比例自動縮放，絕對不變形 */
+  object-fit: cover;
   display: block;
 }
