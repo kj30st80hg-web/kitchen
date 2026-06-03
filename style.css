@@ -17,7 +17,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 40px;             /* 縮減上下間距，完美搭配大 LOGO */
+  padding: 15px 40px;             /* 縮減上下間距，完美搭配大 LOGO */
   flex-wrap: nowrap;              /* 強迫留在同一行，絕對不往下掉 */
   background-color: #fff;
   border-bottom: 1px solid #eee;  /* 質感淺灰下襯線 */
