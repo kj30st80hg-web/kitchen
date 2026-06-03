@@ -225,3 +225,14 @@ body {
   object-fit: cover; /* 讓圖片自動裁切填滿，不變形 */
   display: block;
 }
+/* 控制導覽列新 LOGO 圖片的大小與排列 */
+.logo-link {
+  display: flex;
+  align-items: center;
+}
+
+.logo-img {
+  height: 45px;      /* 固定高度，讓導覽列維持精緻 */
+  width: auto;       /* 寬度隨比例自動縮放，絕對不變形 */
+  display: block;
+}
