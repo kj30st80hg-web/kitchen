@@ -232,7 +232,7 @@ body {
 }
 
 .logo-img {
-  height: 45px;      /* 固定高度，讓導覽列維持精緻 */
+  height: 120px;      /* 固定高度，讓導覽列維持精緻 */
   width: auto;       /* 寬度隨比例自動縮放，絕對不變形 */
   display: block;
 }
