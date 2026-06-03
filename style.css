@@ -32,7 +32,7 @@ body {
 
 /* 控制 LOGO 圖片大小：實測 65px - 75px 之間最安全大氣 */
 .logo-img {
-  height: 70px;                   /* 維持大氣尺寸，且不推擠右側文字 */
+  height: 120px;                   /* 維持大氣尺寸，且不推擠右側文字 */
   width: auto;                    /* 寬度隨比例縮放，絕對不變形 */
   display: block;
 }
