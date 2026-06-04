@@ -160,7 +160,7 @@
       border-bottom: 1px solid #f5f5f5;
     }
 
-    /* 預設：讓去背品牌（櫻花、林內、喜特麗、BEST、GEJP）放大撐滿並去除白邊 */
+    /* 預設：讓台灣去背品牌（櫻花、林內、喜特麗）放大撐滿並去除多餘白邊 */
     .appliance-img-box img {
       width: 100%;
       height: 100%;
@@ -170,9 +170,11 @@
       transition: transform 0.5s;
     }
 
-    /* 特殊處理：只有 BOSCH 區塊 (#bosch) 與 Amica 區塊 (#amica) 保持安全置中不裁切 */
+    /* 特殊排除：容易切到機器頂部或需要完整圖幅的歐美及精品品牌（BOSCH, Amica, BEST, GEJP）保持完整安全不裁切 */
     #bosch .appliance-img-box img,
-    #amica .appliance-img-box img {
+    #amica .appliance-img-box img,
+    #best .appliance-img-box img,
+    #gejp .appliance-img-box img {
       object-fit: contain;    /* 保持機器商品圖完整不被裁切 */
       padding: 10px;          /* 加上精緻安全留白 */
     }
