@@ -13,16 +13,16 @@
 
     /* 智能家電專用極簡奢華樣式 */
     .appliance-container {
-      max-width: 1200px;
+      max-width: 1280px; /* 稍微放寬總寬度，讓4個卡片並排更舒適 */
       margin: 40px auto;
       padding: 0 20px;
       display: flex;
-      gap: 40px;
+      gap: 30px;
     }
 
     /* 左側「台灣精選三大家電」滑鼠懸浮向右彈出子選單 */
     .appliance-sidebar {
-      width: 250px;
+      width: 240px;
       flex-shrink: 0;
       position: sticky;
       top: 120px;
@@ -130,12 +130,14 @@
       letter-spacing: 1px;
     }
 
-    /* 每個品牌 4 個產品的精緻網格排版 */
+    /* 【核心修改】強制設定網格為一排4個 */
     .appliance-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 25px;
+      grid-template-columns: repeat(4, 1fr); /* 強制固定4欄 */
+      gap: 15px; /* 縮小卡片間距，確保排版緊湊 */
     }
+    
+    /* 【核心修改】縮小卡片內部比例 */
     .appliance-card {
       background: #fff;
       border: 1px solid #eee;
@@ -152,7 +154,7 @@
     .appliance-img-box {
       display: block;
       width: 100%;
-      height: 180px;
+      height: 140px; /* 圖片高度縮小，比例更平衡 */
       overflow: hidden;
       background: #fcfcfc;
       border-bottom: 1px solid #f5f5f5;
@@ -167,48 +169,49 @@
       transform: scale(1.03);
     }
 
-    /* 詳細介紹規格區 */
+    /* 詳細介紹規格區縮小微調 */
     .appliance-info {
-      padding: 18px;
+      padding: 12px; /* 內距縮小 */
       flex-grow: 1;
       display: flex;
       flex-direction: column;
       background: #fff;
     }
     .brand-badge {
-      font-size: 11px;
+      font-size: 10px;
       color: #fff;
       background: #333;
-      padding: 2px 8px;
+      padding: 2px 6px;
       border-radius: 20px;
       align-self: flex-start;
-      margin-bottom: 10px;
+      margin-bottom: 8px;
       font-weight: bold;
       letter-spacing: 1px;
     }
     .appliance-name {
-      font-size: 18px;
+      font-size: 15px; /* 標題微調小 */
       font-weight: bold;
       color: #111;
-      margin-bottom: 8px;
+      margin-bottom: 6px;
+      line-height: 1.3;
     }
     .appliance-desc {
-      font-size: 13px;
+      font-size: 12px; /* 內文縮小至 12px */
       color: #666;
-      line-height: 1.5;
-      margin: 0 0 15px 0;
+      line-height: 1.4;
+      margin: 0 0 12px 0;
       flex-grow: 1;
     }
 
-    /* 精緻查看按鈕 */
+    /* 精緻查看按鈕微調 */
     .view-spec-btn {
       display: block;
       text-align: center;
       background: #f8f9fa;
       color: #333;
       text-decoration: none;
-      padding: 10px 0;
-      font-size: 13px;
+      padding: 8px 0; /* 按鈕高度稍微縮減 */
+      font-size: 12px;
       font-weight: bold;
       border-radius: 4px;
       border: 1px solid #ddd;
@@ -220,11 +223,16 @@
       border-color: #004d80;
     }
 
-    /* Rinnai 與 JTL 的色調變化 */
+    /* 各品牌色調 */
     .badge-rinnai { background: #004d80; }
     .badge-jtl { background: #222; }
 
-    /* 手機版自動適應 */
+    /* 手機與平板版自動適應 */
+    @media (max-width: 1024px) {
+      .appliance-grid {
+        grid-template-columns: repeat(2, 1fr); /* 平板改兩排 */
+      }
+    }
     @media (max-width: 768px) {
       .appliance-container {
         flex-direction: column;
@@ -233,6 +241,9 @@
         width: 100%;
         position: static;
         margin-bottom: 20px;
+      }
+      .appliance-grid {
+        grid-template-columns: 1fr; /* 手機單排 */
       }
       .submenu {
         position: static;
@@ -264,7 +275,7 @@
 
   <main class="appliance-container">
     
-    <!-- 左側快速選單：保持 image_5be7c4.jpg 懸浮外觀，點擊平滑滾動至同頁面品牌區 -->
+    <!-- 左側快速選單 -->
     <aside class="appliance-sidebar">
       <div class="sidebar-title">頂級品牌索引</div>
       <ul class="sidebar-menu">
@@ -288,11 +299,10 @@
       <h1 class="page-main-title">頂級智能廚房家電</h1>
       <p class="page-subtitle">嚴選歐美與在地美學設備，全方位建構兼具智能機能與洗鍊設計的烹飪舞台。</p>
 
-      <!-- ==================== 1. 台灣櫻花 SAKURA (4個特色產品) ==================== -->
+      <!-- ==================== 1. 台灣櫻花 SAKURA ==================== -->
       <section class="brand-group" id="brand-sakura">
         <div class="brand-header">SAKURA 台灣櫻花</div>
         <div class="appliance-grid">
-          <!-- 產品 1：油煙機 -->
           <div class="appliance-card">
             <div class="appliance-img-box">
               <img src="https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=400&q=80" alt="櫻花油煙機">
@@ -304,7 +314,6 @@
               <a href="https://www.sakura.com.tw/product/hood" target="_blank" class="view-spec-btn">查看完整規格</a>
             </div>
           </div>
-          <!-- 產品 2：瓦斯爐 -->
           <div class="appliance-card">
             <div class="appliance-img-box">
               <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=400&q=80" alt="櫻花瓦斯爐">
@@ -316,7 +325,6 @@
               <a href="https://www.sakura.com.tw/product/cooktop" target="_blank" class="view-spec-btn">查看完整規格</a>
             </div>
           </div>
-          <!-- 產品 3：IH爐 -->
           <div class="appliance-card">
             <div class="appliance-img-box">
               <img src="https://images.unsplash.com/photo-1542013936693-8848e5742383?auto=format&fit=crop&w=400&q=80" alt="櫻花IH爐">
@@ -328,7 +336,6 @@
               <a href="https://www.sakura.com.tw/product/ih" target="_blank" class="view-spec-btn">查看完整規格</a>
             </div>
           </div>
-          <!-- 產品 4：烘碗機 -->
           <div class="appliance-card">
             <div class="appliance-img-box">
               <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=400&q=80" alt="櫻花烘碗機">
@@ -343,11 +350,10 @@
         </div>
       </section>
 
-      <!-- ==================== 2. 日本林內 Rinnai (4個特色產品) ==================== -->
+      <!-- ==================== 2. 日本林內 Rinnai ==================== -->
       <section class="brand-group" id="brand-rinnai">
         <div class="brand-header">Rinnai 日本林內</div>
         <div class="appliance-grid">
-          <!-- 產品 1：油煙機 -->
           <div class="appliance-card">
             <div class="appliance-img-box">
               <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=400&q=80" alt="林內油煙機">
@@ -359,7 +365,6 @@
               <a href="https://www.rinnai.com.tw/Product/2" target="_blank" class="view-spec-btn">查看完整規格</a>
             </div>
           </div>
-          <!-- 產品 2：瓦斯爐 -->
           <div class="appliance-card">
             <div class="appliance-img-box">
               <img src="https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=400&q=80" alt="林內瓦斯爐">
@@ -371,7 +376,6 @@
               <a href="https://www.rinnai.com.tw/Product/1" target="_blank" class="view-spec-btn">查看完整規格</a>
             </div>
           </div>
-          <!-- 產品 3：IH爐 -->
           <div class="appliance-card">
             <div class="appliance-img-box">
               <img src="https://images.unsplash.com/photo-1542013936693-8848e5742383?auto=format&fit=crop&w=400&q=80" alt="林內IH爐">
@@ -383,7 +387,6 @@
               <a href="https://www.rinnai.com.tw/Product/1" target="_blank" class="view-spec-btn">查看完整規格</a>
             </div>
           </div>
-          <!-- 產品 4：烘碗機 -->
           <div class="appliance-card">
             <div class="appliance-img-box">
               <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=400&q=80" alt="林內烘碗機">
@@ -398,11 +401,10 @@
         </div>
       </section>
 
-      <!-- ==================== 3. 喜特麗 JTL (4個特色產品) ==================== -->
+      <!-- ==================== 3. 喜特麗 JTL ==================== -->
       <section class="brand-group" id="brand-jtl">
         <div class="brand-header">JTL 喜特麗</div>
         <div class="appliance-grid">
-          <!-- 產品 1：油煙機 -->
           <div class="appliance-card">
             <div class="appliance-img-box">
               <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=400&q=80" alt="喜特麗油煙機">
@@ -414,7 +416,6 @@
               <a href="https://www.e-jtl.com.tw/products?category_id=3" target="_blank" class="view-spec-btn">查看完整規格</a>
             </div>
           </div>
-          <!-- 產品 2：瓦斯爐 -->
           <div class="appliance-card">
             <div class="appliance-img-box">
               <img src="https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=400&q=80" alt="喜特麗瓦斯爐">
@@ -426,7 +427,6 @@
               <a href="https://www.e-jtl.com.tw/products?category_id=4" target="_blank" class="view-spec-btn">查看完整規格</a>
             </div>
           </div>
-          <!-- 產品 3：IH爐 -->
           <div class="appliance-card">
             <div class="appliance-img-box">
               <img src="https://images.unsplash.com/photo-1542013936693-8848e5742383?auto=format&fit=crop&w=400&q=80" alt="喜特麗IH爐">
@@ -434,18 +434,17 @@
             <div class="appliance-info">
               <span class="brand-badge badge-jtl">JTL</span>
               <h3 class="appliance-name">橫式橫置雙口IH感應爐</h3>
-              <p class="appliance-desc">靈活多功能計時定溫，具備陶瓷玻璃面板及多段速高功率快速加熱。 </p>
+              <p class="appliance-desc">靈活多功能計時定溫，具備陶瓷玻璃面板及多段速高功率快速加熱。</p>
               <a href="https://www.e-jtl.com.tw/products?category_id=14" target="_blank" class="view-spec-btn">查看完整規格</a>
             </div>
           </div>
-          <!-- 產品 4：烘碗機 -->
           <div class="appliance-card">
             <div class="appliance-img-box">
               <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=400&q=80" alt="喜特麗烘碗機">
             </div>
             <div class="appliance-info">
               <span class="brand-badge badge-jtl">JTL</span>
-              <h3 class="appliance-name">落地觸控式烘碗機 (市佔第一)</h3>
+              <h3 class="appliance-name">落地觸控式烘碗機</h3>
               <p class="appliance-desc">喜特麗核心明星品項！全平面黑玻璃觸控面板，超大三層收納與強效雙重殺菌。</p>
               <a href="https://www.e-jtl.com.tw/products?category_id=2" target="_blank" class="view-spec-btn">查看完整規格</a>
             </div>
@@ -453,43 +452,109 @@
         </div>
       </section>
 
-      <!-- ==================== 4. BOSCH 德國博世家電 ==================== -->
+      <!-- ==================== 4. BOSCH 德國博世家電 (已補滿4個) ==================== -->
       <section class="brand-group" id="bosch">
         <div class="brand-header">Bosch 德國博世家電</div>
         <div class="appliance-grid">
-          <div class="appliance-card" style="grid-column: 1 / -1;">
-            <a href="https://www.bosch-home.com.tw/products/dishwashers" target="_blank" class="appliance-img-box" style="height: 240px;">
-              <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=800&q=80" alt="Bosch洗碗機">
-            </a>
+          <div class="appliance-card">
+            <div class="appliance-img-box">
+              <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=400&q=80" alt="Bosch洗碗機">
+            </div>
             <div class="appliance-info">
               <span class="brand-badge" style="background:#004d80;">BOSCH</span>
-              <h3 class="appliance-name">沸石獨立/嵌入式洗碗機</h3>
-              <p class="appliance-desc">獨家 Zeolith® 沸石烘乾技術，歐洲頂級省電省水標章，結合 Home Connect 智慧物聯網遠端智慧操作。</p>
+              <h3 class="appliance-name">沸石嵌入式洗碗機</h3>
+              <p class="appliance-desc">獨家 Zeolith® 沸石烘乾技術，節能省水，結合 Home Connect 遠端操作。</p>
               <a href="https://www.bosch-home.com.tw/products/dishwashers" target="_blank" class="view-spec-btn">查看完整規格</a>
+            </div>
+          </div>
+          <div class="appliance-card">
+            <div class="appliance-img-box">
+              <img src="https://images.unsplash.com/photo-1544233726-9f1d2b27be8b?auto=format&fit=crop&w=400&q=80" alt="Bosch烤箱">
+            </div>
+            <div class="appliance-info">
+              <span class="brand-badge" style="background:#004d80;">BOSCH</span>
+              <h3 class="appliance-name">4D熱風嵌入式烤箱</h3>
+              <p class="appliance-desc">均勻導熱烘烤技術，烘焙出最完美的層次，內建自動清潔壁面面板。</p>
+              <a href="https://www.bosch-home.com.tw/products/cooking-baking/ovens" target="_blank" class="view-spec-btn">查看完整規格</a>
+            </div>
+          </div>
+          <div class="appliance-card">
+            <div class="appliance-img-box">
+              <img src="https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=400&q=80" alt="Bosch感應爐">
+            </div>
+            <div class="appliance-info">
+              <span class="brand-badge" style="background:#004d80;">BOSCH</span>
+              <h3 class="appliance-name">全區高階智慧感應爐</h3>
+              <p class="appliance-desc">自動偵測鍋具尺寸，自由彈性烹飪區域，具備瞬間大功率精準升溫。</p>
+              <a href="https://www.bosch-home.com.tw/products/cooking-baking/hobs" target="_blank" class="view-spec-btn">查看完整規格</a>
+            </div>
+          </div>
+          <div class="appliance-card">
+            <div class="appliance-img-box">
+              <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=400&q=80" alt="Bosch抽油煙機">
+            </div>
+            <div class="appliance-info">
+              <span class="brand-badge" style="background:#004d80;">BOSCH</span>
+              <h3 class="appliance-name">EcoSilence 導流抽油煙機</h3>
+              <p class="appliance-desc">搭載高階節能靜音馬達，強大吸力瞬吸油煙，外觀完美契合歐化櫥櫃。</p>
+              <a href="https://www.bosch-home.com.tw/products/cooking-baking/hoods" target="_blank" class="view-spec-btn">查看完整規格</a>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- ==================== 5. Amica 波蘭頂級烘烤 ==================== -->
+      <!-- ==================== 5. Amica 波蘭頂級烘烤 (已補滿4個) ==================== -->
       <section class="brand-group" id="amica">
         <div class="brand-header">Amica 波蘭頂級烘烤工藝</div>
         <div class="appliance-grid">
-          <div class="appliance-card" style="grid-column: 1 / -1;">
-            <a href="https://www.amica-tw.com/" target="_blank" class="appliance-img-box" style="height: 240px;">
-              <img src="https://images.unsplash.com/photo-1544233726-9f1d2b27be8b?auto=format&fit=crop&w=800&q=80" alt="Amica烤箱">
-            </a>
+          <div class="appliance-card">
+            <div class="appliance-img-box">
+              <img src="https://images.unsplash.com/photo-1544233726-9f1d2b27be8b?auto=format&fit=crop&w=400&q=80" alt="Amica烤箱">
+            </div>
             <div class="appliance-info">
               <span class="brand-badge" style="background:#b30000;">AMICA</span>
-              <h3 class="appliance-name">奢華全功能嵌入式蒸烤箱</h3>
-              <p class="appliance-desc">符合台灣廚房規格的 220V 專業大功率輸出，50L 以上旗艦級全不鏽鋼內膽，具備旋風與多段專業烘烤模式。</p>
+              <h3 class="appliance-name">全功能嵌入式蒸烤箱</h3>
+              <p class="appliance-desc">符合台灣廚房 220V 專業輸出，50L不鏽鋼內膽，具備多段旋風烘烤。</p>
+              <a href="https://www.amica-tw.com/" target="_blank" class="view-spec-btn">查看完整規格</a>
+            </div>
+          </div>
+          <div class="appliance-card">
+            <div class="appliance-img-box">
+              <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=400&q=80" alt="Amica洗碗機">
+            </div>
+            <div class="appliance-info">
+              <span class="brand-badge" style="background:#b30000;">AMICA</span>
+              <h3 class="appliance-name">全彩全彩觸控全嵌洗碗機</h3>
+              <p class="appliance-desc">超靜音高效洗程，立體環繞噴水臂，具備高溫殺菌與自動開門乾燥。</p>
+              <a href="https://www.amica-tw.com/" target="_blank" class="view-spec-btn">查看完整規格</a>
+            </div>
+          </div>
+          <div class="appliance-card">
+            <div class="appliance-img-box">
+              <img src="https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=400&q=80" alt="Amica抽油煙機">
+            </div>
+            <div class="appliance-info">
+              <span class="brand-badge" style="background:#b30000;">AMICA</span>
+              <h3 class="appliance-name">極簡倒T型除油煙機</h3>
+              <p class="appliance-desc">北歐俐落美學設計，多段高速強效排風，搭配可拆洗鋁質精密濾網。</p>
+              <a href="https://www.amica-tw.com/" target="_blank" class="view-spec-btn">查看完整規格</a>
+            </div>
+          </div>
+          <div class="appliance-card">
+            <div class="appliance-img-box">
+              <img src="https://images.unsplash.com/photo-1542013936693-8848e5742383?auto=format&fit=crop&w=400&q=80" alt="Amica感應爐">
+            </div>
+            <div class="appliance-info">
+              <span class="brand-badge" style="background:#b30000;">AMICA</span>
+              <h3 class="appliance-name">多口滑動觸控 IH 爐</h3>
+              <p class="appliance-desc">高質感微晶玻璃防刮面板，具備安全鎖與安全防溢鍋自動斷電系統。</p>
               <a href="https://www.amica-tw.com/" target="_blank" class="view-spec-btn">查看完整規格</a>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- ==================== 6. BEST 義大利精品廚電 ==================== -->
+      <!-- ==================== 6. BEST 義大利精品廚電 (已補滿4個) ==================== -->
       <section class="brand-group" id="best">
         <div class="brand-header">BEST 義大利精品廚電</div>
         <div class="appliance-grid">
@@ -511,25 +576,36 @@
             <div class="appliance-info">
               <span class="brand-badge" style="background:#444;">BEST</span>
               <h3 class="appliance-name">精品排油煙機 (G3175)</h3>
-              <p class="appliance-desc">義大利原裝進口，G3175 極致鋼化時尚外觀，搭配歐規高靜壓大排風量馬達。</p>
+              <p class="appliance-desc">義大利原裝進口，G3175 極致鋼化時尚外觀，搭配高靜壓大風量馬達。</p>
               <a href="https://www.bestqce.com.tw/" target="_blank" class="view-spec-btn">查看完整規格</a>
             </div>
           </div>
           <div class="appliance-card">
             <div class="appliance-img-box">
-              <img src="https://images.unsplash.com/photo-1585244433366-c672e4971e48?auto=format&fit=crop&w=400&q=80" alt="BEST G2320">
+              <img src="https://images.unsplash.com/photo-1585244433336-c672e4971e48?auto=format&fit=crop&w=400&q=80" alt="BEST G2320">
             </div>
             <div class="appliance-info">
               <span class="brand-badge" style="background:#444;">BEST</span>
               <h3 class="appliance-name">嵌入式洗碗機 (G2320)</h3>
-              <p class="appliance-desc">G2320 奢華隱藏式控制面板，立體三段式高壓旋轉噴水臂與餘熱冷凝極淨烘乾。</p>
+              <p class="appliance-desc">G2320 奢華全隱藏控制面板，三段立體高壓噴水，高溫餘熱冷凝極淨烘乾。</p>
+              <a href="https://www.bestqce.com.tw/" target="_blank" class="view-spec-btn">查看完整規格</a>
+            </div>
+          </div>
+          <div class="appliance-card">
+            <div class="appliance-img-box">
+              <img src="https://images.unsplash.com/photo-1544233726-9f1d2b27be8b?auto=format&fit=crop&w=400&q=80" alt="BEST烤箱">
+            </div>
+            <div class="appliance-info">
+              <span class="brand-badge" style="background:#444;">BEST</span>
+              <h3 class="appliance-name">歐洲原裝專業多功能烤箱</h3>
+              <p class="appliance-desc">美學大容量機身，內建多點溫度探針，提供多段精準控溫及立體旋風循環。</p>
               <a href="https://www.bestqce.com.tw/" target="_blank" class="view-spec-btn">查看完整規格</a>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- ==================== 7. GEJP 日本淨水 ==================== -->
+      <!-- ==================== 7. GEJP 日本淨水 (已補滿4個) ==================== -->
       <section class="brand-group" id="gejp">
         <div class="brand-header">GEJP 日本生飲級高端淨水系統</div>
         <div class="appliance-grid">
@@ -540,7 +616,40 @@
             <div class="appliance-info">
               <span class="brand-badge" style="background:#2b5c8f;">GEJP</span>
               <h3 class="appliance-name">雙效除鉛生飲級淨水器</h3>
-              <p class="appliance-desc">日本原裝進口高密度活性碳＋中空絲膜頂級濾芯，高效過濾重金屬、殘留餘氯。</p>
+              <p class="appliance-desc">日本原裝進口高密度活性碳＋中空絲膜濾芯，高效過濾重金屬、殘留餘氯。</p>
+              <a href="#" class="view-spec-btn">查看完整規格</a>
+            </div>
+          </div>
+          <div class="appliance-card">
+            <div class="appliance-img-box">
+              <img src="https://images.unsplash.com/photo-1585244433366-c672e4971e48?auto=format&fit=crop&w=400&q=80" alt="GEJP廚下熱飲機">
+            </div>
+            <div class="appliance-info">
+              <span class="brand-badge" style="background:#2b5c8f;">GEJP</span>
+              <h3 class="appliance-name">廚下型智能雙溫觸控熱飲機</h3>
+              <p class="appliance-desc">醫療級不鏽鋼熱膽，防燙龍頭安全鎖設計，即開即飲提供高品質熱水。</p>
+              <a href="#" class="view-spec-btn">查看完整規格</a>
+            </div>
+          </div>
+          <div class="appliance-card">
+            <div class="appliance-img-box">
+              <img src="https://images.unsplash.com/photo-1542013936693-8848e5742383?auto=format&fit=crop&w=400&q=80" alt="GEJP除硝酸鹽">
+            </div>
+            <div class="appliance-info">
+              <span class="brand-badge" style="background:#2b5c8f;">GEJP</span>
+              <h3 class="appliance-name">全戶型智慧除垢軟水系統</h3>
+              <p class="appliance-desc">全自動電腦定時反洗，有效去除水中鈣鎂離子，杜絕廚衛管道水垢生成。</p>
+              <a href="#" class="view-spec-btn">查看完整規格</a>
+            </div>
+          </div>
+          <div class="appliance-card">
+            <div class="appliance-img-box">
+              <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=400&q=80" alt="GEJPUV殺菌器">
+            </div>
+            <div class="appliance-info">
+              <span class="brand-badge" style="background:#2b5c8f;">GEJP</span>
+              <h3 class="appliance-name">智慧過流式 UV 紫外線殺菌器</h3>
+              <p class="appliance-desc">物理高強度紫外線光波瞬時殺菌，完美消滅微小細菌，確保生飲水百分百純淨。</p>
               <a href="#" class="view-spec-btn">查看完整規格</a>
             </div>
           </div>
