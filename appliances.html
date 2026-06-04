@@ -159,14 +159,24 @@
       background: #fcfcfc;
       border-bottom: 1px solid #f5f5f5;
     }
+
+    /* 預設：讓去背品牌（櫻花、林內、喜特麗、BEST、GEJP）放大撐滿並去除白邊 */
     .appliance-img-box img {
       width: 100%;
       height: 100%;
-      object-fit: contain; /* ★ 修正：改為 contain，防止頂部被裁切 */
-      padding: 10px;       /* ★ 修正：加入高級感內距 */
-      box-sizing: border-box; /* ★ 修正：確保內距不影響整體寬高計算 */
+      object-fit: cover;      /* 撐滿格子，消除多餘白邊 */
+      padding: 0;             /* 移除內縮，放大圖幅 */
+      box-sizing: border-box; 
       transition: transform 0.5s;
     }
+
+    /* 特殊處理：只有 BOSCH 區塊 (#bosch) 與 Amica 區塊 (#amica) 保持安全置中不裁切 */
+    #bosch .appliance-img-box img,
+    #amica .appliance-img-box img {
+      object-fit: contain;    /* 保持機器商品圖完整不被裁切 */
+      padding: 10px;          /* 加上精緻安全留白 */
+    }
+
     .appliance-card:hover .appliance-img-box img {
       transform: scale(1.03);
     }
