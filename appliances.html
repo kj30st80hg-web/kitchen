@@ -162,7 +162,9 @@
     .appliance-img-box img {
       width: 100%;
       height: 100%;
-      object-fit: cover;
+      object-fit: contain; /* ★ 修正：改為 contain，防止頂部被裁切 */
+      padding: 10px;       /* ★ 修正：加入高級感內距 */
+      box-sizing: border-box; /* ★ 修正：確保內距不影響整體寬高計算 */
       transition: transform 0.5s;
     }
     .appliance-card:hover .appliance-img-box img {
