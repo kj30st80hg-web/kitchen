@@ -170,11 +170,14 @@
       transition: transform 0.5s;
     }
 
-    /* 特殊排除：容易切到機器頂部或需要完整圖幅的歐美及精品品牌（BOSCH, Amica, BEST, GEJP）保持完整安全不裁切 */
+    /* 特殊排除：歐美及精品品牌保持完整安全不裁切 */
     #bosch .appliance-img-box img,
     #amica .appliance-img-box img,
     #best .appliance-img-box img,
-    #gejp .appliance-img-box img {
+    #gejp .appliance-img-box img,
+    #hafele .appliance-img-box img,
+    #unihopper .appliance-img-box img,
+    #prince .appliance-img-box img {
       object-fit: contain;    /* 保持機器商品圖完整不被裁切 */
       padding: 10px;          /* 加上精緻安全留白 */
     }
@@ -305,6 +308,9 @@
         <li><a href="#amica">波蘭 Amica</a></li>
         <li><a href="#best">義大利 BEST</a></li>
         <li><a href="#gejp">日本 GEJP 淨水器</a></li>
+        <li><a href="#hafele">德國 HAFELE</a></li>
+        <li><a href="#unihopper">波蘭 Unihopper</a></li>
+        <li><a href="#prince">CPS 太子衛浴</a></li>
       </ul>
     </aside>
 
@@ -656,9 +662,162 @@
               <a href="https://www.gejpgroup.com/products/cf6424bf-3351-4ee2-9897-c5a2726c26de" class="view-spec-btn">查看完整規格</a>
             </div>
           </div>
-          <!-- 由於要求固定1排4個(grid-template-columns: repeat(4, 1fr))，保留第4個預備卡片以維持版面齊平 -->
+          <!-- 由於要求固定1排4個，保留第4個預備卡片以維持版面齊平 -->
           <div class="appliance-card" style="visibility: hidden;">
             <div class="appliance-info"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== 8. 德國 HAFELE ==================== -->
+      <section class="brand-group" id="hafele">
+        <div class="brand-header">德國 HAFELE 頂級工藝五金</div>
+        <div class="appliance-grid">
+          <div class="appliance-card">
+            <div class="appliance-img-box">
+              <img src="placeholder_hafele_lathi_xl.jpg" alt="LATHI N100XL 水槽">
+            </div>
+            <div class="appliance-info">
+              <span class="brand-badge" style="background:#cc0000;">HAFELE</span>
+              <h3 class="appliance-name">花崗岩花色水槽 LATHI N100XL</h3>
+              <p class="appliance-desc">頂級石英花崗岩材質，超大洗滌槽體空間，抗衝擊且高溫耐刮，完美演繹極簡美學。</p>
+              <a href="#" class="view-spec-btn">查看完整規格</a>
+            </div>
+          </div>
+          <div class="appliance-card">
+            <div class="appliance-img-box">
+              <img src="placeholder_hafele_montano.jpg" alt="MONTANO N-100XLY 水槽">
+            </div>
+            <div class="appliance-info">
+              <span class="brand-badge" style="background:#cc0000;">HAFELE</span>
+              <h3 class="appliance-name">高級花崗岩水槽 MONTANO N-100XLY</h3>
+              <p class="appliance-desc">獨特大器長框槽體美學，表面經抗菌防汙處理，完美融入現代奢華無縫檯面設計。</p>
+              <a href="#" class="view-spec-btn">查看完整規格</a>
+            </div>
+          </div>
+          <div class="appliance-card">
+            <div class="appliance-img-box">
+              <img src="placeholder_hafele_lathi.jpg" alt="LATHI N100 水槽">
+            </div>
+            <div class="appliance-info">
+              <span class="brand-badge" style="background:#cc0000;">HAFELE</span>
+              <h3 class="appliance-name">經典石英水槽 LATHI N100</h3>
+              <p class="appliance-desc">黃金比例全機能單槽設計，質地高雅堅硬，有效降低水流噪音，廚房備料洗滌的最佳核心。</p>
+              <a href="#" class="view-spec-btn">查看完整規格</a>
+            </div>
+          </div>
+          <div class="appliance-card">
+            <div class="appliance-img-box">
+              <img src="placeholder_hafele_drawer.jpg" alt="HAFELE 鋁抽五金">
+            </div>
+            <div class="appliance-info">
+              <span class="brand-badge" style="background:#cc0000;">HAFELE</span>
+              <h3 class="appliance-name">豪華尊爵矩陣鋁抽系統</h3>
+              <p class="appliance-desc">極致順滑高載重隱藏滑軌，完美輕柔緩衝吸入，體現極致細緻的櫃體收納機能。</p>
+              <a href="#" class="view-spec-btn">查看完整規格</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== 9. 波蘭 Unihopper ==================== -->
+      <section class="brand-group" id="unihopper">
+        <div class="brand-header">波蘭 Unihopper 歐系高端機能五金</div>
+        <div class="appliance-grid">
+          <div class="appliance-card">
+            <div class="appliance-img-box">
+              <img src="placeholder_unihopper_ghe38330.jpg" alt="GHE38330 側拉籃">
+            </div>
+            <div class="appliance-info">
+              <span class="brand-badge" style="background:#e5801a;">Unihopper</span>
+              <h3 class="appliance-name">精緻多功能側拉籃 GHE38330</h3>
+              <p class="appliance-desc">窄櫃大容量魔術空間，不鏽鋼金屬線條俐落設計，結合高效流暢緩衝回歸系統。</p>
+              <a href="#" class="view-spec-btn">查看完整規格</a>
+            </div>
+          </div>
+          <div class="appliance-card">
+            <div class="appliance-img-box">
+              <img src="placeholder_unihopper_ghe39280.jpg" alt="GHE39280 玻璃緩衝全都露">
+            </div>
+            <div class="appliance-info">
+              <span class="brand-badge" style="background:#e5801a;">Unihopper</span>
+              <h3 class="appliance-name">全都露玻璃緩衝極致高抽 GHE39280</h3>
+              <p class="appliance-desc">側邊高透光強化玻璃，一目了然收納物件，頂級靜音滑軌一拉即現俐落工藝。</p>
+              <a href="#" class="view-spec-btn">查看完整規格</a>
+            </div>
+          </div>
+          <div class="appliance-card">
+            <div class="appliance-img-box">
+              <img src="placeholder_unihopper_ghe33090.jpg" alt="GHE33090 幻影玻璃緩降升降櫃">
+            </div>
+            <div class="appliance-info">
+              <span class="brand-badge" style="background:#e5801a;">Unihopper</span>
+              <h3 class="appliance-name">幻影玻璃緩降升降櫃 GHE33090</h3>
+              <p class="appliance-desc">吊櫃高位拿取神器，人性化配重輕鬆推拉，極致曜黑背板與輕奢透光玻璃質感。</p>
+              <a href="#" class="view-spec-btn">查看完整規格</a>
+            </div>
+          </div>
+          <div class="appliance-card">
+            <div class="appliance-img-box">
+              <img src="placeholder_unihopper_ghe35430.jpg" alt="GHE35430 幻影玻璃緩衝高身櫃">
+            </div>
+            <div class="appliance-info">
+              <span class="brand-badge" style="background:#e5801a;">Unihopper</span>
+              <h3 class="appliance-name">幻影玻璃緩衝聯動高身櫃 GHE35430</h3>
+              <p class="appliance-desc">大容量儲糧頂級規格，連動開門層架自動延伸，高質感幻影玻璃完美分類收納。</p>
+              <a href="#" class="view-spec-btn">查看完整規格</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== 10. CPS 太子衛浴 ==================== -->
+      <section class="brand-group" id="prince">
+        <div class="brand-header">CPS 太子衛浴精品</div>
+        <div class="appliance-grid">
+          <div class="appliance-card">
+            <div class="appliance-img-box">
+              <img src="placeholder_prince_cps_lf428.jpg" alt="CPS-LF428 龍頭">
+            </div>
+            <div class="appliance-info">
+              <span class="brand-badge" style="background:#555555;">PRINCE</span>
+              <h3 class="appliance-name">頂級美學廚房龍頭 CPS-LF428</h3>
+              <p class="appliance-desc">洗鍊簡約線條，無鉛無毒銅體打造，閥芯手感滑順精密，全方位展現洗檯奢華度。</p>
+              <a href="#" class="view-spec-btn">查看完整規格</a>
+            </div>
+          </div>
+          <div class="appliance-card">
+            <div class="appliance-img-box">
+              <img src="placeholder_prince_cps_lf429.jpg" alt="CPS-LF429 龍頭">
+            </div>
+            <div class="appliance-info">
+              <span class="brand-badge" style="background:#555555;">PRINCE</span>
+              <h3 class="appliance-name">精品廚房多機能龍頭 CPS-LF429</h3>
+              <p class="appliance-desc">黃金比例人體工學出水高度，防噴濺起泡器出水細膩，完美兼顧日常實用與高顏值。</p>
+              <a href="#" class="view-spec-btn">查看完整規格</a>
+            </div>
+          </div>
+          <div class="appliance-card">
+            <div class="appliance-img-box">
+              <img src="placeholder_prince_k_lf426ro_gy.jpg" alt="K-LF426RO GY 龍頭">
+            </div>
+            <div class="appliance-info">
+              <span class="brand-badge" style="background:#555555;">PRINCE</span>
+              <h3 class="appliance-name">三合一廚用生飲龍頭 K-LF426RO GY</h3>
+              <p class="appliance-desc">質感鐵灰極致黑砂工藝，完美整合自來水與RO淨水獨立出水管路，洗練奢華首選。</p>
+              <a href="#" class="view-spec-btn">查看完整規格</a>
+            </div>
+          </div>
+          <div class="appliance-card">
+            <div class="appliance-img-box">
+              <img src="placeholder_prince_cps_8118.jpg" alt="CPS-8118 水槽">
+            </div>
+            <div class="appliance-info">
+              <span class="brand-badge" style="background:#555555;">PRINCE</span>
+              <h3 class="appliance-name">手工極簡不鏽鋼單槽 CPS-8118</h3>
+              <p class="appliance-desc">厚鋼板純手工打造，R角洗鍊好清理，高容量且底層配置消音防汗消音層墊。</p>
+              <a href="#" class="view-spec-btn">查看完整規格</a>
+            </div>
           </div>
         </div>
       </section>
