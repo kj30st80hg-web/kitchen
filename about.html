@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>關於凱勤 | 凱勤廚具 kitchen</title>
   <link rel="stylesheet" href="style.css">
-  <!-- 引入 Font Awesome 6 圖標庫（用於頁尾其他社群與地圖圖標） -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
     /* 品牌故事專用現代感樣式 */
@@ -68,6 +67,8 @@
       line-height: 1.8;
       text-align: justify;
     }
+    
+    /* 調整下方的對稱雙欄資訊區 */
     .info-grid {
       display: flex;
       gap: 30px;
@@ -78,19 +79,46 @@
     .info-card {
       flex: 1;
       background: #fdfdfd;
-      padding: 30px;
+      padding: 35px; /* 加大一點內距更顯質感 */
       border-radius: 8px;
       border: 1px solid #f0f0f0;
     }
     .info-card h3 {
-      font-size: 18px;
-      margin-bottom: 15px;
-      color: #333;
+      font-size: 20px;
+      margin-bottom: 25px;
+      color: #1a1a1a;
+      font-weight: bold;
+      border-left: 4px solid #333; /* 加上左側質感小裝飾線 */
+      padding-left: 10px;
     }
-    .info-card p {
+    
+    /* 三大承諾專用：改為上下分行排版 */
+    .promise-item {
+      margin-bottom: 20px;
+    }
+    .promise-item:last-child {
+      margin-bottom: 0;
+    }
+    .promise-item strong {
+      display: block; /* 讓標題自己獨立一行，徹底避免第二行剩一字的問題 */
       font-size: 15px;
-      color: #666;
+      color: #222222;
+      margin-bottom: 4px;
+    }
+    .promise-item p {
+      font-size: 14.5px;
+      color: #666666;
       line-height: 1.6;
+      margin: 0;
+    }
+
+    /* 零距離客製服務專用：顯著拉大行距、優化閱讀感 */
+    .service-desc {
+      font-size: 15px;
+      color: #555555;
+      line-height: 1.95; /* 拉大行距至舒適區 */
+      text-align: justify;
+      margin: 0;
     }
     
     /* 修正手機版響應式設計：僅針對內容區塊，不干涉置頂導覽列 */
@@ -206,10 +234,13 @@
       background: transparent;
     }
 
-    /* 讓 SVG 圖標垂直居中並繼承文字顏色 */
-    .threads-svg {
-      display: block;
-      transition: fill 0.3s ease;
+    /* Threads 圖片專用樣式：設定適當大小並維持原本顏色，滑鼠懸停時轉黑反白 */
+    .threads-icon-img {
+      width: 18px;
+      height: 18px;
+      object-fit: contain;
+      filter: brightness(0) invert(1); /* 預設為純白圖片，配合原本的文字風格 */
+      transition: filter 0.3s ease;
     }
 
     /* 滑鼠懸浮至圖標時的反白與移動特效 */
@@ -218,6 +249,11 @@
       color: #222222;
       transform: translateY(-4px);
       box-shadow: 0 5px 15px rgba(255, 255, 255, 0.2);
+    }
+
+    /* 當外層圓圈 hover 時，讓 Threads 圖片轉為曜黑色，與 FB、IG 圖標 hover 反白邏輯完全一致 */
+    .social-icon-btn:hover .threads-icon-img {
+      filter: brightness(0) invert(0.13); /* 轉為深曜黑 (#222222) */
     }
 
     /* 版權聲明區 */
@@ -289,26 +325,35 @@
     </section>
 
     <section class="info-grid">
-      <!-- 原「台北廚具展示中心」已移除，改為凱勤的核心承諾卡片 -->
       <div class="info-card">
         <h3>凱勤對您的三大承諾</h3>
-        <p><strong>卓越品質：</strong> 嚴選符合環保標準之耐用建材與防煙系統，守護家人健康。</p>
-        <p><strong>職人工藝：</strong> 一條龍的研發安裝團隊，專注細節，完美實現客製美學。</p>
-        <p><strong>永續服務：</strong> 用心對待每一間廚房，提供專業諮詢與零距離的售後保障。</p>
+        
+        <div class="promise-item">
+          <strong>■ 卓越品質</strong>
+          <p>嚴選符合環保標準之耐用建材與防煙系統，齊心守護家人的健康飲食環境。</p>
+        </div>
+        
+        <div class="promise-item">
+          <strong>■ 職人工藝</strong>
+          <p>擁有一條龍的專業研發與安裝團隊，專注每處細節，完美展現客製廚房美學！</p>
+        </div>
+        
+        <div class="promise-item">
+          <strong>■ 永續服務</strong>
+          <p>將每位客人的廚房當成示範中心來用心對待，提供最即時、零距離的售後保障。</p>
+        </div>
       </div>
       
       <div class="info-card">
         <h3>零距離的專業客製服務</h3>
-        <p>我們把每位客戶的廚房當成展示中心一樣精心對待，以實惠的價格、優質環保的建材，為您打造完美防煙、貼近人性化、具備整體設計美感與美觀客製化的廚房空間。無論您的空間大小，都能在凱勤找到最佳的解決方案。</p>
+        <p class="service-desc">我們把每位客戶的廚房當成展示中心一樣精心對待，以實惠的價格、優質環保的建材，為您打造完美防煙、貼近人性化、具備整體設計美感與美觀客製化的廚房空間。無論您的空間大小，都能在凱勤找到最佳、最適合您家庭生活型態的客製解決方案。</p>
       </div>
     </section>
   </main>
 
-  <!-- ==================== 智能廚具深色質感頁尾 (Footer) ==================== -->
   <footer class="custom-footer">
     <div class="footer-container">
       
-      <!-- 上半部：主導覽選單連結（已同步刪除最新消息） -->
       <div class="footer-nav">
         <a href="index.html">凱勤廚具</a>
         <a href="about.html">品牌故事</a>
@@ -319,10 +364,8 @@
       
       <hr class="footer-divider">
       
-      <!-- 下半部：聯絡資訊與社群圖標 -->
       <div class="footer-content">
         
-        <!-- 左側：文字聯絡資訊 -->
         <div class="footer-info">
           <h4 class="company-name">凱勤實業有限公司</h4>
           <p><i class="fa-solid fa-phone"></i> 電話：02-27392588</p>
@@ -331,23 +374,16 @@
           <p><i class="fa-solid fa-envelope"></i> 信箱：kitchen.shop@msa.hinet.net</p>
         </div>
         
-        <!-- 右側：社群連結圖標群 (改用 SVG 確保 Threads 完美顯現) -->
         <div class="footer-socials">
-          <!-- Threads 連結 (精準官方 @ 標誌 SVG) -->
           <a href="https://www.threads.com/@kitchen_shop520?hl=zh-tw" target="_blank" class="social-icon-btn" title="Threads">
-            <svg class="threads-svg" viewBox="0 0 448 512" width="18" height="18" fill="currentColor">
-              <path d="M180.3 331.1c-16.7 0-31.4-5.7-44.3-17.2-12.9-11.4-19.4-26.7-19.4-45.8 0-19.8 6.4-35.4 19.3-46.7 12.9-11.3 28.2-17 45.9-17 18.1 0 32.7 5.6 43.9 16.9 11.2 11.2 16.7 25.8 16.7 43.7 0 17.9-5.6 33.1-16.8 45.6-11.2 12.6-26.3 18.9-45.3 18.9zm173.6-23.7c-13.6 20.3-32.9 36.3-58 48.2-25.1 11.8-53.5 17.8-85.1 17.8-44.5 0-82.3-14.7-113.4-44.1-31.1-29.3-46.7-66.5-46.7-111.4 0-45.5 15.5-83 46.5-112.5C128.3 75.8 166.4 61 211.7 61c45.7 0 83.8 14.3 114.2 43 30.4 28.7 45.6 65.1 45.6 109.3 0 21.6-4.2 41-12.7 58.3-8.5 17.2-20.5 30.7-35.9 40.4-15.4 9.7-32.7 14.5-52 14.5-16 0-29.6-4.5-40.7-13.5-11.1-9-17.5-20.7-19.3-35.2h-2c-6.8 12.6-16.9 22.6-30.2 30.2-13.3 7.5-28.4 11.3-45.2 11.3-27.1 0-49.8-9.3-68.1-28-18.3-18.7-27.4-42.3-27.4-71 0-29.4 9.4-53.5 28.3-72.2 18.9-18.8 42.6-28.1 71.3-28.1 29.4 0 52.8 9.9 70.1 29.6h1.7V165h40.4v113.8c0 14.8 3.9 26 11.6 33.5 7.8 7.5 17.6 11.2 29.6 11.2 12.2 0 22.8-3.9 31.8-11.6 8.9-7.7 15.4-18.1 19.3-31.1 4-13.1 6-27.3 6-42.8 0-33.8-10.7-62.1-32.2-85.1-21.5-22.9-49.8-34.4-85-34.4-35.5 0-64.2 11.9-86.2 35.8-22 23.8-33 54.3-33 91.3 0 37.3 10.8 67.4 32.5 90.3 21.6 22.8 49.3 34.2 83.1 34.2 24.3 0 46.1-5.8 65.4-17.3 19.2-11.6 33.6-27.1 43.1-46.6l31.5 18.1z"/>
-            </svg>
+            <img src="https://i.meee.com.tw/KqD81IF.png" alt="Threads" class="threads-icon-img">
           </a>
-          <!-- Instagram 連結 -->
           <a href="https://www.instagram.com/kitchen_shop520?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" class="social-icon-btn" title="Instagram">
             <i class="fa-brands fa-instagram"></i>
           </a>
-          <!-- Facebook 連結 -->
           <a href="https://www.facebook.com/kitchen27392588" target="_blank" class="social-icon-btn" title="Facebook">
             <i class="fa-brands fa-facebook-f"></i>
           </a>
-          <!-- Google 地圖連結 -->
           <a href="https://share.google/8eP16ctJTLJClINfI" target="_blank" class="social-icon-btn" title="Google 地圖">
             <i class="fa-solid fa-map-location-dot"></i>
           </a>
@@ -355,7 +391,6 @@
         
       </div>
       
-      <!-- 最底部版權聲明 -->
       <div class="footer-bottom">
         <p>&copy; 2026 凱勤廚具 Kitchen. All Rights Reserved.</p>
       </div>
