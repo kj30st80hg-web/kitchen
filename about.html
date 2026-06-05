@@ -239,12 +239,11 @@
       background: transparent;
     }
 
-    /* Threads 圖片專用樣式 */
+    /* Threads 圖片專用樣式（修正：移除會導致白圖在黑底隱形的反轉特效） */
     .threads-icon-img {
-      width: 18px;
-      height: 18px;
+      width: 22px; /* 稍微放大調整比例，使其與其他圖標視覺大小一致 */
+      height: 22px;
       object-fit: contain;
-      filter: brightness(0) invert(1); /* 預設為純白圖片 */
       transition: filter 0.3s ease;
     }
 
@@ -256,7 +255,7 @@
       box-shadow: 0 5px 15px rgba(255, 255, 255, 0.2);
     }
 
-    /* 當外層圓圈 hover 時，讓 Threads 圖片轉為曜黑色 */
+    /* 當外層圓圈 hover 時，讓原本純白的 Threads 圖片轉為深色，以顯現在白色背景圓圈中 */
     .social-icon-btn:hover .threads-icon-img {
       filter: brightness(0) invert(0.13); /* 轉為深曜黑 (#222222) */
     }
@@ -380,15 +379,19 @@
         </div>
         
         <div class="footer-socials">
+          <!-- Threads 按鈕 -->
           <a href="https://www.threads.com/@kitchen_shop520?hl=zh-tw" target="_blank" class="social-icon-btn" title="Threads">
             <img src="https://i.meee.com.tw/KqD81IF.png" alt="Threads" class="threads-icon-img">
           </a>
+          <!-- Instagram 按鈕 -->
           <a href="https://www.instagram.com/kitchen_shop520?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" class="social-icon-btn" title="Instagram">
             <i class="fa-brands fa-instagram"></i>
           </a>
+          <!-- Facebook 按鈕 -->
           <a href="https://www.facebook.com/kitchen27392588" target="_blank" class="social-icon-btn" title="Facebook">
             <i class="fa-brands fa-facebook-f"></i>
           </a>
+          <!-- Google 地圖按鈕 -->
           <a href="https://share.google/8eP16ctJTLJClINfI" target="_blank" class="social-icon-btn" title="Google 地圖">
             <i class="fa-solid fa-map-location-dot"></i>
           </a>
