@@ -206,11 +206,19 @@
       letter-spacing: 1px;
     }
     .appliance-name {
-      font-size: 14px; /* 因型號變長，微調小至14px防擠壓 */
+      font-size: 14px; /* 因型號與名稱換行，維持14px防擠壓 */
       font-weight: bold;
       color: #111;
-      margin-bottom: 6px;
-      line-height: 1.3;
+      margin-bottom: 8px;
+      line-height: 1.4;
+    }
+    /* 讓型號呈現優雅的次要字體樣式 */
+    .appliance-name span {
+      display: block;
+      font-size: 12px;
+      color: #777;
+      font-weight: normal;
+      margin-top: 2px;
     }
     .appliance-desc {
       font-size: 12px; /* 內文縮小至 12px */
@@ -329,7 +337,7 @@
             </div>
             <div class="appliance-info">
               <span class="brand-badge">SAKURA</span>
-              <h3 class="appliance-name">歐化除油煙機 DR7397</h3>
+              <h3 class="appliance-name">歐化除油煙機<span>DR7397</span></h3>
               <p class="appliance-desc">近吸美學與環吸技術結合，高強度進風靜音更省電，完美排除中式大火油煙。</p>
               <a href="https://www.sakura.com.tw/Product/Content/8347" target="_blank" class="view-spec-btn">查看完整規格</a>
             </div>
@@ -340,7 +348,7 @@
             </div>
             <div class="appliance-info">
               <span class="brand-badge">SAKURA</span>
-              <h3 class="appliance-name">智能二口雙炫火瓦斯爐 G2929G</h3>
+              <h3 class="appliance-name">智能二口雙炫火瓦斯爐<span>G2929G</span></h3>
               <p class="appliance-desc">專利雙炫火聚焦高效加熱，搭載防乾燒安全感應與定溫、定時智慧控火功能。</p>
               <a href="https://www.sakura.com.tw/Product/Content/8275" target="_blank" class="view-spec-btn">查看完整規格</a>
             </div>
@@ -351,7 +359,7 @@
             </div>
             <div class="appliance-info">
               <span class="brand-badge">SAKURA</span>
-              <h3 class="appliance-name">雙口 IH 感應爐 EG2351G</h3>
+              <h3 class="appliance-name">雙口 IH 感應爐<span>EG2351G</span></h3>
               <p class="appliance-desc">微晶玻璃面板高雅耐刮，具備多段火力滑動觸控及智慧大功率精準升溫導熱。</p>
               <a href="https://www.sakura.com.tw/Product/Content/8349" target="_blank" class="view-spec-btn">查看完整規格</a>
             </div>
@@ -362,7 +370,7 @@
             </div>
             <div class="appliance-info">
               <span class="brand-badge">SAKURA</span>
-              <h3 class="appliance-name">落地式烘碗機 Q7596B</h3>
+              <h3 class="appliance-name">落地式烘碗機<span>Q7596B</span></h3>
               <p class="appliance-desc">全嵌入式隱形美學，搭配雙效殺菌與熱風循環，讓碗盤徹底乾燥，完美融入頂級廚櫃線條。</p>
               <a href="https://www.sakura.com.tw/Product/Content/8201" target="_blank" class="view-spec-btn">查看完整規格</a>
             </div>
@@ -380,7 +388,7 @@
             </div>
             <div class="appliance-info">
               <span class="brand-badge badge-rinnai">Rinnai</span>
-              <h3 class="appliance-name">倒T型排油煙機 RH-9131(B)</h3>
+              <h3 class="appliance-name">倒T型排油煙機<span>RH-9131(B)</span></h3>
               <p class="appliance-desc">高階黑色美學極簡機身，高效率低噪音排風系統，深層勁吸杜絕廚房厚重油煙。</p>
               <a href="https://www.rinnai.com.tw/Product/V3/182" target="_blank" class="view-spec-btn">查看完整規格</a>
             </div>
@@ -391,7 +399,7 @@
             </div>
             <div class="appliance-info">
               <span class="brand-badge badge-rinnai">Rinnai</span>
-              <h3 class="appliance-name">感應三口瓦斯爐 RB-L3710G(BL)</h3>
+              <h3 class="appliance-name">感應三口瓦斯爐<span>RB-L3710G(BL)</span></h3>
               <p class="appliance-desc">日本進口極致工藝，防漏爐頭防滲漏，三口寬幅烹飪大空間與定溫定時安全科技。</p>
               <a href="https://www.rinnai.com.tw/Product/V3/351" target="_blank" class="view-spec-btn">查看完整規格</a>
             </div>
@@ -402,7 +410,7 @@
             </div>
             <div class="appliance-info">
               <span class="brand-badge badge-rinnai">Rinnai</span>
-              <h3 class="appliance-name">雙口微晶感應 IH 爐 RB-H3200</h3>
+              <h3 class="appliance-name">雙口微晶感應 IH 爐<span>RB-H3200</span></h3>
               <p class="appliance-desc">德國 SCHOTT 頂級微晶玻璃，多段精密火力觸控，無火烹調兼顧高效與安心。</p>
               <a href="https://www.rinnai.com.tw/Product/V3/398" target="_blank" class="view-spec-btn">查看完整規格</a>
             </div>
@@ -413,7 +421,7 @@
             </div>
             <div class="appliance-info">
               <span class="brand-badge badge-rinnai">Rinnai</span>
-              <h3 class="appliance-name">落地式臭氧殺菌烘碗機 RKD-6032S</h3>
+              <h3 class="appliance-name">落地式臭氧殺菌烘碗機<span>RKD-6032S</span></h3>
               <p class="appliance-desc">高質感鏡面全平黑玻璃外觀，觸控人性化面板，結合 O3 臭氧與熱風循環殺菌。</p>
               <a href="https://www.rinnai.com.tw/Product/V3/314" target="_blank" class="view-spec-btn">查看完整規格</a>
             </div>
@@ -431,7 +439,7 @@
             </div>
             <div class="appliance-info">
               <span class="brand-badge badge-jtl">JTL</span>
-              <h3 class="appliance-name">斜背式排油煙機 JT-1181L</h3>
+              <h3 class="appliance-name">斜背式排油煙機<span>JT-1181L</span></h3>
               <p class="appliance-desc">雙效渦輪強力增壓馬達，斜背式黃金集煙罩，大排風量強力吸淨，防止油煙溢散。</p>
               <a href="https://www.e-jtl.com.tw/exec/product.php?mod=show&cid=9&pid=JT-1181L&lg=T" target="_blank" class="view-spec-btn">查看完整規格</a>
             </div>
@@ -442,7 +450,7 @@
             </div>
             <div class="appliance-info">
               <span class="brand-badge badge-jtl">JTL</span>
-              <h3 class="appliance-name">雙口玻璃瓦斯爐 JT-GC277ASH</h3>
+              <h3 class="appliance-name">雙口玻璃瓦斯爐<span>JT-GC277ASH</span></h3>
               <p class="appliance-desc">高效能烈焰大火出力，耐高溫強化防爆黑色玻璃，配置安全自動熄火防護機制。</p>
               <a href="https://www.e-jtl.com.tw/exec/product.php?mod=show&cid=26&pid=JT-GC277AS%EF%BC%8FAL&lg=T" target="_blank" class="view-spec-btn">查看完整規格</a>
             </div>
@@ -453,7 +461,7 @@
             </div>
             <div class="appliance-info">
               <span class="brand-badge badge-jtl">JTL</span>
-              <h3 class="appliance-name">雙口 IH 感應爐 JT-IH220</h3>
+              <h3 class="appliance-name">雙口 IH 感應爐<span>JT-IH220</span></h3>
               <p class="appliance-desc">多段位功率瞬間升溫，具備定時、防溢鍋全自動安全斷電功能與兒童安全鎖。</p>
               <a href="https://www.e-jtl.com.tw/exec/product.php?mod=show&cid=24&pid=JT-IH220&lg=T" target="_blank" class="view-spec-btn">查看完整規格</a>
             </div>
@@ -464,7 +472,7 @@
             </div>
             <div class="appliance-info">
               <span class="brand-badge badge-jtl">JTL</span>
-              <h3 class="appliance-name">落地式烘碗機 JT3889QUV</h3>
+              <h3 class="appliance-name">落地式烘碗機<span>JT3889QUV</span></h3>
               <p class="appliance-desc">旗艦級三層超大容量收納，全平黑玻璃外觀配智慧多重 UV 紫外線加臭氧殺菌技術。</p>
               <a href="https://www.e-jtl.com.tw/exec/product.php?mod=show&cid=28&pid=JT-3888QUV%EF%BC%8F3889QUV&lg=T" target="_blank" class="view-spec-btn">查看完整規格</a>
             </div>
@@ -482,7 +490,7 @@
             </div>
             <div class="appliance-info">
               <span class="brand-badge" style="background:#004d80;">BOSCH</span>
-              <h3 class="appliance-name">全嵌式沸石洗碗機 SMV8ZCX00X</h3>
+              <h3 class="appliance-name">全嵌式沸石洗碗機<span>SMV8ZCX00X</span></h3>
               <p class="appliance-desc">頂級 8 系列。Zeolith® 沸石烘乾烘焙級乾燥，支援 Home Connect 與智慧洗程。</p>
               <a href="https://www.bosch-home.com.tw/zh/mkt-product/dishwashers/built-in-dishwashers/bifulldishwashers60width/SMV8ZCX00X" target="_blank" class="view-spec-btn">查看完整規格</a>
             </div>
@@ -493,7 +501,7 @@
             </div>
             <div class="appliance-info">
               <span class="brand-badge" style="background:#004d80;">BOSCH</span>
-              <h3 class="appliance-name">全嵌式沸石洗碗機 SMV6ZAX00X</h3>
+              <h3 class="appliance-name">全嵌式沸石洗碗機<span>SMV6ZAX00X</span></h3>
               <p class="appliance-desc">高階 6 系列。強效沸石乾燥技術配彈性餐具籃設計，洗淨與乾燥兼顧的極佳選擇。</p>
               <a href="https://www.bosch-home.com.tw/zh/mkt-product/dishwashers/built-in-dishwashers/bifulldishwashers60width/SMV6ZAX00X" target="_blank" class="view-spec-btn">查看完整規格</a>
             </div>
@@ -504,7 +512,7 @@
             </div>
             <div class="appliance-info">
               <span class="brand-badge" style="background:#004d80;">BOSCH</span>
-              <h3 class="appliance-name">獨立式白色洗碗機 SJU4EKW00W</h3>
+              <h3 class="appliance-name">獨立式白色洗碗機<span>SJU4EKW00W</span></h3>
               <p class="appliance-desc">熱能乾燥智慧開門，白色俐落面板完美融入現代廚房，三層中式餐具彈性調整。</p>
               <a href="https://www.bosch-home.com.tw/zh/mkt-product/dishwashers/built-in-dishwashers/budishwashers60width/SJU4EKW00W" target="_blank" class="view-spec-btn">查看完整規格</a>
             </div>
@@ -515,7 +523,7 @@
             </div>
             <div class="appliance-info">
               <span class="brand-badge" style="background:#004d80;">BOSCH</span>
-              <h3 class="appliance-name">半嵌式不鏽鋼洗碗機 SMI6HAS00X</h3>
+              <h3 class="appliance-name">半嵌式不鏽鋼洗碗機<span>SMI6HAS00X</span></h3>
               <p class="appliance-desc">6 系列金屬拉絲半嵌美學，結合前置控制按鍵與節能洗程，靜音烘乾效果出眾。</p>
               <a href="https://www.bosch-home.com.tw/zh/mkt-product/dishwashers/built-in-dishwashers/bisemidishwashers60width/SMI6HAS00X" target="_blank" class="view-spec-btn">查看完整規格</a>
             </div>
@@ -533,7 +541,7 @@
             </div>
             <div class="appliance-info">
               <span class="brand-badge" style="background:#b30000;">AMICA</span>
-              <h3 class="appliance-name">復古嵌入式烤箱 (黑) ED17319B</h3>
+              <h3 class="appliance-name">復古嵌入式烤箱 (黑)<span>ED17319B</span></h3>
               <p class="appliance-desc">RETRO 歐式英倫復古風格指針設計，黑瓷工藝大容量，多段均勻大出力烘烤技術。</p>
               <a href="https://www.amica-tw.com/xtype-detail/ed17319bretro/" target="_blank" class="view-spec-btn">查看完整規格</a>
             </div>
@@ -544,29 +552,29 @@
             </div>
             <div class="appliance-info">
               <span class="brand-badge" style="background:#b30000;">AMICA</span>
-              <h3 class="appliance-name">復古嵌入式烤箱 (白) ED17319W</h3>
+              <h3 class="appliance-name">復古嵌入式烤箱 (白)<span>ED17319W</span></h3>
               <p class="appliance-desc">RETRO 象牙白唯美優雅面板，典雅黃銅五金細節配 19 種加熱模式與專業解凍。</p>
               <a href="https://www.amica-tw.com/xtype-detail/ed17319wretro/" target="_blank" class="view-spec-btn">查看完整規格</a>
             </div>
           </div>
           <div class="appliance-card">
             <div class="appliance-img-box">
-              <img src="https://i.meee.com.tw/l0EwkwI.webp" alt="Amica洗碗機">
+              <img src="https://i.meee.com.tw/l0EwkwI.webp" alt="Amica烤箱">
             </div>
             <div class="appliance-info">
               <span class="brand-badge" style="background:#b30000;">AMICA</span>
-              <h3 class="appliance-name">X-type 亮黑多工烘培烤箱77L XTS 900B TW</h3>
+              <h3 class="appliance-name">X-type 亮黑多工烘培烤箱77L<span>XTS 900B TW</span></h3>
               <p class="appliance-desc">經典防指紋不鏽鋼工藝，內建 77 公升超大容積與節能科技，多層烘烤受熱均勻，為現代廚房注入專業烹飪靈魂。</p>
               <a href="https://www.amica-tw.com/xtype-detail/xts900btw/" target="_blank" class="view-spec-btn">查看完整規格</a>
             </div>
           </div>
           <div class="appliance-card">
             <div class="appliance-img-box">
-              <img src="https://i.meee.com.tw/0FpM0PL.webp" alt="Amica洗碗機">
+              <img src="https://i.meee.com.tw/0FpM0PL.webp" alt="Amica烤箱">
             </div>
             <div class="appliance-info">
               <span class="brand-badge" style="background:#b30000;">AMICA</span>
-              <h3 class="appliance-name">X-type 全蒸舒肥蒸烤箱77L XTVIS 1800IX TW</h3>
+              <h3 class="appliance-name">X-type 全蒸舒肥蒸烤箱77L<span>XTVIS 1800IX TW</span></h3>
               <p class="appliance-desc">旗艦 X-type 77L 大容量，全彩直覺觸控面板，結合專業舒肥與智慧食物探針 2.0，精準控溫鎖住食材頂級鮮甜。</p>
               <a href="https://www.amica-tw.com/xtype-detail/xtvis1800ixtw/" target="_blank" class="view-spec-btn">查看完整規格</a>
             </div>
@@ -584,7 +592,7 @@
             </div>
             <div class="appliance-info">
               <span class="brand-badge" style="background:#444;">BEST</span>
-              <h3 class="appliance-name">橫流扇電器收納櫃 G9365</h3>
+              <h3 class="appliance-name">橫流扇電器收納櫃<span>G9365</span></h3>
               <p class="appliance-desc">內建高效率智慧導流橫流扇，防指紋不鏽鋼搭配大容量下翻式黑鋼化玻璃門板。</p>
               <a href="https://www.bestqce.com.tw/product/detail/261/" target="_blank" class="view-spec-btn">查看完整規格</a>
             </div>
@@ -595,7 +603,7 @@
             </div>
             <div class="appliance-info">
               <span class="brand-badge" style="background:#444;">BEST</span>
-              <h3 class="appliance-name">精品導流排油煙機 G3175</h3>
+              <h3 class="appliance-name">精品導流排油煙機<span>G3175</span></h3>
               <p class="appliance-desc">義大利精湛幾何美學，G3175 極致耐磨外觀結構，全方位進風勁吸低音頻噪音。</p>
               <a href="https://www.bestqce.com.tw/product/detail/387/" target="_blank" class="view-spec-btn">查看完整規格</a>
             </div>
@@ -606,18 +614,18 @@
             </div>
             <div class="appliance-info">
               <span class="brand-badge" style="background:#444;">BEST</span>
-              <h3 class="appliance-name">專業全嵌式洗碗機 G2320</h3>
+              <h3 class="appliance-name">專業全嵌式洗碗機<span>G2320</span></h3>
               <p class="appliance-desc">奢華全隱藏上置式式中文化控制鍵，三段全包覆式高壓噴水，高溫餘熱除菌極淨乾燥。</p>
               <a href="https://www.bestqce.com.tw/product/detail/386/" target="_blank" class="view-spec-btn">查看完整規格</a>
             </div>
           </div>
           <div class="appliance-card">
             <div class="appliance-img-box">
-              <img src="https://i.meee.com.tw/GD8SJfo.png" alt="BEST蒸烤箱">
+              <img src="https://i.meee.com.tw/GD8SJfo.png" alt="BEST氣泡水機">
             </div>
             <div class="appliance-info">
               <span class="brand-badge" style="background:#444;">BEST</span>
-              <h3 class="appliance-name">五星級氣泡冰熱飲機 YSH230C</h3>
+              <h3 class="appliance-name">五星級氣泡冰熱飲機<span>YSH230C</span></h3>
               <p class="appliance-desc">廚下隱藏式美學設計，極致洗鍊觸控龍頭，將純淨生飲水與現製微氣泡完美融合，隨時享受星級飯店般的頂級飲水體驗。</p>
               <a href="https://www.yaffle.com.tw/product/detail/215/" target="_blank" class="view-spec-btn">查看完整規格</a>
             </div>
@@ -635,7 +643,7 @@
             </div>
             <div class="appliance-info">
               <span class="brand-badge" style="background:#2b5c8f;">GEJP</span>
-              <h3 class="appliance-name">全功能高端淨水器 NH-1300</h3>
+              <h3 class="appliance-name">全功能高端淨水器<span>NH-1300</span></h3>
               <p class="appliance-desc">日本原裝大流量醫療級中空絲膜與高密度活性碳，生飲級過濾各類殘留重金屬與餘氯。</p>
               <a href="https://www.gejpgroup.com/products/cf6424bf-3351-4ee2-9897-c5a2726c26de" class="view-spec-btn">查看完整規格</a>
             </div>
@@ -646,7 +654,7 @@
             </div>
             <div class="appliance-info">
               <span class="brand-badge" style="background:#2b5c8f;">GEJP</span>
-              <h3 class="appliance-name">觸控雙溫熱飲機 HLE-6000A (時尚黑)</h3>
+              <h3 class="appliance-name">觸控雙溫熱飲機 HLE-6000A<span>(時尚黑)</span></h3>
               <p class="appliance-desc">高端曜石黑觸控美學龍頭，廚下安全高效防燙熱膽設計，即開即飲高端極致純淨熱水。</p>
               <a href="https://www.gejpgroup.com/products/d7169bb8-532f-4e51-a560-ce5a51e46d65" class="view-spec-btn">查看完整規格</a>
             </div>
@@ -657,7 +665,7 @@
             </div>
             <div class="appliance-info">
               <span class="brand-badge" style="background:#2b5c8f;">GEJP</span>
-              <h3 class="appliance-name">觸控雙溫熱飲機 HLE-6000A (經典銀)</h3>
+              <h3 class="appliance-name">觸控雙溫熱飲機 HLE-6000A<span>(經典銀)</span></h3>
               <p class="appliance-desc">經典金屬拉絲不鏽鋼龍頭設計，全液晶溫度直覺面板，全自動防燒乾安全防護裝置。</p>
               <a href="https://www.gejpgroup.com/products/cf6424bf-3351-4ee2-9897-c5a2726c26de" class="view-spec-btn">查看完整規格</a>
             </div>
@@ -679,7 +687,7 @@
             </div>
             <div class="appliance-info">
               <span class="brand-badge" style="background:#cc0000;">HAFELE</span>
-              <h3 class="appliance-name">花崗岩花色水槽 LATHI N100XL</h3>
+              <h3 class="appliance-name">頂級花崗岩水槽<span>LATHI N100XL</span></h3>
               <p class="appliance-desc">頂級石英花崗岩材質，超大洗滌槽體空間，抗衝擊且高溫耐刮，完美演繹極簡美學。</p>
               <a href="#" class="view-spec-btn">查看完整規格</a>
             </div>
@@ -690,7 +698,7 @@
             </div>
             <div class="appliance-info">
               <span class="brand-badge" style="background:#cc0000;">HAFELE</span>
-              <h3 class="appliance-name">高級花崗岩水槽 MONTANO N-100XLY</h3>
+              <h3 class="appliance-name">頂級花崗岩水槽<span>MONTANO N-100XLY</span></h3>
               <p class="appliance-desc">獨特大器長框槽體美學，表面經抗菌防汙處理，完美融入現代奢華無縫檯面設計。</p>
               <a href="#" class="view-spec-btn">查看完整規格</a>
             </div>
@@ -701,7 +709,7 @@
             </div>
             <div class="appliance-info">
               <span class="brand-badge" style="background:#cc0000;">HAFELE</span>
-              <h3 class="appliance-name">經典石英水槽 LATHI N100</h3>
+              <h3 class="appliance-name">頂級花崗岩水槽<span>LATHI N100</span></h3>
               <p class="appliance-desc">黃金比例全機能單槽設計，質地高雅堅硬，有效降低水流噪音，廚房備料洗滌的最佳核心。</p>
               <a href="#" class="view-spec-btn">查看完整規格</a>
             </div>
@@ -712,7 +720,7 @@
             </div>
             <div class="appliance-info">
               <span class="brand-badge" style="background:#cc0000;">HAFELE</span>
-              <h3 class="appliance-name">豪華尊爵矩陣鋁抽系統</h3>
+              <h3 class="appliance-name">豪華尊爵矩陣鋁抽系統<span>MATRIX BOX</span></h3>
               <p class="appliance-desc">極致順滑高載重隱藏滑軌，完美輕柔緩衝吸入，體現極致細緻的櫃體收納機能。</p>
               <a href="#" class="view-spec-btn">查看完整規格</a>
             </div>
@@ -730,40 +738,40 @@
             </div>
             <div class="appliance-info">
               <span class="brand-badge" style="background:#e5801a;">Unihopper</span>
-              <h3 class="appliance-name">精緻多功能側拉籃 GHE38330</h3>
+              <h3 class="appliance-name">幻影玻璃緩衝調味架<span>GHE38330</span></h3>
               <p class="appliance-desc">窄櫃大容量魔術空間，不鏽鋼金屬線條俐落設計，結合高效流暢緩衝回歸系統。</p>
               <a href="#" class="view-spec-btn">查看完整規格</a>
             </div>
           </div>
           <div class="appliance-card">
             <div class="appliance-img-box">
-              <img src="placeholder_unihopper_ghe39280.jpg" alt="GHE39280 玻璃緩衝全都露">
+              <img src="placeholder_unihopper_ghe39280.jpg" alt="GHE39280 轉角小怪物">
             </div>
             <div class="appliance-info">
               <span class="brand-badge" style="background:#e5801a;">Unihopper</span>
-              <h3 class="appliance-name">全都露玻璃緩衝極致高抽 GHE39280</h3>
-              <p class="appliance-desc">側邊高透光強化玻璃，一目了然收納物件，頂級靜音滑軌一拉即現俐落工藝。</p>
+              <h3 class="appliance-name">幻影玻璃緩衝全都露<span>GHE39280</span></h3>
+              <p class="appliance-desc">歐系頂級轉角小怪物連動機構，完美活化L型廚房盲段死角，滑順流暢拉出即可全盤閱覽收納物。</p>
               <a href="#" class="view-spec-btn">查看完整規格</a>
             </div>
           </div>
           <div class="appliance-card">
             <div class="appliance-img-box">
-              <img src="placeholder_unihopper_ghe33090.jpg" alt="GHE33090 幻影玻璃緩降升降櫃">
+              <img src="placeholder_unihopper_ghe33090.jpg" alt="GHE33090 升降櫃">
             </div>
             <div class="appliance-info">
               <span class="brand-badge" style="background:#e5801a;">Unihopper</span>
-              <h3 class="appliance-name">幻影玻璃緩降升降櫃 GHE33090</h3>
+              <h3 class="appliance-name">幻影玻璃緩降升降櫃<span>GHE33090</span></h3>
               <p class="appliance-desc">吊櫃高位拿取神器，人性化配重輕鬆推拉，極致曜黑背板與輕奢透光玻璃質感。</p>
               <a href="#" class="view-spec-btn">查看完整規格</a>
             </div>
           </div>
           <div class="appliance-card">
             <div class="appliance-img-box">
-              <img src="placeholder_unihopper_ghe35430.jpg" alt="GHE35430 幻影玻璃緩衝高身櫃">
+              <img src="placeholder_unihopper_ghe35430.jpg" alt="GHE35430 高身櫃">
             </div>
             <div class="appliance-info">
               <span class="brand-badge" style="background:#e5801a;">Unihopper</span>
-              <h3 class="appliance-name">幻影玻璃緩衝聯動高身櫃 GHE35430</h3>
+              <h3 class="appliance-name">幻影玻璃緩衝聯動高身櫃<span>GHE35430</span></h3>
               <p class="appliance-desc">大容量儲糧頂級規格，連動開門層架自動延伸，高質感幻影玻璃完美分類收納。</p>
               <a href="#" class="view-spec-btn">查看完整規格</a>
             </div>
@@ -781,7 +789,7 @@
             </div>
             <div class="appliance-info">
               <span class="brand-badge" style="background:#555555;">PRINCE</span>
-              <h3 class="appliance-name">頂級美學廚房龍頭 CPS-LF428</h3>
+              <h3 class="appliance-name">頂級美學廚房龍頭<span>CPS-LF428</span></h3>
               <p class="appliance-desc">洗鍊簡約線條，無鉛無毒銅體打造，閥芯手感滑順精密，全方位展現洗檯奢華度。</p>
               <a href="#" class="view-spec-btn">查看完整規格</a>
             </div>
@@ -792,7 +800,7 @@
             </div>
             <div class="appliance-info">
               <span class="brand-badge" style="background:#555555;">PRINCE</span>
-              <h3 class="appliance-name">精品廚房多機能龍頭 CPS-LF429</h3>
+              <h3 class="appliance-name">精品廚房多機能龍頭<span>CPS-LF429</span></h3>
               <p class="appliance-desc">黃金比例人體工學出水高度，防噴濺起泡器出水細膩，完美兼顧日常實用與高顏值。</p>
               <a href="#" class="view-spec-btn">查看完整規格</a>
             </div>
@@ -803,19 +811,20 @@
             </div>
             <div class="appliance-info">
               <span class="brand-badge" style="background:#555555;">PRINCE</span>
-              <h3 class="appliance-name">三合一廚用生飲龍頭 K-LF426RO GY</h3>
+              <h3 class="appliance-name">三合一廚用生飲龍頭<span>K-LF426RO GY</span></h3>
               <p class="appliance-desc">質感鐵灰極致黑砂工藝，完美整合自來水與RO淨水獨立出水管路，洗練奢華首選。</p>
               <a href="#" class="view-spec-btn">查看完整規格</a>
             </div>
           </div>
           <div class="appliance-card">
             <div class="appliance-img-box">
-              <img src="placeholder_prince_cps_8118.jpg" alt="CPS-8118 水槽">
+              <!-- 對應商品參考圖 image_b777e3.jpg -->
+              <img src="placeholder_prince_cps_8118.jpg" alt="CPS-8118 面盆龍頭">
             </div>
             <div class="appliance-info">
               <span class="brand-badge" style="background:#555555;">PRINCE</span>
-              <h3 class="appliance-name">手工極簡不鏽鋼單槽 CPS-8118</h3>
-              <p class="appliance-desc">厚鋼板純手工打造，R角洗鍊好清理，高容量且底層配置消音防汗消音層墊。</p>
+              <h3 class="appliance-name">浴室質感面盆龍頭<span>CPS-8118</span></h3>
+              <p class="appliance-desc">銅電鍍工藝打造頂級鏡面耀眼光澤，具備洗鍊獨特的微瀑布出水效果，兼具優雅美感與出水防濺機能，為室內設計師與飯店頂級首選。</p>
               <a href="#" class="view-spec-btn">查看完整規格</a>
             </div>
           </div>
