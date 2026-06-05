@@ -833,6 +833,208 @@
 
     </div>
   </main>
+<!-- ==================== 智能廚具深色質感頁尾 (Footer) ==================== -->
+<footer class="custom-footer">
+  <div class="footer-container">
+    
+    <!-- 上方導覽選單 -->
+    <div class="footer-nav">
+      <a href="index.html">凱勤廚具</a>
+      <a href="about.html">品牌故事</a>
+      <a href="index.html#products">精選作品集</a>
+      <a href="appliances.html">智能家電</a>
+      <a href="https://www.facebook.com/kitchen27392588" target="_blank">聯絡我們</a>
+    </div>
+    
+    <hr class="footer-divider">
+    
+    <!-- 下半部內容排版 -->
+    <div class="footer-content">
+      
+      <!-- 左側：公司資訊 -->
+      <div class="footer-info">
+        <h4 class="company-name">凱勤實業有限公司</h4>
+        <p><i class="fa-solid fa-phone"></i> 電話：02-27392588</p>
+        <p><i class="fa-solid fa-print"></i> 傳真：02-27331558</p>
+        <p><i class="fa-solid fa-location-dot"></i> 地址：台北市大安區樂利路26號1樓</p>
+        <p><i class="fa-solid fa-envelope"></i> 信箱：kitchen.shop@msa.hinet.net</p>
+      </div>
+      
+      <!-- 右側：社群連結按鈕群組 -->
+      <div class="footer-socials">
+        <a href="https://www.threads.net/@kitchen_shop520" target="_blank" class="social-icon-btn" title="Threads">
+          <i class="fa-brands fa-threads"></i>
+        </a>
+        <a href="https://www.instagram.com/kitchen_shop520?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" class="social-icon-btn" title="Instagram">
+          <i class="fa-brands fa-instagram"></i>
+        </a>
+        <a href="https://www.facebook.com/kitchen27392588" target="_blank" class="social-icon-btn" title="Facebook">
+          <i class="fa-brands fa-facebook-f"></i>
+        </a>
+        <a href="https://share.google/8eP16ctJTLJClINfI" target="_blank" class="social-icon-btn" title="Google 地圖">
+          <i class="fa-solid fa-map-location-dot"></i>
+        </a>
+      </div>
+      
+    </div>
+    
+    <!-- 最底部版權聲明 -->
+    <div class="footer-bottom">
+      <p>&copy; 2026 凱勤廚具 Kitchen. All Rights Reserved.</p>
+    </div>
+    
+  </div>
+</footer>
 
+<!-- 頁尾專屬 CSS 樣式 -->
+<style>
+  .custom-footer {
+    background-color: #222222; /* 沉穩曜黑底色 */
+    color: #cccccc;
+    padding: 50px 20px 20px 20px;
+    font-family: "Helvetica Neue", Helvetica, Arial, "PingFang TC", "Hiragino Sans GB", "Microsoft JhengHei", sans-serif;
+    letter-spacing: 1px;
+    margin-top: 80px; /* 與上方區塊保持舒適間距 */
+  }
+
+  .footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  /* 上方導覽選單 */
+  .footer-nav {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 35px;
+    margin-bottom: 25px;
+  }
+
+  .footer-nav a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 500;
+    transition: color 0.3s ease;
+  }
+
+  .footer-nav a:hover {
+    color: #0070bb; /* 懸浮時轉為極致藍 */
+  }
+
+  /* 分隔線 */
+  .footer-divider {
+    border: 0;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.1);
+    margin-bottom: 35px;
+  }
+
+  /* 下半部內容排版 */
+  .footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin-bottom: 40px;
+  }
+
+  /* 左側文字公司資訊 */
+  .footer-info {
+    flex: 1;
+    min-width: 280px;
+  }
+
+  .company-name {
+    color: #ffffff;
+    font-size: 18px;
+    margin-bottom: 15px;
+    font-weight: bold;
+  }
+
+  .footer-info p {
+    font-size: 14px;
+    color: #aaaaaa;
+    margin: 8px 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .footer-info p i {
+    color: #ffffff;
+    width: 16px;
+    text-align: center;
+  }
+
+  /* 右側社群按鈕群組 */
+  .footer-socials {
+    display: flex;
+    gap: 18px;
+    align-items: center;
+  }
+
+  /* 圓圈高質感圖標結構 */
+  .social-icon-btn {
+    display: inline-block;
+    width: 44px;
+    height: 44px;
+    border: 1.5px solid #ffffff; /* 細白圓框 */
+    border-radius: 50%;
+    color: #ffffff;
+    font-size: 18px;
+    text-decoration: none;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    background: transparent;
+    box-sizing: border-box;
+    vertical-align: middle;
+    text-align: center;
+  }
+
+  /* 讓所有 Font Awesome 圖標（包括 Threads、FB、IG、地圖）完美水平垂直置中 */
+  .social-icon-btn i {
+    line-height: 41px; /* 扣除邊框厚度後的完美垂直對齊線 */
+    display: block;
+  }
+
+  /* 滑鼠懸浮至圖標時的反白與移動特效 */
+  .social-icon-btn:hover {
+    background-color: #ffffff;
+    color: #222222;
+    transform: translateY(-4px);
+    box-shadow: 0 5px 15px rgba(255, 255, 255, 0.2);
+  }
+
+  /* 版權聲明區 */
+  .footer-bottom {
+    text-align: center;
+    font-size: 12px;
+    color: #666666;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    padding-top: 20px;
+    margin-top: 20px;
+  }
+
+  /* RWD 行動裝置自動適應調整 */
+  @media (max-width: 768px) {
+    .footer-content {
+      flex-direction: column;
+      text-align: center;
+      align-items: center;
+    }
+    .footer-nav {
+      gap: 20px;
+    }
+    .footer-info p {
+      justify-content: center;
+    }
+    .footer-socials {
+      justify-content: center;
+      margin-top: 10px;
+    }
+  }
+</style>
 </body>
 </html>
