@@ -13,84 +13,27 @@
       margin: 60px auto;
       padding: 0 20px;
     }
-    .about-title {
-      font-size: 32px;
-      text-align: center;
-      margin-bottom: 50px;
-      letter-spacing: 3px;
-      position: relative;
-      padding-bottom: 15px;
-    }
-    .about-title::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 50px;
-      height: 2px;
-      background-color: #333;
-    }
-    .brand-section {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-bottom: 80px;
-      gap: 50px;
-    }
-    /* 現代網頁必備：交錯排版 */
-    .brand-section.reverse {
-      flex-direction: row-reverse;
-    }
-    .brand-img-box {
-      flex: 1;
-    }
-    .brand-img-box img {
-       width: 100%;
-       height: 350px; /* 固定高度，讓兩張圖片一樣高 */
-       object-fit: cover; /* 讓圖片自動完美裁切，絕對不會變形 */
-       border-radius: 8px;
-       box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-       display: block;
-    }
-    .brand-text-box {
-      flex: 1;
-    }
-    .brand-text-box h2 {
-      font-size: 24px;
-      margin-bottom: 20px;
-      color: #1a1a1a;
-    }
-    .brand-text-box p {
-      font-size: 16px;
-      color: #555;
-      line-height: 1.8;
-      text-align: justify;
-    }
     
     /* 調整下方的對稱雙欄資訊區 */
     .info-grid {
       display: flex;
-      gap: 40px; /* 加大間距，看起來更開闊 */
-      margin-top: 50px;
-      border-top: 1px solid #eee;
-      padding-top: 50px;
+      gap: 50px; /* 加大間距，看起來更開闊 */
+      margin-top: 20px;
     }
     .info-card {
       flex: 1;
       background: #fdfdfd;
-      padding: 40px; /* 加大內襯顯現高級感 */
+      padding: 20px 40px; /* 調整內襯以顯現高級感 */
       border-radius: 8px;
-      border: 1px solid #f0f0f0;
     }
     .info-card h3 {
-      font-size: 22px; /* 稍微放大標題 */
+      font-size: 24px; /* 放大標題 */
       margin-bottom: 30px;
       color: #1a1a1a;
       font-weight: bold;
       border-left: 4px solid #333; /* 加上左側質感小裝飾線 */
-      padding-left: 12px;
-      letter-spacing: 1px;
+      padding-left: 15px;
+      letter-spacing: 2px;
     }
     
     /* 三大承諾：展開為舒適獨立段落排版，達成雙欄高度平衡 */
@@ -108,6 +51,7 @@
       display: flex;
       align-items: center;
       gap: 6px;
+      letter-spacing: 1px;
     }
     .promise-block p {
       font-size: 15px;
@@ -115,6 +59,7 @@
       line-height: 1.8; /* 與右側對齊的舒適行高 */
       margin: 0;
       text-align: justify;
+      padding-left: 18px; /* 讓內文對齊標題文字，避開 ■ 符號 */
     }
 
     /* 零距離客製服務專用樣式 */
@@ -128,20 +73,20 @@
     
     /* 修正手機版響應式設計 */
     @media (max-width: 768px) {
-      .brand-section, .brand-section.reverse, .info-grid {
+      .info-grid {
         flex-direction: column !important;
-        gap: 30px;
+        gap: 40px;
       }
     }
 
     /* ==================== 頁尾專屬 CSS 樣式 ==================== */
     .custom-footer {
-      background-color: #222222; /* 沉穩曜黑底色 */
+      background-color: #111111; /* 沉穩曜黑底色 */
       color: #cccccc;
-      padding: 50px 20px 20px 20px;
+      padding: 60px 20px 20px 20px;
       font-family: "Helvetica Neue", Helvetica, Arial, "PingFang TC", "Hiragino Sans GB", "Microsoft JhengHei", sans-serif;
       letter-spacing: 1px;
-      margin-top: 80px; /* 與上方區塊保持舒適間距 */
+      margin-top: 100px; /* 與上方區塊保持舒適間距 */
     }
 
     .footer-container {
@@ -197,17 +142,18 @@
     .company-name {
       color: #ffffff;
       font-size: 18px;
-      margin-bottom: 15px;
+      margin-bottom: 20px;
       font-weight: bold;
+      letter-spacing: 2px;
     }
 
     .footer-info p {
       font-size: 14px;
       color: #aaaaaa;
-      margin: 8px 0;
+      margin: 12px 0;
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 12px;
     }
 
     .footer-info p i {
@@ -240,7 +186,7 @@
       text-align: center;
     }
 
-    /* 讓所有 Font Awesome 圖標（包括 Threads、FB、IG、地圖）完美水平垂直置中 */
+    /* 讓所有 Font Awesome 圖標完美水平垂直置中 */
     .social-icon-btn i {
       line-height: 41px; /* 扣除邊框厚度後的完美垂直對齊線 */
       display: block;
@@ -249,7 +195,7 @@
     /* 滑鼠懸浮至圖標時的反白與向上微動特效 */
     .social-icon-btn:hover {
       background-color: #ffffff;
-      color: #222222; /* 懸浮時圖標自動轉為網頁背景曜黑色 */
+      color: #111111; /* 懸浮時圖標自動轉為網頁背景曜黑色 */
       transform: translateY(-4px);
       box-shadow: 0 5px 15px rgba(255, 255, 255, 0.2);
     }
@@ -258,7 +204,7 @@
     .footer-bottom {
       text-align: center;
       font-size: 12px;
-      color: #666666;
+      color: #555555;
       border-top: 1px solid rgba(255, 255, 255, 0.05);
       padding-top: 20px;
       margin-top: 20px;
@@ -300,29 +246,9 @@
   </nav>
 
   <main class="about-container">
-    <h1 class="about-title">關於凱勤</h1>
-
-    <section class="brand-section">
-      <div class="brand-img-box">
-        <img src="https://i.meee.com.tw/0rtu9Pt.jpg" alt="凱勤廚具工藝">
-      </div>
-      <div class="brand-text-box">
-        <h2>創立於 1983 年的匠心堅持</h2>
-        <p>凱勤實業有限公司成立於1983年，總公司設立於桃園縣龜山，1998年再增資為凱勤歐化廚具工廠擴充生產設備。我們始終本著追求完美與負責的精神一路走來，以專業設計為基本、符合人體工學為原則，致力於提供專業歐化廚具設計、廚房設計、廚房配件及廚房設備規劃與廚具諮詢等服務。</p>
-      </div>
-    </section>
-
-    <section class="brand-section reverse">
-      <div class="brand-img-box">
-        <img src="https://i.meee.com.tw/r6B2Hvs.jpg" alt="現代歐化廚具">
-      </div>
-      <div class="brand-text-box">
-        <h2>結合研發、製造、銷售與服務</h2>
-        <p>凱勤結合各部門共同為消費者打造既安全、便利、美觀且具多功能的烹飪櫥櫃。我們深知廚房設計是凝聚現代家庭情感的核心，透過洗鍊的線條與頂級材質，完美展現現代廚房的優雅與實用。凱勤工廠以歐化廚具的研發、生产、安裝團隊為您提供一條龍服務，讓廚房成為您最具美學的生活空間。</p>
-      </div>
-    </section>
-
     <section class="info-grid">
+      
+      <!-- 左欄：三大承諾 -->
       <div class="info-card">
         <h3>凱勤對您的三大承諾</h3>
         
@@ -342,10 +268,12 @@
         </div>
       </div>
       
+      <!-- 右欄：專業客製服務 -->
       <div class="info-card">
         <h3>零距離的專業客製服務</h3>
         <p class="service-desc">我們把每位客戶的廚房當成展示中心一樣精心對待，以實惠的價格、優質環保的建材，為您打造完美防煙、貼近人性化、具備整體設計美感與美觀客製化的廚房空間。無論您的空間大小，都能在凱勤找到最佳、最適合您家庭生活型態的客製解決方案。從初期的動線規劃、板材挑選到最後的家電整合安裝，每一階段都由專人把關，給您最安心的成家體驗。</p>
       </div>
+      
     </section>
   </main>
 
@@ -373,7 +301,6 @@
         </div>
         
         <div class="footer-socials">
-          <!-- 改用 Font Awesome 原生 Threads 圖標，排版尺寸與旁邊完全一模一樣 -->
           <a href="https://www.threads.net/@kitchen_shop520" target="_blank" class="social-icon-btn" title="Threads">
             <i class="fa-brands fa-threads"></i>
           </a>
