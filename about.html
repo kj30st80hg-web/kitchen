@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>關於凱勤 | 凱勤廚具 kitchen</title>
-  <link rel="stylesheet" href="style.css">
+  <link class="tab-link" rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
     /* 品牌故事專用現代感樣式 */
@@ -239,12 +239,12 @@
       background: transparent;
     }
 
-    /* Threads 圖片專用樣式（修正：移除會導致白圖在黑底隱形的反轉特效） */
-    .threads-icon-img {
-      width: 22px; /* 稍微放大調整比例，使其與其他圖標視覺大小一致 */
-      height: 22px;
-      object-fit: contain;
-      transition: filter 0.3s ease;
+    /* Threads SVG 專用樣式控制 */
+    .threads-svg {
+      width: 18px;
+      height: 18px;
+      fill: #ffffff; /* 預設為純白 */
+      transition: fill 0.3s ease;
     }
 
     /* 滑鼠懸浮至圖標時的反白與移動特效 */
@@ -255,9 +255,9 @@
       box-shadow: 0 5px 15px rgba(255, 255, 255, 0.2);
     }
 
-    /* 當外層圓圈 hover 時，讓原本純白的 Threads 圖片轉為深色，以顯現在白色背景圓圈中 */
-    .social-icon-btn:hover .threads-icon-img {
-      filter: brightness(0) invert(0.13); /* 轉為深曜黑 (#222222) */
+    /* 當外層圓圈 hover 時，讓 Threads SVG 內部顏色轉為曜黑色 */
+    .social-icon-btn:hover .threads-svg {
+      fill: #222222;
     }
 
     /* 版權聲明區 */
@@ -324,7 +324,7 @@
       </div>
       <div class="brand-text-box">
         <h2>結合研發、製造、銷售與服務</h2>
-        <p>凱勤結合各部門共同為消費者打造既安全、便利、美觀且具多功能的烹飪櫥櫃。我們深知廚房設計是凝聚現代家庭情感的核心，透過洗鍊的線條與頂級材質，完美展現現代廚房的優雅與實用。凱勤工廠以歐化廚具的研發、生產、安裝團隊為您提供一條龍服務，讓廚房成為您最具美學的生活空間。</p>
+        <p>凱勤結合各部門共同為消費者打造既安全、便利、美觀且具多功能的烹飪櫥櫃。我們深知廚房設計是凝聚現代家庭情感的核心，透過洗鍊的線條與頂級材質，完美展現現代廚房的優雅與實用。凱勤工廠以歐化廚具的研發、生产、安裝團隊為您提供一條龍服務，讓廚房成為您最具美學的生活空間。</p>
       </div>
     </section>
 
@@ -379,19 +379,18 @@
         </div>
         
         <div class="footer-socials">
-          <!-- Threads 按鈕 -->
+          <!-- Threads 修正部分：直接改用內嵌 SVG 代替外鏈圖檔 -->
           <a href="https://www.threads.com/@kitchen_shop520?hl=zh-tw" target="_blank" class="social-icon-btn" title="Threads">
-            <img src="https://i.meee.com.tw/KqD81IF.png" alt="Threads" class="threads-icon-img">
+            <svg class="threads-svg" viewBox="0 0 24 24">
+              <path d="M12.786 12.833c-.56-.046-1.012-.224-1.356-.533-.344-.31-.516-.745-.516-1.306 0-.535.177-.954.53-1.258.355-.304.838-.456 1.45-.456.577 0 1.055.145 1.433.435.378.29.567.721.567 1.293 0 .543-.178.966-.534 1.27-.356.304-.882.455-1.574.455zm.143-6.195c-1.378 0-2.502.433-3.372 1.3-.87.866-1.305 1.96-1.305 3.284 0 1.343.435 2.45 1.305 3.32.87.872 2.012 1.308 3.428 1.308.795 0 1.543-.15 2.245-.453.702-.302 1.25-.747 1.644-1.336l-1.354-1.026c-.286.376-.642.668-1.069.877-.427.208-.87.312-1.33.312-.862 0-1.543-.264-2.044-.792-.501-.528-.752-1.254-.752-2.18h7.24c.032-.196.048-.423.048-.68 0-1.332-.435-2.43-1.305-3.295-.87-.866-2.025-1.3-3.464-1.3zm.06-2.222c4.108 0 7.464 3.24 7.464 7.206 0 1.637-.417 3.094-1.216 4.22-.58.817-1.34 1.442-2.262 1.832v2.3c0 .285-.145.547-.384.7-.24.152-.542.17-.8.046a11.137 11.137 0 01-1.897-.184l-.195.148c-1.045.795-2.28 1.198-3.664 1.198-1.528 0-2.82-.45-3.834-1.337C4.167 18.068 3.65 16.786 3.65 15.2c0-1.564.512-2.836 1.517-3.774C6.172 10.488 7.478 10 9.04 10c.168 0 .34.004.518.013v1.892c-.126-.008-.242-.012-.347-.012-1.054 0-1.9.27-2.507.8-.607.53-.91 1.268-.91 2.186 0 .93.3 1.674.9 2.21.6.535 1.38.804 2.316.804.815 0 1.518-.216 2.083-.642.565-.426.858-.962.873-1.594l.006-.41V11.23c0-1.92.597-3.447 1.772-4.526C15.02 5.626 16.666 5.1 18.636 5.1c1.197 0 2.284.225 3.224.667.94.442 1.675 1.096 2.182 1.942.507.846.762 1.84.762 2.946 0 4.673-3.95 8.491-8.777 8.491-1.037 0-2.022-.178-2.923-.523l-.117-.044a1.002 1.002 0 00-.776.082c-.22.12-.36.342-.38.59l-.023.298c-.023.295.07.587.264.818.995 1.1 2.304 1.657 3.882 1.657 5.706 0 10.37-4.55 10.37-10.11 0-5.56-4.664-10.11-10.37-10.11z"/>
+            </svg>
           </a>
-          <!-- Instagram 按鈕 -->
           <a href="https://www.instagram.com/kitchen_shop520?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" class="social-icon-btn" title="Instagram">
             <i class="fa-brands fa-instagram"></i>
           </a>
-          <!-- Facebook 按鈕 -->
           <a href="https://www.facebook.com/kitchen27392588" target="_blank" class="social-icon-btn" title="Facebook">
             <i class="fa-brands fa-facebook-f"></i>
           </a>
-          <!-- Google 地圖按鈕 -->
           <a href="https://share.google/8eP16ctJTLJClINfI" target="_blank" class="social-icon-btn" title="Google 地圖">
             <i class="fa-solid fa-map-location-dot"></i>
           </a>
