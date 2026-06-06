@@ -1,1 +1,141 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>職人美學人造石廚具 | 凱勤廚具 kitchen</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+  <style>
+    .about-container { max-width: 1100px; margin: 60px auto; padding: 0 20px; }
+    .about-title { font-size: 32px; text-align: center; margin-bottom: 50px; letter-spacing: 3px; position: relative; padding-bottom: 15px; }
+    .about-title::after { content: ''; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); width: 50px; height: 2px; background-color: #333; }
+    .brand-section { display: flex; align-items: center; justify-content: space-between; margin-bottom: 80px; gap: 50px; }
+    .brand-section.reverse { flex-direction: row-reverse; }
+    .brand-img-box { flex: 1; }
+    .brand-img-box img { width: 100%; height: 350px; object-fit: cover; border-radius: 8px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); display: block; }
+    .brand-text-box { flex: 1; }
+    .brand-text-box h2 { font-size: 24px; margin-bottom: 20px; color: #1a1a1a; }
+    .brand-text-box p { font-size: 16px; color: #555; line-height: 1.8; text-align: justify; }
+    .info-grid { display: flex; gap: 40px; margin-top: 50px; border-top: 1px solid #eee; padding-top: 50px; }
+    .info-card { flex: 1; background: #fdfdfd; padding: 40px; border-radius: 8px; border: 1px solid #f0f0f0; }
+    .info-card h3 { font-size: 22px; margin-bottom: 30px; color: #1a1a1a; font-weight: bold; border-left: 4px solid #333; padding-left: 12px; letter-spacing: 1px; }
+    .promise-block { margin-bottom: 28px; }
+    .promise-block:last-child { margin-bottom: 0; }
+    .promise-block h4 { font-size: 16px; color: #1a1a1a; margin: 0 0 8px 0; font-weight: bold; display: flex; align-items: center; gap: 6px; }
+    .promise-block p { font-size: 15px; color: #555555; line-height: 1.8; margin: 0; text-align: justify; }
+    .service-desc { font-size: 15px; color: #555555; line-height: 1.95; text-align: justify; margin: 0; }
+    @media (max-width: 768px) { .brand-section, .brand-section.reverse, .info-grid { flex-direction: column !important; gap: 30px; } }
+    .custom-footer { background-color: #222222; color: #cccccc; padding: 50px 20px 20px 20px; font-family: "Helvetica Neue", Helvetica, Arial, "PingFang TC", "Hiragino Sans GB", "Microsoft JhengHei", sans-serif; letter-spacing: 1px; margin-top: 80px; }
+    .footer-container { max-width: 1200px; margin: 0 auto; }
+    .footer-nav { display: flex; justify-content: center; flex-wrap: wrap; gap: 35px; margin-bottom: 25px; }
+    .footer-nav a { color: #ffffff; text-decoration: none; font-size: 15px; font-weight: 500; transition: color 0.3s ease; }
+    .footer-nav a:hover { color: #0070bb; }
+    .footer-divider { border: 0; height: 1px; background: rgba(255, 255, 255, 0.1); margin-bottom: 35px; }
+    .footer-content { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 30px; margin-bottom: 40px; }
+    .footer-info { flex: 1; min-width: 280px; }
+    .company-name { color: #ffffff; font-size: 18px; margin-bottom: 15px; font-weight: bold; }
+    .footer-info p { font-size: 14px; color: #aaaaaa; margin: 8px 0; display: flex; align-items: center; gap: 10px; }
+    .footer-info p i { color: #ffffff; width: 16px; text-align: center; }
+    .footer-socials { display: flex; gap: 18px; align-items: center; }
+    .social-icon-btn { display: inline-block; width: 44px; height: 44px; border: 1.5px solid #ffffff; border-radius: 50%; color: #ffffff; font-size: 18px; text-decoration: none; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); background: transparent; box-sizing: border-box; vertical-align: middle; text-align: center; }
+    .social-icon-btn i { line-height: 41px; display: block; }
+    .social-icon-btn:hover { background-color: #ffffff; color: #222222; transform: translateY(-4px); box-shadow: 0 5px 15px rgba(255, 255, 255, 0.2); }
+    .footer-bottom { text-align: center; font-size: 12px; color: #666666; border-top: 1px solid rgba(255, 255, 255, 0.05); padding-top: 20px; margin-top: 20px; }
+  </style>
+</head>
+<body>
 
+  <nav class="navbar">
+    <a href="index.html" class="logo-link">
+      <img src="https://i.meee.com.tw/0ZesFkh.jpg" alt="凱勤廚具 LOGO" class="logo-img">
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">首頁</a></li>
+      <li><a href="about.html">品牌故事</a></li>
+      <li><a href="index.html#products" class="active">精選作品集</a></li>
+      <li><a href="appliances.html">智能家電</a></li>
+      <li><a href="https://www.facebook.com/kitchen27392588" target="_blank">聯絡我們</a></li>
+    </ul>
+  </nav>
+
+  <main class="about-container">
+    <h1 class="about-title">職人美學人造石廚具</h1>
+
+    <section class="brand-section">
+      <div class="brand-img-box">
+        <img src="https://i.meee.com.tw/70AF7hG.jpg" alt="無縫拼接人造石檯面">
+      </div>
+      <div class="brand-text-box">
+        <h2>無縫拼接的極致工藝</h2>
+        <p>凱勤精選高品質無縫人造石檯面，透過豐富的實務安裝經驗，達成近乎完美的轉角接縫處理。一體成型的流暢線條不仅隔絕了水漬與汙垢滲入的機會，更能與霧面防指紋門板完美整合，營造視覺無限延伸的現代極簡美學。</p>
+      </div>
+    </section>
+
+    <section class="brand-section reverse">
+      <div class="brand-img-box">
+        <img src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?q=80&w=600" alt="高機能廚房收納結構">
+      </div>
+      <div class="brand-text-box">
+        <h2>兼具溫潤觸感與高清理性</h2>
+        <p>相較於冰冷的傳統材質，人造石具備溫潤細緻的極佳觸感，為廚房空間注入柔和的居家溫度。其具備極高的高防污性與不透水率，日常烹飪留下的醬油、咖啡色澤，僅需透過抹布輕輕擦拭即可煥然一新，是最貼近現代家庭日常的機能首選。</p>
+      </div>
+    </section>
+
+    <section class="info-grid">
+      <div class="info-card">
+        <h3>材質卓越特點</h3>
+        <div class="promise-block">
+          <h4>■ 100% 無縫包覆</h4>
+          <p>檯面與後擋水、甚至水槽皆可達成高難度無縫拼接，不留任何藏污納垢的死角。</p>
+        </div>
+        <div class="promise-block">
+          <h4>■ 絕佳修復性</h4>
+          <p>如因長年使用產生微小刮痕，可透過專業拋光重新打磨，立刻回復全新般的細緻光澤。</p>
+        </div>
+        <div class="promise-block">
+          <h4>■ 柔和色彩美學</h4>
+          <p>提供多款純色與細緻顆粒紋理選擇，不論搭配淺色系北歐風或深色現代風皆能完美演繹。</p>
+        </div>
+      </div>
+      
+      <div class="info-card">
+        <h3>凱勤專屬客製化規劃</h3>
+        <p class="service-desc">我們依據您的實際烹飪動線與收納需求，提供深度客製化的人造石檯面規劃。配合全室霧面門板與 C 型隱形把手設計，我們能精準預留各式下嵌式水槽、嵌入式 IH 爐及瓦斯爐孔位，確保所有硬體接口皆經過嚴密防水密封處理。從前端的厚度與止水線修邊造型，到後端與牆面管線的密合度，由凱勤工廠一條龍專業團隊親自把關，實現兼具美學與防煙機能的完工品質。</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="custom-footer">
+    <div class="footer-container">
+      <div class="footer-nav">
+        <a href="index.html">凱勤廚具</a>
+        <a href="about.html">品牌故事</a>
+        <a href="index.html#products">精選作品集</a>
+        <a href="appliances.html">智能家電</a>
+        <a href="https://www.facebook.com/kitchen27392588" target="_blank">聯絡我們</a>
+      </div>
+      <hr class="footer-divider">
+      <div class="footer-content">
+        <div class="footer-info">
+          <h4 class="company-name">凱勤實業有限公司</h4>
+          <p><i class="fa-solid fa-phone"></i> 電話：02-27392588</p>
+          <p><i class="fa-solid fa-print"></i> 傳真：02-27331558</p>
+          <p><i class="fa-solid fa-location-dot"></i> 地址：台北市大安區樂利路26號1樓</p>
+          <p><i class="fa-solid fa-envelope"></i> 信箱：kitchen.shop@msa.hinet.net</p>
+        </div>
+        <div class="footer-socials">
+          <a href="https://www.threads.net/@kitchen_shop520" target="_blank" class="social-icon-btn" title="Threads"><i class="fa-brands fa-threads"></i></a>
+          <a href="https://www.instagram.com/kitchen_shop520?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" class="social-icon-btn" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="https://www.facebook.com/kitchen27392588" target="_blank" class="social-icon-btn" title="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="https://share.google/8eP16ctJTLJClINfI" target="_blank" class="social-icon-btn" title="Google 地圖"><i class="fa-solid fa-map-location-dot"></i></a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 凱勤廚具 Kitchen. All Rights Reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
