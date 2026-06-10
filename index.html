@@ -8,6 +8,111 @@
   
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+  
+  <style>
+    /* ════════════════════════════════════════════════════════════
+       🛠️ 全域與主區塊舒適寬度設定 (桌機版)
+       ════════════════════════════════════════════════════════════ */
+    .product-section {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 60px 20px;
+    }
+
+    /* 桌機預設：一排兩個卡片，間距 40px */
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 40px;
+    }
+
+    /* 質感卡片基本樣式 */
+    .product-card {
+      background: #ffffff;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .product-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    .product-img {
+      width: 100%;
+      aspect-ratio: 16 / 10;
+      object-fit: cover;
+      display: block;
+    }
+
+    .product-info {
+      padding: 30px;
+    }
+
+    .product-info h3 {
+      font-size: 22px;
+      margin-bottom: 12px;
+      color: #222;
+      letter-spacing: 1px;
+    }
+
+    .product-info p {
+      font-size: 15px;
+      color: #666;
+      line-height: 1.6;
+    }
+
+    /* ════════════════════════════════════════════════════════════
+       📱 RWD 手機與平板智慧變形（核心優化處）
+       ════════════════════════════════════════════════════════════ */
+    
+    /* 【平板與大螢幕手機環境】寬度 992px 以下 */
+    @media (max-width: 992px) {
+      .product-section {
+        padding: 40px 20px; /* 縮減上下留白 */
+      }
+      .product-grid {
+        gap: 25px; /* 稍微縮小卡片間距 */
+      }
+      .product-info {
+        padding: 20px; /* 縮減卡片內襯 */
+      }
+    }
+
+    /* 【標準智慧型手機環境】寬度 768px 以下 */
+    @media (max-width: 768px) {
+      /* 1. 讓原本並排的卡片強制變成「一排一個」，手滑最舒適 */
+      .product-grid {
+        grid-template-columns: 1fr;
+        gap: 30px; /* 卡片跟卡片上下疊放的距離 */
+      }
+
+      /* 2. 主視覺 Hero Banner 調整：避免文字在手機上太大或太貼邊 */
+      .hero-section {
+        padding: 80px 20px; /* 降低手機版橫幅高度 */
+      }
+      .hero-content h1 {
+        font-size: 26px !important; /* 手機標題稍微縮小點，防溢出 */
+        line-height: 1.4;
+      }
+      .hero-content p {
+        font-size: 14px !important;
+        padding: 0 10px;
+      }
+
+      /* 3. 微調卡片內部字體，更符合手機閱讀視線 */
+      .product-info h3 {
+        font-size: 19px; 
+        margin-bottom: 8px;
+      }
+      .product-info p {
+        font-size: 14px;
+        line-height: 1.5;
+      }
+    }
+  </style>
 </head>
 <body>
 
