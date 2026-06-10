@@ -64,8 +64,33 @@
       line-height: 1.6;
     }
 
+    /* 🖼️ 圖2 滿版首頁背景大圖樣式設定 */
+    .hero-section {
+      background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('https://i.meee.com.tw/image_d3433b.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      padding: 160px 20px; /* 控制桌機版大圖的上下留白高度 */
+      text-align: center;
+      color: #ffffff;
+    }
+
+    .hero-content h1 {
+      font-size: 42px;
+      font-weight: 700;
+      margin-bottom: 20px;
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+      letter-spacing: 2px;
+    }
+
+    .hero-content p {
+      font-size: 18px;
+      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+      letter-spacing: 1px;
+    }
+
     /* ════════════════════════════════════════════════════════════
-       📱 RWD 手機與平板智慧變形（核心優化處）
+       📱 RWD 手機與平板智慧變形
        ════════════════════════════════════════════════════════════ */
     
     /* 【平板與大螢幕手機環境】寬度 992px 以下 */
@@ -123,23 +148,7 @@
     <ul class="nav-links">
       <li><a href="about.html">品牌故事</a></li>
       <li><a href="portfolio.html">精選作品集</a></li>
-      <li class="dropdown">
-        <input type="checkbox" id="dropdown-toggle" class="dropdown-toggle">
-        <label for="dropdown-toggle" class="dropbtn">智能家電 <span class="arrow">▼</span></label>
-        
-        <div class="dropdown-content">
-          <a href="appliances.html#sakura">台灣櫻花 SAKURA</a>
-          <a href="appliances.html#rinnai">日本林內 Rinnai</a>
-          <a href="appliances.html#jtl">喜特麗 JTL</a>
-          <a href="appliances.html#bosch">德國 BOSCH</a>
-          <a href="appliances.html#amica">波蘭 Amica</a>
-          <a href="appliances.html#best">義大利 BEST</a>
-          <a href="appliances.html#gejp">日本 GEJP 淨水器</a>
-          <a href="appliances.html#hafele">德國 HAFELE</a>
-          <a href="appliances.html#unihopper">波蘭 Unihopper</a>
-          <a href="appliances.html#cps">CPS 太子衛浴</a>
-        </div>
-      </li>
+      <li><a href="appliances.html">智能家電</a></li>
       <li><a href="https://www.facebook.com/kitchen27392588" target="_blank">聯絡我們</a></li>
     </ul>
   </nav>
@@ -193,12 +202,13 @@
     <div class="footer-container">
       
       <div class="footer-nav">
+        <a href="index.html">凱勤廚具</a>
         <a href="about.html">品牌故事</a>
         <a href="portfolio.html">精選作品集</a>
         <a href="appliances.html">智能家電</a>
         <a href="https://www.facebook.com/kitchen27392588" target="_blank">聯絡我們</a>
       </div>
-
+      
       <hr class="footer-divider">
       
       <div class="footer-content">
