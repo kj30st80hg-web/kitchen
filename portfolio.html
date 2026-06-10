@@ -7,20 +7,16 @@
   <link rel="icon" href="https://i.meee.com.tw/EpA9zBH.jpg" type="image/jpeg">
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css">
+  
   <style>
-    /* 作品集專屬微調：避免被上方固定導覽列遮住 */
+    /* 作品集專屬佈局微調，避免被固定導覽列遮擋 */
     .portfolio-page-section {
       padding-top: 130px; 
     }
-    .portfolio-intro-text {
-      text-align: center;
-      color: #666666;
-      font-size: 16px;
-      margin-bottom: 40px;
-      letter-spacing: 1px;
-    }
 
-    /* 方案 2：極簡純圖片藝廊網格樣式 */
+    /* 高級感圖片藝廊網格樣式 (保留是用 JavaScript 自動生成的純圖片網格（方案二）的基礎) */
     .gallery-card {
       position: relative;
       overflow: hidden;
@@ -37,12 +33,12 @@
       transition: transform 0.5s ease;
     }
 
-    /* 滑鼠移上去時，照片微微放大 */
+    /* 滑鼠移上去時，照片微微放大，很有設計感 */
     .gallery-card:hover .gallery-img {
       transform: scale(1.08);
     }
 
-    /* 懸停時的質感黑色半透明遮罩 */
+    /* 質感黑色半透明遮罩 (保留是用 JavaScript 自動生成的純圖片網格（方案二）的基礎) */
     .gallery-mask {
       position: absolute;
       top: 0; left: 0; width: 100%; height: 100%;
@@ -58,7 +54,7 @@
       opacity: 1;
     }
 
-    /* 遮罩上的極簡白字地名 */
+    /* 遮罩上的極簡白字地名 (保留是用 JavaScript 自動生成的純圖片網格（方案二）的基礎) */
     .gallery-mask span {
       color: #ffffff;
       font-size: 16px;
@@ -83,10 +79,8 @@
   </nav>
 
   <section class="product-section portfolio-page-section">
-    <h2>精選作品集</h2>
-    <p class="portfolio-intro-text">職人匠心打造，收錄凱勤廚具於各溫馨住宅的實績淬鍊。</p>
-    
-    <div class="product-grid" id="portfolio-container"></div>
+    <div class="product-grid" id="portfolio-container">
+      </div>
   </section>
 
   <footer class="custom-footer">
@@ -137,7 +131,7 @@
   </footer>
 
   <style>
-    /* 頁尾基本樣式 */
+    /* 這裡同步套用與首頁相同的頁尾樣式，維持視覺一致 */
     .custom-footer {
       background-color: #222222;
       color: #cccccc;
@@ -277,6 +271,8 @@
     }
   </style>
 
+  <script src="https://cdn.jsdelivr.net/gh/mcstudios/glightbox/dist/js/glightbox.min.js"></script>
+  
   <script>
     // 未來要狂加新照片，只需依樣畫葫蘆在下面這一行一行補上去：
     const imagesData = [
@@ -287,16 +283,25 @@
       // { src: "這裡放第四張照片網址.jpg", location: "台中西屯" },
     ];
 
-    // 以下是自動把資料渲染到網頁上的程式，不用修改它
+    // 以下是自動把資料渲染到網頁上的程式，已更新 HTML 結構以配合 Lightbox 功能
     const container = document.getElementById('portfolio-container');
     imagesData.forEach(item => {
-      const card = document.createElement('div');
-      card.className = 'gallery-card';
-      card.innerHTML = `
-        <img src="${item.src}" alt="${item.location}實績" class="gallery-img">
-        <div class="gallery-mask"><span>${item.location}</span></div>
+      // 這裡非常快捷，不需要寫那種長長的簡介代碼，只要丟入圖片網址和地區即可
+      cardHtml = `
+        <a href="${item.src}" class="gallery-card glightbox" data-gallery="gallery">
+          <img src="${item.src}" alt="${item.location}實績" class="gallery-img">
+          <div class="gallery-mask"><span>${item.location}</span></div>
+        </a>
       `;
-      container.appendChild(card);
+      // 將 HTML 字符串轉換為 DOM 元素並插入
+      container.insertAdjacentHTML('beforeend', cardHtml);
+    });
+
+    // 4. 初始化 GLightbox
+    const lightbox = GLightbox({
+      loop: true,       // 允許左右循環切換照片
+      zoomable: false, // 禁用放大縮小手勢，保持簡潔
+      draggable: true, // 支援手機上滑動切換
     });
   </script>
 
