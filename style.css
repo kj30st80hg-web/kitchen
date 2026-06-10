@@ -17,36 +17,37 @@ html, body {
   line-height: 1.6;
 }
 
-/* ⚠️ 桌機版安全推開距離 */
+/* ⚠️ 桌機版安全推開距離：確保下方的 Banner 絕對不會被固定導覽列壓到 */
 body {
-  padding-top: 150px; 
+  padding-top: 100px; 
 }
 
 /* ==========================================================================
-   🌐 導覽列 (Navbar) - 頂端固定
+   🌐 導覽列 (Navbar) - 頂端固定與防擠壓佈局
    ========================================================================== */
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 15px 40px;
-  background-color: #fff;
+  padding: 20px 80px; /* 加大桌機兩側留白，更有精品感 */
+  background-color: #ffffff;
   border-bottom: 1px solid #eee;
   width: 100%;
   position: fixed;
   top: 0;
   left: 0;
   z-index: 9999;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
 }
 
 .logo-link {
   display: flex;
   align-items: center;
+  flex-shrink: 0; /* 🚫 保護 Logo 絕對不允許被擠壓變形 */
 }
 
 .logo-img {
-  height: 120px;
+  height: 55px; /* 優化桌機高度，防止 header 過粗壓迫視覺 */
   width: auto;
   display: block;
 }
@@ -54,69 +55,71 @@ body {
 .nav-links {
   display: flex;
   list-style: none;
-  gap: 30px;
+  gap: 35px; /* 控制選項之間的舒適間距 */
   align-items: center;
+  flex-shrink: 0; /* 🚫 保護選單文字不折行 */
 }
 
 .nav-links a, .dropbtn {
   text-decoration: none;
   color: #333;
-  font-weight: bold;
-  font-size: 18px;
+  font-weight: 500;
+  font-size: 16px;
   transition: color 0.3s;
   white-space: nowrap;
   cursor: pointer;
+  letter-spacing: 0.5px;
 }
 
 .nav-links a:hover, .dropbtn:hover {
   color: #004d80;
 }
 
-/* 隱藏用於觸發點擊的控制紐 */
+/* 隱藏用於手機版觸發點擊的控制紐 */
 .dropdown-toggle {
   display: none;
 }
 
 .arrow {
-  font-size: 12px;
-  margin-left: 4px;
+  font-size: 10px;
+  margin-left: 5px;
   transition: transform 0.3s;
   display: inline-block;
+  color: #888;
 }
 
 /* ==========================================================================
-   💻 智能家電下拉選單 (Dropdown) - 桌機版 (滑鼠移入即顯示)
+   💻 智能家電下拉選單 (Dropdown) - 桌機版 (滑鼠移入優雅懸停)
    ========================================================================== */
 .dropdown {
   position: relative;
 }
 
 .dropdown-content {
-  display: none; /* 預設絕對隱藏，絕不穿透到其他分頁 */
+  display: none; /* 預設絕對隱藏，防止穿透干擾 */
   position: absolute;
   background-color: #ffffff;
-  min-width: 220px;
-  box-shadow: 0px 8px 30px rgba(0,0,0,0.1);
+  min-width: 210px;
+  box-shadow: 0px 10px 30px rgba(0,0,0,0.08);
   z-index: 10000;
   border-radius: 6px;
-  border: 1px solid #eee;
-  top: 130%; /* 留有一點優雅的喘息空隙 */
+  border: 1px solid #eaeaea;
+  top: 100%; /* 貼齊導覽列下方 */
   left: 50%;
   transform: translateX(-50%);
   overflow: hidden;
-  padding: 8px 0;
+  padding: 6px 0;
 }
 
 .dropdown-content a {
   color: #444 !important;
-  padding: 12px 24px;
+  padding: 12px 20px;
   text-decoration: none;
   display: block;
-  font-size: 15px !important;
-  font-weight: 500 !important;
+  font-size: 14px !important;
+  font-weight: 400 !important;
   text-align: left;
   transition: background-color 0.2s, color 0.2s;
-  border-bottom: 1px solid #fcfcfc;
 }
 
 .dropdown-content a:hover {
@@ -124,7 +127,7 @@ body {
   color: #004d80 !important;
 }
 
-/* 桌機懸停行為 */
+/* 僅在桌機版開啟 hover 觸發 */
 @media (min-width: 769px) {
   .dropdown:hover .dropdown-content {
     display: block;
@@ -132,10 +135,9 @@ body {
 }
 
 /* ==========================================================================
-   📱 響應式手機版優化 (RWD OVERRIDES) - 徹底終結畫面倒塌
+   📱 響應式手機版優化 (RWD OVERRIDES) - 自動完美適應
    ========================================================================== */
 @media (max-width: 768px) {
-  
   .navbar {
     flex-direction: column !important;
     padding: 15px 10px !important;
@@ -143,11 +145,11 @@ body {
   }
 
   body {
-    padding-top: 170px !important; /* 修正手機頂部遮擋 */
+    padding-top: 160px !important; /* 手機版頂部推開距離 */
   }
 
   .logo-img {
-    height: 60px !important; 
+    height: 45px !important; 
   }
 
   .nav-links {
@@ -158,56 +160,67 @@ body {
   }
 
   .nav-links a, .dropbtn {
-    font-size: 15px !important;
+    font-size: 14px !important;
   }
 
-  /* 🚫 核心修正：手機版未點擊時，選單必須完全消失不佔空間，不干擾其他分頁！ */
+  /* 手機版點擊展開機制 */
   .dropdown-content {
     display: none !important; 
-    position: fixed !important; /* 頂層浮空抽屜機制，類似世磊官網效果 */
-    top: 165px !important;     /* 緊緊貼在手機導覽列下方 */
+    position: fixed !important;
+    top: 150px !important; 
     left: 0 !important;
     right: 0 !important;
     width: 100% !important;
     transform: none !important;
     background-color: #ffffff !important;
-    box-shadow: 0px 15px 25px rgba(0,0,0,0.15) !important;
+    box-shadow: 0px 15px 25px rgba(0,0,0,0.1) !important;
     border: none !important;
     border-top: 1px solid #eee !important;
-    max-height: calc(100vh - 170px) !important; /* 超過高度可滑動 */
+    max-height: calc(100vh - 160px) !important;
     overflow-y: auto !important;
-    padding: 10px 0 !important;
   }
 
-  /* 手機版下拉選單改為整齊大器的直列清單，乾淨且極好點選 */
   .dropdown-content a {
-    font-size: 15px !important;
-    padding: 14px 30px !important;
-    text-align: left !important;
-    border-bottom: 1px solid #f5f5f5 !important;
+    font-size: 14px !important;
+    padding: 14px 25px !important;
+    border-bottom: 1px solid #f9f9f9 !important;
   }
 
-  /* 🔥 終極動態連鎖：當隱藏的開關被點擊選中時，才把選單秀出來 */
   .dropdown-toggle:checked ~ .dropdown-content {
     display: block !important;
   }
 
-  /* 點擊時讓小箭頭轉向，細節控最愛 */
   .dropdown-toggle:checked ~ .dropbtn .arrow {
     transform: rotate(180deg);
   }
 }
 
 /* ==========================================================================
-   🖼️ 其餘內容結構通用修飾（確保作品集等區域不受影響）
+   🖼️ 首頁大 Banner 與內容結構修正（強效修正跑位）
    ========================================================================== */
+.hero-section {
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+/* 確保大圖字體置中，且絕對不會被導覽列擠到左邊 */
+.hero-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 40px 20px;
+}
+
 .product-section {
   padding: 60px 20px;
   max-width: 1200px;
   margin: 0 auto;
 }
+
 .product-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   gap: 30px;
+  margin-top: 30px;
 }
