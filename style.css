@@ -1,226 +1,179 @@
 /* ==========================================================================
-   🛠️ 基礎 Reset 與全域防止溢出
+   1. 基礎設定與 Logo 放大優化
    ========================================================================== */
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Helvetica Neue", Arial, "Noto Sans TC", sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Helvetica Neue", Arial, "Noto Sans TC", sans-serif;
 }
 
 html, body {
-  width: 100% !important;
-  max-width: 100% !important;
-  overflow-x: hidden !important;
-  background-color: #fcfcfc;
-  color: #333;
-  line-height: 1.6;
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow-x: hidden !important;
+    background-color: #fcfcfc;
+    color: #333;
+    line-height: 1.6;
 }
 
-/* ⚠️ 桌機版安全推開距離：確保下方的 Banner 絕對不會被固定導覽列壓到 */
-body {
-  padding-top: 100px; 
-}
-
-/* ==========================================================================
-   🌐 導覽列 (Navbar) - 頂端固定與防擠壓佈局
-   ========================================================================== */
+/* 導覽列整體設定 */
 .navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 20px 80px; /* 加大桌機兩側留白，更有精品感 */
-  background-color: #ffffff;
-  border-bottom: 1px solid #eee;
-  width: 100%;
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 9999;
-  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 48px; /* 電讀版留白增加 */
+    background-color: #fff;
+    border-bottom: 1px solid #eee;
+    width: 100%;
+    position: relative;
+    z-index: 1000;
 }
 
-.logo-link {
-  display: flex;
-  align-items: center;
-  flex-shrink: 0; /* 🚫 保護 Logo 絕對不允許被擠壓變形 */
-}
-
-.logo-img {
-  height: 55px; /* 優化桌機高度，防止 header 過粗壓迫視覺 */
-  width: auto;
-  display: block;
-}
-
-.nav-links {
-  display: flex;
-  list-style: none;
-  gap: 35px; /* 控制選項之間的舒適間距 */
-  align-items: center;
-  flex-shrink: 0; /* 🚫 保護選單文字不折行 */
-}
-
-.nav-links a, .dropbtn {
-  text-decoration: none;
-  color: #333;
-  font-weight: 500;
-  font-size: 16px;
-  transition: color 0.3s;
-  white-space: nowrap;
-  cursor: pointer;
-  letter-spacing: 0.5px;
-}
-
-.nav-links a:hover, .dropbtn:hover {
-  color: #004d80;
-}
-
-/* 隱藏用於手機版觸發點擊的控制紐 */
-.dropdown-toggle {
-  display: none;
-}
-
-.arrow {
-  font-size: 10px;
-  margin-left: 5px;
-  transition: transform 0.3s;
-  display: inline-block;
-  color: #888;
-}
-
-/* ==========================================================================
-   💻 智能家電下拉選單 (Dropdown) - 桌機版 (滑鼠移入優雅懸停)
-   ========================================================================== */
-.dropdown {
-  position: relative;
-}
-
-.dropdown-content {
-  display: none; /* 預設絕對隱藏，防止穿透干擾 */
-  position: absolute;
-  background-color: #ffffff;
-  min-width: 210px;
-  box-shadow: 0px 10px 30px rgba(0,0,0,0.08);
-  z-index: 10000;
-  border-radius: 6px;
-  border: 1px solid #eaeaea;
-  top: 100%; /* 貼齊導覽列下方 */
-  left: 50%;
-  transform: translateX(-50%);
-  overflow: hidden;
-  padding: 6px 0;
-}
-
-.dropdown-content a {
-  color: #444 !important;
-  padding: 12px 20px;
-  text-decoration: none;
-  display: block;
-  font-size: 14px !important;
-  font-weight: 400 !important;
-  text-align: left;
-  transition: background-color 0.2s, color 0.2s;
-}
-
-.dropdown-content a:hover {
-  background-color: #f4f7f9;
-  color: #004d80 !important;
-}
-
-/* 僅在桌機版開啟 hover 觸發 */
-@media (min-width: 769px) {
-  .dropdown:hover .dropdown-content {
+/* Logo 放大修復 */
+.navbar-logo img {
+    height: 55px; /* 電腦版 Logo 放大 */
+    width: auto;
     display: block;
-  }
+    object-fit: contain;
+}
+
+/* 電腦版選單 */
+.nav-links {
+    display: flex;
+    gap: 32px;
+    list-style: none;
+    align-items: center;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #333;
+    font-size: 16px;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: #0056b3;
 }
 
 /* ==========================================================================
-   📱 響應式手機版優化 (RWD OVERRIDES) - 自動完美適應
-   ========================================================================== */
-@media (max-width: 768px) {
-  .navbar {
-    flex-direction: column !important;
-    padding: 15px 10px !important;
-    gap: 12px !important;
-  }
-
-  body {
-    padding-top: 160px !important; /* 手機版頂部推開距離 */
-  }
-
-  .logo-img {
-    height: 45px !important; 
-  }
-
-  .nav-links {
-    width: 100% !important;
-    justify-content: center !important;
-    flex-wrap: wrap !important;
-    gap: 10px 16px !important;
-  }
-
-  .nav-links a, .dropbtn {
-    font-size: 14px !important;
-  }
-
-  /* 手機版點擊展開機制 */
-  .dropdown-content {
-    display: none !important; 
-    position: fixed !important;
-    top: 150px !important; 
-    left: 0 !important;
-    right: 0 !important;
-    width: 100% !important;
-    transform: none !important;
-    background-color: #ffffff !important;
-    box-shadow: 0px 15px 25px rgba(0,0,0,0.1) !important;
-    border: none !important;
-    border-top: 1px solid #eee !important;
-    max-height: calc(100vh - 160px) !important;
-    overflow-y: auto !important;
-  }
-
-  .dropdown-content a {
-    font-size: 14px !important;
-    padding: 14px 25px !important;
-    border-bottom: 1px solid #f9f9f9 !important;
-  }
-
-  .dropdown-toggle:checked ~ .dropdown-content {
-    display: block !important;
-  }
-
-  .dropdown-toggle:checked ~ .dropbtn .arrow {
-    transform: rotate(180deg);
-  }
-}
-
-/* ==========================================================================
-   🖼️ 首頁大 Banner 與內容結構修正（強效修正跑位）
+   2. 首頁滿版大圖（Banner）修復
    ========================================================================== */
 .hero-section {
-  width: 100%;
-  position: relative;
-  overflow: hidden;
+    position: relative;
+    width: 100%;
+    height: 650px; /* 固定電腦版高度 */
+    background: url('../images/hero-banner.jpg') no-repeat center center; /* 請確保路徑與圖片檔名正確 */
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 }
 
-/* 確保大圖字體置中，且絕對不會被導覽列擠到左邊 */
+/* 防止圖片未載入時變純灰色，加入半透明質感遮罩 */
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.25); /* 輕微暗化以突顯白色文字 */
+    z-index: 1;
+}
+
 .hero-content {
-  max-width: 1200px;
-  margin: 0 auto;
-  text-align: center;
-  padding: 40px 20px;
+    position: relative;
+    z-index: 2;
+    color: #fff;
+    padding: 0 20px;
 }
 
-.product-section {
-  padding: 60px 20px;
-  max-width: 1200px;
-  margin: 0 auto;
+.hero-content h1 {
+    font-size: 42px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    margin-bottom: 16px;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.5);
 }
 
-.product-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 30px;
-  margin-top: 30px;
+.hero-content p {
+    font-size: 18px;
+    letter-spacing: 1px;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.5);
+}
+
+/* ==========================================================================
+   3. 手機版（RWD）極致優化與智能家電選單回歸
+   ========================================================================== */
+@media (max-width: 768px) {
+    .navbar {
+        padding: 15px 20px; /* 手機版縮減內距 */
+    }
+
+    /* 手機版 Logo 同步放大 */
+    .navbar-logo img {
+        height: 42px; 
+    }
+
+    /* 手機版大圖高度調整，避免過高 */
+    .hero-section {
+        height: 480px;
+    }
+    
+    .hero-content h1 {
+        font-size: 28px;
+        line-height: 1.4;
+    }
+
+    .hero-content p {
+        font-size: 14px;
+        line-height: 1.6;
+    }
+
+    /* 智能家電：手機版品牌索引區塊樣式修復 */
+    .brand-index-container {
+        width: 100%;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+        margin: 15px 0;
+    }
+
+    .brand-index-title {
+        font-size: 18px;
+        font-weight: 600;
+        padding-bottom: 10px;
+        border-bottom: 2px solid #333;
+        margin-bottom: 15px;
+    }
+
+    /* 泡泡標籤按鈕排列 */
+    .brand-tags-grid {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        justify-content: flex-start;
+    }
+
+    .brand-tag-btn {
+        padding: 8px 16px;
+        background-color: #f5f5f5;
+        border: 1px solid #e0e0e0;
+        border-radius: 20px;
+        font-size: 14px;
+        color: #444;
+        text-decoration: none;
+        transition: all 0.2s ease;
+    }
+
+    .brand-tag-btn:hover, .brand-tag-btn.active {
+        background-color: #333;
+        color: #fff;
+        border-color: #333;
+    }
 }
