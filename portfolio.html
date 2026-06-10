@@ -11,19 +11,27 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css">
   
   <style>
-    /* 作品集專屬佈局微調，避免被固定導覽列遮擋 */
+    /*作品集專屬佈局微調，避免被上方固定導覽列遮擋 */
     .portfolio-page-section {
       padding-top: 130px; 
     }
 
-    /* 高級感圖片藝廊網格樣式 (保留是用 JavaScript 自動生成的純圖片網格（方案二）的基礎) */
+    /* 核心修改：將作品網格調整為一排三個 ==================== */
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr); /* 從原本的 2 改為 3 ==================== */
+      gap: 30px; /* 卡片間距保持不變 */
+    }
+
+    /* 高級感圖片藝廊卡片樣式 */
     .gallery-card {
       position: relative;
       overflow: hidden;
       border-radius: 8px;
       box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-      aspect-ratio: 4 / 3; /* 統一照片比例為 4:3，不論直圖橫圖都不跑版 */
+      aspect-ratio: 4 / 3; /* 統一照片比例為 4:3，避免直圖橫圖跑版 */
       cursor: pointer;
+      display: block; /* 讓 <a> 標籤能撐開 */
     }
 
     .gallery-img {
@@ -38,29 +46,19 @@
       transform: scale(1.08);
     }
 
-    /* 質感黑色半透明遮罩 (保留是用 JavaScript 自動生成的純圖片網格（方案二）的基礎) */
-    .gallery-mask {
-      position: absolute;
-      top: 0; left: 0; width: 100%; height: 100%;
-      background: rgba(0, 0, 0, 0.4); 
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      opacity: 0;
-      transition: opacity 0.3s ease;
-    }
+    /* ✅ 這裡我移除了原本用來顯示「台北大安」的黑色半透明遮罩 CSS ==================== */
+    /* ✅ 這裡我移除了原本用來顯示「台北大安」的文字 CSS ==================== */
 
-    .gallery-card:hover .gallery-mask {
-      opacity: 1;
+    /* 針對手機版的響應式調整 */
+    @media (max-width: 992px) {
+      .product-grid {
+        grid-template-columns: repeat(2, 1fr); /* 平板尺寸改為一排兩個 */
+      }
     }
-
-    /* 遮罩上的極簡白字地名 (保留是用 JavaScript 自動生成的純圖片網格（方案二）的基礎) */
-    .gallery-mask span {
-      color: #ffffff;
-      font-size: 16px;
-      letter-spacing: 2px;
-      border-bottom: 1px solid #ffffff;
-      padding-bottom: 5px;
+    @media (max-width: 768px) {
+      .product-grid {
+        grid-template-columns: 1fr; /* 手機尺寸改為一排一個 */
+      }
     }
   </style>
 </head>
@@ -79,8 +77,11 @@
   </nav>
 
   <section class="product-section portfolio-page-section">
+    <h2>精選作品集</h2>
+    <p class="portfolio-intro-text">職人匠心打造，收錄凱勤廚具於各溫馨住宅的實績淬鍊。</p>
+
     <div class="product-grid" id="portfolio-container">
-      </div>
+    </div>
   </section>
 
   <footer class="custom-footer">
@@ -274,33 +275,32 @@
   <script src="https://cdn.jsdelivr.net/gh/mcstudios/glightbox/dist/js/glightbox.min.js"></script>
   
   <script>
-    // 未來要狂加新照片，只需依樣畫葫蘆在下面這一行一行補上去：
+    // 為了讓代碼更快捷，我預設多幫您加了一張Unsplash的圖來展示一排三個的效果，
+    // 未來要狂加新照片，只需依樣畫葫蘆補在下面陣列即可：
     const imagesData = [
       { src: "https://images.unsplash.com/photo-1556911220-e15b29be8c8f?q=80&w=600", location: "台北大安" },
       { src: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=600", location: "新北板橋" },
       { src: "https://images.unsplash.com/photo-1565183997392-2f6f122e5912?q=80&w=600", location: "台北信義" },
-      // 新照片範例（把前面雙斜線拿掉就可以用）：
-      // { src: "這裡放第四張照片網址.jpg", location: "台中西屯" },
+      // 新照片範例
+      { src: "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?q=80&w=600", location: "台中西屯" },
     ];
 
-    // 以下是自動把資料渲染到網頁上的程式，已更新 HTML 結構以配合 Lightbox 功能
+    // 以下是自動把資料渲染到網頁上的程式，已更新 HTML 結構以實現點擊放大，並移除了 Hover 文字層
     const container = document.getElementById('portfolio-container');
     imagesData.forEach(item => {
       // 這裡非常快捷，不需要寫那種長長的簡介代碼，只要丟入圖片網址和地區即可
       cardHtml = `
         <a href="${item.src}" class="gallery-card glightbox" data-gallery="gallery">
           <img src="${item.src}" alt="${item.location}實績" class="gallery-img">
-          <div class="gallery-mask"><span>${item.location}</span></div>
-        </a>
+          </a>
       `;
-      // 將 HTML 字符串轉換為 DOM 元素並插入
+      // 將 HTML 字符串轉換為 DOM 元素並插入容器末尾
       container.insertAdjacentHTML('beforeend', cardHtml);
     });
 
-    // 4. 初始化 GLightbox
+    // 初始化 GLightbox 燈箱，讓圖片點擊能放大
     const lightbox = GLightbox({
       loop: true,       // 允許左右循環切換照片
-      zoomable: false, // 禁用放大縮小手勢，保持簡潔
       draggable: true, // 支援手機上滑動切換
     });
   </script>
