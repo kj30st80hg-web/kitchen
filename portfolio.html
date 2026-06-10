@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>精選作品集 | 凱勤廚具KITCHEN</title>
+  <link rel="icon" href="https://i.meee.com.tw/EpA9zBH.jpg" type="image/jpeg">
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
   <style>
@@ -18,16 +19,52 @@
       margin-bottom: 40px;
       letter-spacing: 1px;
     }
-    /* 精緻的作品標籤 */
-    .project-tag {
-      display: inline-block;
-      background-color: #f0f0f0;
-      color: #444444;
-      font-size: 12px;
-      padding: 3px 10px;
-      border-radius: 3px;
-      margin-top: 10px;
-      font-weight: 500;
+
+    /* 方案 2：極簡純圖片藝廊網格樣式 */
+    .gallery-card {
+      position: relative;
+      overflow: hidden;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+      aspect-ratio: 4 / 3; /* 統一照片比例為 4:3，不論直圖橫圖都不跑版 */
+      cursor: pointer;
+    }
+
+    .gallery-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover; /* 確保圖片不變形完美填滿 */
+      transition: transform 0.5s ease;
+    }
+
+    /* 滑鼠移上去時，照片微微放大 */
+    .gallery-card:hover .gallery-img {
+      transform: scale(1.08);
+    }
+
+    /* 懸停時的質感黑色半透明遮罩 */
+    .gallery-mask {
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(0, 0, 0, 0.4); 
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .gallery-card:hover .gallery-mask {
+      opacity: 1;
+    }
+
+    /* 遮罩上的極簡白字地名 */
+    .gallery-mask span {
+      color: #ffffff;
+      font-size: 16px;
+      letter-spacing: 2px;
+      border-bottom: 1px solid #ffffff;
+      padding-bottom: 5px;
     }
   </style>
 </head>
@@ -49,33 +86,7 @@
     <h2>精選作品集</h2>
     <p class="portfolio-intro-text">職人匠心打造，收錄凱勤廚具於各溫馨住宅的實績淬鍊。</p>
     
-    <div class="product-grid">
-      
-      <div class="product-card">
-        <img src="https://images.unsplash.com/photo-1556911220-e15b29be8c8f?q=80&w=600" alt="台北大安區實績" class="product-img">
-        <div class="product-info">
-          <h3>台北大安 E 宅 | 現代內斂奢華廚房</h3>
-          <p>以霧面黑門板搭配歐洲進口頂級陶板檯面，流暢的隱形 C 型把手勾勒出極簡現代線條。</p>
-          <span class="project-tag">頂級陶板系列</span>
-        </div>
-      </div>
-      <div class="product-card">
-        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=600" alt="新北板橋實績" class="product-img">
-        <div class="product-info">
-          <h3>新北板橋 H 宅 | 工業風品味烹飪舞台</h3>
-          <p>精選 1.2mm 亂紋不鏽鋼檯面，絲滑的金屬手工質地耐磨抗腐蝕，完美演繹高雅工業風。</p>
-          <span class="project-tag">工藝不鏽鋼系列</span>
-        </div>
-      </div>
-      <div class="product-card">
-        <img src="https://images.unsplash.com/photo-1565183997392-2f6f122e5912?q=80&w=600" alt="台北信義區實績" class="product-img">
-        <div class="product-info">
-          <h3>台北信義建案 | 尊榮一體成型美學</h3>
-          <p>無縫優質人造石全面包覆，易清理且全防污，為高檔豪宅打造完美的無瑕烹飪空間。</p>
-          <span class="project-tag">職人人造石系列</span>
-        </div>
-      </div>
-      </div>
+    <div class="product-grid" id="portfolio-container"></div>
   </section>
 
   <footer class="custom-footer">
@@ -126,7 +137,7 @@
   </footer>
 
   <style>
-    /* 這裡同步套用與首頁相同的頁尾樣式，維持視覺一致 */
+    /* 頁尾基本樣式 */
     .custom-footer {
       background-color: #222222;
       color: #cccccc;
@@ -265,6 +276,29 @@
       }
     }
   </style>
+
+  <script>
+    // 未來要狂加新照片，只需依樣畫葫蘆在下面這一行一行補上去：
+    const imagesData = [
+      { src: "https://images.unsplash.com/photo-1556911220-e15b29be8c8f?q=80&w=600", location: "台北大安" },
+      { src: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=600", location: "新北板橋" },
+      { src: "https://images.unsplash.com/photo-1565183997392-2f6f122e5912?q=80&w=600", location: "台北信義" },
+      // 新照片範例（把前面雙斜線拿掉就可以用）：
+      // { src: "這裡放第四張照片網址.jpg", location: "台中西屯" },
+    ];
+
+    // 以下是自動把資料渲染到網頁上的程式，不用修改它
+    const container = document.getElementById('portfolio-container');
+    imagesData.forEach(item => {
+      const card = document.createElement('div');
+      card.className = 'gallery-card';
+      card.innerHTML = `
+        <img src="${item.src}" alt="${item.location}實績" class="gallery-img">
+        <div class="gallery-mask"><span>${item.location}</span></div>
+      `;
+      container.appendChild(card);
+    });
+  </script>
 
 </body>
 </html>
