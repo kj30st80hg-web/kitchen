@@ -11,16 +11,35 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css">
   
   <style>
-    /*作品集專屬佈局微調，避免被上方固定導覽列遮擋 */
+    /* 🛠️ 核心修正：限制主區塊最大寬度，讓文字與圖片完美靠攏，不再散開 */
     .portfolio-page-section {
-      padding-top: 130px; 
+      padding-top: 140px; 
+      max-width: 1200px;    /* 限制與頁尾相同的 1200px 高級感寬度 */
+      margin: 0 auto;       /* 確保整個區塊在螢幕正中間 */
+      padding-left: 20px;   /* 留白避免貼邊 */
+      padding-right: 20px;  /* 留白避免貼邊 */
+      text-align: center;   /* 讓標題與簡介文字置中 */
     }
 
-    /* 核心修改：將作品網格調整為一排三個 ==================== */
+    /* 調整標題與簡介的間距，讓排版更好看 */
+    .portfolio-page-section h2 {
+      font-size: 28px;
+      margin-bottom: 15px;
+      color: #222;
+      letter-spacing: 2px;
+    }
+
+    .portfolio-intro-text {
+      font-size: 16px;
+      color: #666;
+      margin-bottom: 45px; /* 與下方圖片網格拉開適當距離 */
+    }
+
+    /* 作品網格：一排三個，緊湊不鬆散 */
     .product-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr); /* 從原本的 2 改為 3 ==================== */
-      gap: 30px; /* 卡片間距保持不變 */
+      grid-template-columns: repeat(3, 1fr); 
+      gap: 30px; 
     }
 
     /* 高級感圖片藝廊卡片樣式 */
@@ -28,31 +47,32 @@
       position: relative;
       overflow: hidden;
       border-radius: 8px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-      aspect-ratio: 4 / 3; /* 統一照片比例為 4:3，避免直圖橫圖跑版 */
+      box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+      aspect-ratio: 4 / 3; /* 統一照片比例為 4:3 */
       cursor: pointer;
-      display: block; /* 讓 <a> 標籤能撐開 */
+      display: block; 
     }
 
     .gallery-img {
       width: 100%;
       height: 100%;
-      object-fit: cover; /* 確保圖片不變形完美填滿 */
+      object-fit: cover; 
       transition: transform 0.5s ease;
     }
 
-    /* 滑鼠移上去時，照片微微放大，很有設計感 */
+    /* 滑鼠移上去時，照片微微放大（無任何文字與遮罩遮擋） */
     .gallery-card:hover .gallery-img {
-      transform: scale(1.08);
+      transform: scale(1.06);
     }
 
-    /* ✅ 這裡我移除了原本用來顯示「台北大安」的黑色半透明遮罩 CSS ==================== */
-    /* ✅ 這裡我移除了原本用來顯示「台北大安」的文字 CSS ==================== */
-
-    /* 針對手機版的響應式調整 */
+    /* 手機版與平板的響應式調整 */
     @media (max-width: 992px) {
+      .portfolio-page-section {
+        padding-top: 120px;
+      }
       .product-grid {
         grid-template-columns: repeat(2, 1fr); /* 平板尺寸改為一排兩個 */
+        gap: 20px;
       }
     }
     @media (max-width: 768px) {
@@ -76,7 +96,7 @@
     </ul>
   </nav>
 
-  <section class="product-section portfolio-page-section">
+  <section class="portfolio-page-section">
     <h2>精選作品集</h2>
     <p class="portfolio-intro-text">職人匠心打造，收錄凱勤廚具於各溫馨住宅的實績淬鍊。</p>
 
@@ -132,14 +152,13 @@
   </footer>
 
   <style>
-    /* 這裡同步套用與首頁相同的頁尾樣式，維持視覺一致 */
     .custom-footer {
       background-color: #222222;
       color: #cccccc;
       padding: 50px 20px 20px 20px;
       font-family: "Helvetica Neue", Helvetica, Arial, "PingFang TC", "Hiragino Sans GB", "Microsoft JhengHei", sans-serif;
       letter-spacing: 1px;
-      margin-top: 60px;
+      margin-top: 80px;
     }
 
     .footer-container {
@@ -275,33 +294,31 @@
   <script src="https://cdn.jsdelivr.net/gh/mcstudios/glightbox/dist/js/glightbox.min.js"></script>
   
   <script>
-    // 為了讓代碼更快捷，我預設多幫您加了一張Unsplash的圖來展示一排三個的效果，
-    // 未來要狂加新照片，只需依樣畫葫蘆補在下面陣列即可：
+    // 照片資料庫：您可以自由在這裡替換或新增您廚具實績的圖片網址
     const imagesData = [
       { src: "https://images.unsplash.com/photo-1556911220-e15b29be8c8f?q=80&w=600", location: "台北大安" },
       { src: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=600", location: "新北板橋" },
       { src: "https://images.unsplash.com/photo-1565183997392-2f6f122e5912?q=80&w=600", location: "台北信義" },
-      // 新照片範例
-      { src: "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?q=80&w=600", location: "台中西屯" },
+      { src: "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?q=80&w=600", location: "台中西屯" }
     ];
 
-    // 以下是自動把資料渲染到網頁上的程式，已更新 HTML 結構以實現點擊放大，並移除了 Hover 文字層
+    // 動態渲染 HTML
     const container = document.getElementById('portfolio-container');
     imagesData.forEach(item => {
-      // 這裡非常快捷，不需要寫那種長長的簡介代碼，只要丟入圖片網址和地區即可
       cardHtml = `
-        <a href="${item.src}" class="gallery-card glightbox" data-gallery="gallery">
+        <a href="${item.src}" class="gallery-card glightbox" data-gallery="kitchen-portfolio">
           <img src="${item.src}" alt="${item.location}實績" class="gallery-img">
-          </a>
+        </a>
       `;
-      // 將 HTML 字符串轉換為 DOM 元素並插入容器末尾
       container.insertAdjacentHTML('beforeend', cardHtml);
     });
 
-    // 初始化 GLightbox 燈箱，讓圖片點擊能放大
+    // 初始化 GLightbox，並修正燈箱全螢幕造成的排版留白
     const lightbox = GLightbox({
-      loop: true,       // 允許左右循環切換照片
-      draggable: true, // 支援手機上滑動切換
+      loop: true,       
+      draggable: true,
+      width: "auto",      /* 自動根據圖片寬度縮放燈箱容器 */
+      height: "auto"      /* 自動根據圖片高度縮放燈箱容器 */
     });
   </script>
 
