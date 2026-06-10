@@ -8,66 +8,63 @@
   font-family: "Helvetica Neue", Arial, "Noto Sans TC", sans-serif;
 }
 
-/* 強制全網頁防止橫向溢出 */
+/* 核心：雙重保險！全面禁止網頁產生橫向捲軸 */
 html, body {
-  width: 100%;
-  overflow-x: hidden;
+  width: 100% !important;
+  max-width: 100% !important;
+  overflow-x: hidden !important;
   background-color: #fcfcfc;
   color: #333;
   line-height: 1.6;
 }
 
 /* ==========================================================================
-   🌐 導覽列 (Navbar) - 桌機預設版
+   🌐 導覽列 (Navbar) - 桌機版
    ========================================================================== */
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 15px 40px;           /* 縮減上下間距，完美搭配大 LOGO */
-  flex-wrap: nowrap;            /* 桌機強迫留在同一行，絕對不往下掉 */
+  padding: 15px 40px;
+  flex-wrap: nowrap;
   background-color: #fff;
-  border-bottom: 1px solid #eee;  /* 質感淺灰下襯線 */
+  border-bottom: 1px solid #eee;
   width: 100%;
 }
 
-/* 控管 LOGO 連結的外框 */
 .logo-link {
   display: flex;
   align-items: center;
-  flex-shrink: 0;                 /* 確保 LOGO 寬度不會被擠壓變形 */
+  flex-shrink: 0;
 }
 
-/* 控制 LOGO 圖片大小：維持您喜愛的大氣尺寸 */
 .logo-img {
-  height: 120px;                   /* 維持大氣尺寸，且不推擠右側文字 */
-  width: auto;                     /* 寬度隨比例縮放，絕對不變形 */
+  height: 120px;
+  width: auto;
   display: block;
   max-width: 100%;
 }
 
-/* 右側選單文字外框 */
 .nav-links {
   display: flex;
   list-style: none;
-  gap: 30px;                      /* 每個分頁按鈕之間的固定間距 */
-  flex-shrink: 0;                 /* 強迫選單絕對不能被擠到下一行 */
+  gap: 30px;
+  flex-shrink: 0;
   margin: 0;
   padding: 0;
 }
 
-/* 右側選單文字本身 */
 .nav-links a {
   text-decoration: none;
-  color: #333;                    /* 顏色加深，更有高級感 */
-  font-weight: bold;              /* 加粗文字，與左側大 LOGO 平衡 */
-  font-size: 18px;                /* 改大後的精緻字體尺寸 */
+  color: #333;
+  font-weight: bold;
+  font-size: 18px;
   transition: color 0.3s;
-  white-space: nowrap;            /* 防止單個文字按鈕內部斷行 */
+  white-space: nowrap;
 }
 
 .nav-links a:hover {
-  color: #004d80;                 /* 滑過去時變成與 LOGO 一致的經典深藍色 */
+  color: #004d80;
 }
 
 /* ==========================================================================
@@ -138,7 +135,7 @@ html, body {
 
 .product-grid {
   display: grid;
-  /* 修正 minmax，避免 350px 在小手機上直接爆版（如 iPhone SE 寬度僅 320px） */
+  /* 安全牌：把 minmax 改成 280px，這樣絕對不會擠爆 320px 的舊手機 */
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 40px;
 }
@@ -156,7 +153,6 @@ html, body {
   box-shadow: 0 10px 20px rgba(0,0,0,0.05);
 }
 
-/* 商品圖片預留區 */
 .product-img-placeholder {
   height: 250px;
   background-color: #d1d5db;
@@ -199,7 +195,6 @@ html, body {
   padding-top: 15px;
 }
 
-/* 讓上傳的圖片完美符合格子大小，並帶有圓角 */
 .product-img {
   width: 100%;
   height: 250px;
@@ -208,68 +203,56 @@ html, body {
 }
 
 /* ==========================================================================
-   📱 響應式手機版優化 (RWD OVERRIDES - 768px 以下自動啟用)
+   📱 響應式手機版優化 (RWD OVERRIDES - 加上 !important 強制覆蓋)
    ========================================================================== */
 @media (max-width: 768px) {
   
-  /* 1. 導覽列：解開強迫不換行的枷鎖，改為垂直置中置底，避免爆開 */
   .navbar {
-    flex-direction: column;
-    padding: 20px 15px;
-    gap: 15px;
-    text-align: center;
+    flex-direction: column !important;
+    padding: 20px 15px !important;
+    gap: 15px !important;
+    text-align: center !important;
   }
 
-  /* 手機版適度縮小 LOGO 高度，精緻不笨重，且絕不撐破螢幕 */
+  /* 手機版 LOGO 強制縮小，防爆版 */
   .logo-img {
-    height: 70px; 
+    height: 65px !important; 
+    width: auto !important;
   }
 
-  /* 讓選單文字可以自由橫向排列或自動折行，並縮小間距 */
   .nav-links {
-    flex-shrink: 1;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 15px 20px; /* 上下間距 15px，左右間距 20px */
+    flex-shrink: 1 !important;
+    justify-content: center !important;
+    flex-wrap: wrap !important;
+    gap: 12px 15px !important;
   }
 
   .nav-links a {
-    font-size: 15px; /* 稍微縮小字體以符合手機螢幕比例 */
+    font-size: 15px !important;
   }
 
-  /* 2. 主視覺橫幅：調整高度與文字大小，防止文字疊在一起 */
   .hero-section {
-    height: 50vh; /* 手機版稍微矮一點點，視覺更集中 */
-    padding: 0 15px;
+    height: 50vh !important;
+    padding: 0 15px !important;
   }
 
   .hero-content h1 {
-    font-size: 26px; /* 縮小大標題（例如「打造內斂奢華的烹飪舞台」） */
-    line-height: 1.4;
-    margin-bottom: 10px;
+    font-size: 24px !important; /* 再縮小一點，確保「打造內斂奢華的烹飪舞台」單行不撞字 */
+    line-height: 1.4 !important;
+    margin-bottom: 10px !important;
   }
 
   .hero-content p {
-    font-size: 14px;
-    margin-bottom: 20px;
-  }
-  
-  .btn-primary {
-    padding: 10px 24px;
-    font-size: 14px;
+    font-size: 13px !important;
+    margin-bottom: 20px !important;
   }
 
-  /* 3. 商品展示區：調整貼邊間距 */
   .product-section {
-    padding: 40px 15px;
-  }
-
-  .product-section h2 {
-    font-size: 22px;
-    margin-bottom: 30px;
+    padding: 40px 15px !important;
   }
 
   .product-grid {
-    gap: 25px; /* 縮減卡片之間的空隙 */
+    grid-template-columns: 1fr !important; /* 手機版直接強制一欄排列 */
+    gap: 25px !important;
   }
 }
