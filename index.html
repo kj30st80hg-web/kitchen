@@ -11,177 +11,176 @@
   
   <style>
     /* ════════════════════════════════════════════════════════════
-       🛠️ 導覽列與全域基礎防錯樣式
+       🛠️ 導覽列與全域基礎防錯樣式（強制覆蓋外部 CSS 踩腳問題）
        ════════════════════════════════════════════════════════════ */
-    /* 確保導覽列排版正常，不依賴外部檔案 */
+    /* 確保導覽列排版正常 */
     .navbar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 15px 40px;
-      background-color: #ffffff;
-      border-bottom: 1px solid #eeeeee;
+      display: flex !important;
+      justify-content: space-between !important;
+      align-items: center !important;
+      padding: 15px 40px !important;
+      background-color: #ffffff !important;
+      border-bottom: 1px solid #eeeeee !important;
     }
 
     .nav-links {
-      display: flex;
-      gap: 25px;
-      list-style: none;
+      display: flex !important;
+      gap: 25px !important;
+      list-style: none !important;
     }
 
     .nav-links a {
-      text-decoration: none;
-      color: #333333;
-      font-size: 15px;
-      font-weight: 500;
+      text-decoration: none !important;
+      color: #333333 !important;
+      font-size: 15px !important;
+      font-weight: 500 !important;
     }
 
-    /* 🎯 核心修改：Logo 完全放大 */
+    /* 🎯 核心修改 1：Logo 強制放大（加 !important 阻擋外部樣式壓低） */
     .logo-img {
-      height: 65px; /* 桌機版 Logo 明顯放大，突顯品牌 */
-      width: auto;
-      display: block;
-      object-fit: contain;
+      height: 65px !important; 
+      width: auto !important;
+      display: block !important;
+      object-fit: contain !important;
     }
 
     /* ════════════════════════════════════════════════════════════
-       🖼️ 主視覺首頁大圖區塊（桌機版精簡縮小）
+       🖼️ 核心修改 2：主視覺首頁大圖區塊（縮減高度與上下留白）
        ════════════════════════════════════════════════════════════ */
     .hero-section {
-      background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('https://i.meee.com.tw/image_d3433b.jpg');
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-      padding: 100px 20px; /* 降低桌機版上下留白，讓大圖高度縮小 */
-      text-align: center;
-      color: #ffffff;
+      background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('https://i.meee.com.tw/image_d3433b.jpg') !important;
+      background-size: cover !important;
+      background-position: center !important;
+      background-repeat: no-repeat !important;
+      padding: 100px 20px !important; /* 縮減桌機版的上下長度 */
+      text-align: center !important;
+      color: #ffffff !important;
     }
 
     .hero-content h1 {
-      font-size: 38px;
-      font-weight: 700;
-      margin-bottom: 15px;
-      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
-      letter-spacing: 2px;
+      font-size: 38px !important;
+      font-weight: 700 !important;
+      margin-bottom: 15px !important;
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5) !important;
+      letter-spacing: 2px !important;
     }
 
     .hero-content p {
-      font-size: 16px;
-      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
-      letter-spacing: 1px;
+      font-size: 16px !important;
+      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5) !important;
+      letter-spacing: 1px !important;
     }
 
     /* ════════════════════════════════════════════════════════════
        📦 精選作品產品卡片區塊
        ════════════════════════════════════════════════════════════ */
     .product-section {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 50px 20px;
+      max-width: 1200px !important;
+      margin: 0 auto !important;
+      padding: 50px 20px !important;
     }
 
     .product-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 40px;
+      display: grid !important;
+      grid-template-columns: repeat(2, 1fr) !important;
+      gap: 40px !important;
     }
 
     .product-card {
-      background: #ffffff;
-      border-radius: 12px;
-      overflow: hidden;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      background: #ffffff !important;
+      border-radius: 12px !important;
+      overflow: hidden !important;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05) !important;
+      transition: transform 0.3s ease, box-shadow 0.3s ease !important;
     }
 
     .product-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+      transform: translateY(-5px) !important;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1) !important;
     }
 
     .product-img {
-      width: 100%;
-      aspect-ratio: 16 / 10;
-      object-fit: cover;
-      display: block;
+      width: 100% !important;
+      aspect-ratio: 16 / 10 !important;
+      object-fit: cover !important;
+      display: block !important;
     }
 
     .product-info {
-      padding: 30px;
+      padding: 30px !important;
     }
 
     .product-info h3 {
-      font-size: 22px;
-      margin-bottom: 12px;
-      color: #222;
-      letter-spacing: 1px;
+      font-size: 22px !important;
+      margin-bottom: 12px !important;
+      color: #222 !important;
+      letter-spacing: 1px !important;
     }
 
     .product-info p {
-      font-size: 15px;
-      color: #666;
-      line-height: 1.6;
+      font-size: 15px !important;
+      color: #666 !important;
+      line-height: 1.6 !important;
     }
 
     /* ════════════════════════════════════════════════════════════
        📱 RWD 手機與平板變形優化
        ════════════════════════════════════════════════════════════ */
     @media (max-width: 992px) {
-      .product-section { padding: 40px 20px; }
-      .product-grid { gap: 25px; }
-      .product-info { padding: 20px; }
+      .product-section { padding: 40px 20px !important; }
+      .product-grid { gap: 25px !important; }
+      .product-info { padding: 20px !important; }
     }
 
     /* 【標準智慧型手機環境】寬度 768px 以下 */
     @media (max-width: 768px) {
-      /* 1. 導覽列排版自適應優化，防止擠壓變形 */
+      /* 手機版導覽列排版自適應 */
       .navbar {
-        flex-direction: column;
-        gap: 12px;
-        padding: 15px 10px;
+        flex-direction: column !important;
+        gap: 12px !important;
+        padding: 15px 10px !important;
       }
       
       .nav-links {
-        gap: 15px;
-        padding-left: 0;
+        gap: 15px !important;
+        padding-left: 0 !important;
       }
 
-      /* 🎯 手機版 Logo 完美放大 */
+      /* 🎯 手機版 Logo 完美放大 (加強權限) */
       .logo-img {
-        height: 52px; 
+        height: 52px !important; 
       }
 
-      /* 🎯 核心修改：大圖高度大幅縮小調小，不佔版面 */
+      /* 🎯 大圖高度在手機版上大幅縮小變矮 */
       .hero-section {
-        padding: 45px 15px; /* 縮減內距 */
-        background-position: center center;
+        padding: 45px 15px !important; 
       }
       
-      /* 縮小手機版文字大小，完美塞入變小的大圖內 */
+      /* 縮小手機版文字大小，完美塞入縮小的大圖 */
       .hero-content h1 {
         font-size: 22px !important; 
-        margin-bottom: 8px;
-        line-height: 1.3;
+        margin-bottom: 8px !important;
+        line-height: 1.3 !important;
       }
       .hero-content p {
         font-size: 13px !important;
-        padding: 0 5px;
-        line-height: 1.4;
+        padding: 0 5px !important;
+        line-height: 1.4 !important;
       }
 
-      /* 3. 卡片改為一排一個 */
+      /* 卡片改為一排一個 */
       .product-grid {
-        grid-template-columns: 1fr;
-        gap: 25px;
+        grid-template-columns: 1fr !important;
+        gap: 25px !important;
       }
 
       .product-info h3 {
-        font-size: 18px; 
-        margin-bottom: 6px;
+        font-size: 18px !important; 
+        margin-bottom: 6px !important;
       }
       .product-info p {
-        font-size: 13px;
-        line-height: 1.5;
+        font-size: 13px !important;
+        line-height: 1.5 !important;
       }
     }
   </style>
@@ -294,140 +293,140 @@
 
   <style>
     .custom-footer {
-      background-color: #222222;
-      color: #cccccc;
-      padding: 50px 20px 20px 20px;
-      font-family: "Helvetica Neue", Helvetica, Arial, "PingFang TC", "Hiragino Sans GB", "Microsoft JhengHei", sans-serif;
-      letter-spacing: 1px;
-      margin-top: 60px;
+      background-color: #222222 !important;
+      color: #cccccc !important;
+      padding: 50px 20px 20px 20px !important;
+      font-family: "Helvetica Neue", Helvetica, Arial, "PingFang TC", "Hiragino Sans GB", "Microsoft JhengHei", sans-serif !important;
+      letter-spacing: 1px !important;
+      margin-top: 60px !important;
     }
 
     .footer-container {
-      max-width: 1200px;
-      margin: 0 auto;
+      max-width: 1200px !important;
+      margin: 0 auto !important;
     }
 
     .footer-nav {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 35px;
-      margin-bottom: 25px;
+      display: flex !important;
+      justify-content: center !important;
+      flex-wrap: wrap !important;
+      gap: 35px !important;
+      margin-bottom: 25px !important;
     }
 
     .footer-nav a {
-      color: #ffffff;
-      text-decoration: none;
-      font-size: 15px;
-      font-weight: 500;
-      transition: color 0.3s ease;
+      color: #ffffff !important;
+      text-decoration: none !important;
+      font-size: 15px !important;
+      font-weight: 500 !important;
+      transition: color 0.3s ease !important;
     }
 
     .footer-nav a:hover {
-      color: #0070bb;
+      color: #0070bb !important;
     }
 
     .footer-divider {
-      border: 0;
-      height: 1px;
-      background: rgba(255, 255, 255, 0.1);
-      margin-bottom: 35px;
+      border: 0 !important;
+      height: 1px !important;
+      background: rgba(255, 255, 255, 0.1) !important;
+      margin-bottom: 35px !important;
     }
 
     .footer-content {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 30px;
-      margin-bottom: 40px;
+      display: flex !important;
+      justify-content: space-between !important;
+      align-items: center !important;
+      flex-wrap: wrap !important;
+      gap: 30px !important;
+      margin-bottom: 40px !important;
     }
 
     .footer-info {
-      flex: 1;
-      min-width: 280px;
+      flex: 1 !important;
+      min-width: 280px !important;
     }
 
     .company-name {
-      color: #ffffff;
-      font-size: 18px;
-      margin-bottom: 15px;
-      font-weight: bold;
+      color: #ffffff !important;
+      font-size: 18px !important;
+      margin-bottom: 15px !important;
+      font-weight: bold !important;
     }
 
     .footer-info p {
-      font-size: 14px;
-      color: #aaaaaa;
-      margin: 8px 0;
-      display: flex;
-      align-items: center;
-      gap: 10px;
+      font-size: 14px !important;
+      color: #aaaaaa !important;
+      margin: 8px 0 !important;
+      display: flex !important;
+      align-items: center !important;
+      gap: 10px !important;
     }
 
     .footer-info p i {
-      color: #ffffff;
-      width: 16px;
-      text-align: center;
+      color: #ffffff !important;
+      width: 16px !important;
+      text-align: center !important;
     }
 
     .footer-socials {
-      display: flex;
-      gap: 18px;
-      align-items: center;
+      display: flex !important;
+      gap: 18px !important;
+      align-items: center !important;
     }
 
     .social-icon-btn {
-      display: inline-block;
-      width: 44px;
-      height: 44px;
-      border: 1.5px solid #ffffff;
-      border-radius: 50%;
-      color: #ffffff;
-      font-size: 18px;
-      text-decoration: none;
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-      background: transparent;
-      box-sizing: border-box;
-      vertical-align: middle;
-      text-align: center;
+      display: inline-block !important;
+      width: 44px !important;
+      height: 44px !important;
+      border: 1.5px solid #ffffff !important;
+      border-radius: 50% !important;
+      color: #ffffff !important;
+      font-size: 18px !important;
+      text-decoration: none !important;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+      background: transparent !important;
+      box-sizing: border-box !important;
+      vertical-align: middle !important;
+      text-align: center !important;
     }
 
     .social-icon-btn i {
-      line-height: 41px;
-      display: block;
+      line-height: 41px !important;
+      display: block !important;
     }
 
     .social-icon-btn:hover {
-      background-color: #ffffff;
-      color: #222222;
-      transform: translateY(-4px);
-      box-shadow: 0 5px 15px rgba(255, 255, 255, 0.2);
+      background-color: #ffffff !important;
+      color: #222222 !important;
+      transform: translateY(-4px) !important;
+      box-shadow: 0 5px 15px rgba(255, 255, 255, 0.2) !important;
     }
 
     .footer-bottom {
-      text-align: center;
-      font-size: 12px;
-      color: #666666;
-      border-top: 1px solid rgba(255, 255, 255, 0.05);
-      padding-top: 20px;
-      margin-top: 20px;
+      text-align: center !important;
+      font-size: 12px !important;
+      color: #666666 !important;
+      border-top: 1px solid rgba(255, 255, 255, 0.05) !important;
+      padding-top: 20px !important;
+      margin-top: 20px !important;
     }
 
     @media (max-width: 768px) {
       .footer-content {
-        flex-direction: column;
-        text-align: center;
-        align-items: center;
+        flex-direction: column !important;
+        text-align: center !important;
+        align-items: center !important;
       }
       .footer-nav {
-        gap: 20px;
+        gap: 20px !important;
       }
       .footer-info p {
-        justify-content: center;
+        justify-content: center !important;
       }
       .footer-socials {
-        justify-content: center;
-        margin-top: 10px;
+        justify-content: center !important;
+        margin-top: 10px !important;
       }
     }
   </style>
