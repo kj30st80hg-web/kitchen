@@ -27,14 +27,12 @@ html, body {
     padding: 20px 40px; 
     background-color: #ffffff;
     
-    /* 🎯 橫幅隔開與置頂核心設定 */
-    position: fixed;       /* 固定在最上方 */
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    z-index: 2000;         /* 確保層級最高，不被任何卡片或大圖遮擋 */
+    z-index: 2000;
     
-    /* 🎯 隔開導覽列的視覺橫幅設計：精緻下邊框 + 霧面立體陰影 */
     border-bottom: 2px solid #e5e5e5;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); 
 }
@@ -45,7 +43,6 @@ html, body {
     text-decoration: none;
 }
 
-/* 桌機版 Logo 高度設定：霸氣大比例 */
 .logo-img {
     height: 140px; 
     width: auto;
@@ -53,10 +50,9 @@ html, body {
     object-fit: contain;
 }
 
-/* 導覽列連結清單 - 基底排版 */
 .nav-links {
     display: flex;
-    gap: 40px;          /* 🎯 配合字體變大，將按鈕間距從 35px 稍微加寬到 40px */
+    gap: 40px;
     list-style: none;
     align-items: center;
     margin: 0;
@@ -64,17 +60,17 @@ html, body {
 }
 
 .nav-links li {
-    position: relative; /* 讓下拉選單能定位在 li 下方 */
+    position: relative;
     display: flex;
     align-items: center;
-    padding: 10px 0;    /* 稍微擴大滑鼠感應的垂直範圍，移動時更流暢 */
+    padding: 10px 0;
 }
 
 .nav-links a, 
 .nav-links label {
     text-decoration: none;
     color: #333333;
-    font-size: 20px;    /* 🎯 字體大小從 17px 放大到 20px */
+    font-size: 20px;
     font-weight: 500;
     transition: color 0.3s ease;
     white-space: nowrap;
@@ -87,9 +83,6 @@ html, body {
     color: #0056b3;
 }
 
-/* ==========================================================================
-   🎯 智能家電下拉選單核心控制區 (桌機自動懸停 Hover 展開)
-   ========================================================================== */
 .nav-links input[type="checkbox"] {
     display: none !important;
 }
@@ -137,19 +130,16 @@ html, body {
 }
 
 /* ==========================================================================
-   3. 首頁大圖區塊 (Hero Section) ── 修正：加上 padding-top 避開固定導覽列
+   3. 首頁大圖區塊 (Hero Section)
    ========================================================================== */
 .hero-section {
     position: relative;
     width: 100%;
-    min-height: 380px;      /* 🎯 最小高度已調整為 380px */
-    
-    /* 🎯 核心修復：增加 padding-top 將圖片往下推，避開 position: fixed 的導覽列 */
+    min-height: 380px;
     padding-top: 300px; 
     padding-bottom: 80px; 
     padding-left: 20px;
     padding-right: 20px;
-    
     background: url(https://i.meee.com.tw/R1R8Mmc.jpg);
     background-size: cover;
     background-position: center center;
@@ -409,25 +399,25 @@ html, body {
         font-size: 16px;
     }
 }
+
 /* ==========================================================================
    7. 側邊欄與內容佈局修正 (絕對緊湊與固定)
    ========================================================================== */
 .appliance-container {
     display: flex;
-    gap: 20px;          /* 縮小間距，不再空洞 */
+    gap: 20px;
     max-width: 1200px;
     margin: 40px auto;
     padding: 0 20px;
     align-items: flex-start;
-    position: relative; /* 確保內容區的參考基準正確 */
+    position: relative;
 }
 
-/* 側邊欄：使用 sticky 實現「隨滾動固定在左側」且「不會被拉扯」 */
 .appliance-sidebar {
-    width: 200px;       /* 縮小寬度，讓版面更精緻 */
+    width: 200px;
     flex-shrink: 0;
     position: sticky;
-    top: 150px;         /* 距離頂部固定高度 */
+    top: 150px;
     height: calc(100vh - 180px);
     overflow-y: auto;
     background: #fff;
@@ -437,13 +427,11 @@ html, body {
     z-index: 10;
 }
 
-/* 右側內容區：移除 margin-left 強制推擠，改由 flex 自動分配 */
 .appliance-content {
     flex: 1;
-    min-width: 0;       /* 防止內容溢出 */
+    min-width: 0;
 }
 
-/* RWD 手機版設定：側邊欄變回一般排版 */
 @media (max-width: 768px) {
     .appliance-container {
         flex-direction: column;
