@@ -145,7 +145,7 @@ html, body {
     min-height: 380px;      /* 🎯 最小高度已調整為 380px */
     
     /* 🎯 核心修復：增加 padding-top 將圖片往下推，避開 position: fixed 的導覽列 */
-    padding-top: 180px; 
+    padding-top: 300px; 
     padding-bottom: 80px; 
     padding-left: 20px;
     padding-right: 20px;
