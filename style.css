@@ -447,3 +447,13 @@ html, body {
         margin-bottom: 20px;
     }
 }
+/* 修復 sticky 因 body 的 overflow-x: hidden 而失效的問題 */
+html, body {
+    overflow-x: hidden;
+    overflow-y: visible !important; /* 確保 Y 軸不會被隱藏 */
+}
+
+/* 強制讓包含側邊欄的容器對 sticky 友善 */
+.appliance-container {
+    overflow: visible !important; 
+}
