@@ -24,7 +24,7 @@ html, body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 40px; /* 稍微加大上下間距，給大 Logo 完美的呼吸空間 */
+    padding: 20px 40px; /* 給大 Logo 完美的呼吸空間 */
     background-color: #ffffff;
     border-bottom: 1px solid #eeeeee;
     width: 100%;
@@ -32,14 +32,13 @@ html, body {
     z-index: 1000;
 }
 
-/* 🎯 Logo 放大核心：解除外層限制，讓連結與圖片同步放大 */
 .logo-link {
     display: flex;
     align-items: center;
     text-decoration: none;
 }
 
-/* 桌機版 Logo 高度設定：直接給他霸氣的大比例，寬度會依比例完美縮放 */
+/* 桌機版 Logo 高度設定：霸氣大比例 */
 .logo-img {
     height: 95px; 
     width: auto;
@@ -47,39 +46,94 @@ html, body {
     object-fit: contain;
 }
 
-/* 導覽列連結清單 - 規規矩矩的橫向排列 */
+/* 導覽列連結清單 - 基底排版 */
 .nav-links {
     display: flex;
-    gap: 35px; /* 加大連結之間的間距，更大器 */
+    gap: 35px; 
     list-style: none;
     align-items: center;
     margin: 0;
     padding: 0;
 }
 
-.nav-links a {
+.nav-links li {
+    position: relative; /* 讓下拉選單能定位在 li 下方 */
+    display: flex;
+    align-items: center;
+}
+
+.nav-links a, 
+.nav-links label {
     text-decoration: none;
     color: #333333;
-    font-size: 17px; /* 稍微放大字體，搭配大 Logo 的視覺比例 */
+    font-size: 17px; 
     font-weight: 500;
     transition: color 0.3s ease;
     white-space: nowrap;
     padding: 5px 0;
+    cursor: pointer;
 }
 
-.nav-links a:hover {
+.nav-links a:hover, 
+.nav-links label:hover {
     color: #0056b3;
 }
 
 /* ==========================================================================
-   3. 首頁大圖區塊 (Hero Section) ── 穩固的滿版背景圖與遮罩
+   🎯 智能家電下拉選單核心控制區 (解決列表問題)
+   ========================================================================== */
+/* 1. 隱藏原生醜醜的 checkbox 框 */
+.nav-links input[type="checkbox"] {
+    display: none !important;
+}
+
+/* 2. 桌機版下拉選單基礎樣式：預設隱藏、絕對定位在按鈕下方 */
+.nav-links .dropdown-content {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%); /* 居中對齊按鈕 */
+    background-color: #ffffff;
+    min-width: 220px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+    border-radius: 8px;
+    padding: 10px 0;
+    margin-top: 10px;
+    z-index: 1100;
+    border: 1px solid #eeeeee;
+}
+
+/* 下拉選單內的品牌連結項目 */
+.nav-links .dropdown-content a {
+    display: block;
+    padding: 10px 20px;
+    color: #444444;
+    font-size: 15px;
+    text-align: left;
+    white-space: nowrap;
+    transition: background 0.2s ease, color 0.2s ease;
+    width: 100%;
+}
+
+.nav-links .dropdown-content a:hover {
+    background-color: #f5f5f5;
+    color: #0056b3;
+}
+
+/* 🔥 核心觸發機制：當 checkbox 被勾選時，立即顯示下拉列表 */
+.nav-links input[type="checkbox"]:checked ~ .dropdown-content {
+    display: block !important;
+}
+
+/* ==========================================================================
+   3. 首頁大圖區塊 (Hero Section)
    ========================================================================== */
 .hero-section {
     position: relative;
     width: 100%;
-    min-height: 500px; /* 確保大圖有足夠高度撐開 */
+    min-height: 500px; 
     padding: 140px 20px;
-    /* 採用最高相容性的單一 background 寫法，合併透明遮罩與背景圖 */
     background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('https://i.meee.com.tw/image_d3433b.jpg');
     background-size: cover;
     background-position: center center;
@@ -304,7 +358,6 @@ html, body {
         padding: 20px 10px;
     }
     
-    /* 手機版 Logo 稍微縮小，維持精緻度不爆板 */
     .logo-img {
         height: 65px; 
     }
@@ -316,8 +369,26 @@ html, body {
         justify-content: center;
     }
     
-    .nav-links a {
+    .nav-links a, 
+    .nav-links label {
         font-size: 15px;
+    }
+
+    /* 手機版的下拉選單改為相對定位，點擊時直接向下推開排版，體驗最好 */
+    .nav-links .dropdown-content {
+        position: relative;
+        top: 0;
+        left: 0;
+        transform: none;
+        width: 100%;
+        box-shadow: none;
+        border: none;
+        background-color: #fafafa;
+        margin-top: 5px;
+    }
+    
+    .nav-links .dropdown-content a {
+        text-align: center;
     }
 
     .hero-section {
