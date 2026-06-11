@@ -40,7 +40,7 @@ html, body {
 
 /* 桌機版 Logo 高度設定：霸氣大比例 */
 .logo-img {
-    height: 95px; 
+    height: 140px; 
     width: auto;
     display: block;
     object-fit: contain;
