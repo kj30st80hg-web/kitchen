@@ -30,12 +30,14 @@ html, body {
     z-index: 1000;
 }
 
-/* 🎯 Logo 大小鎖定（對應 HTML 的 .logo-img class） */
+/* 🎯 Logo 大小鎖定：放大電腦版視覺感受 */
 .logo-img {
-    height: 60px !important; /* 電腦版完美高度 */
+    height: 85px !important;       /* 大幅拉高到 85px，讓文字清晰大氣 */
     width: auto !important;
+    max-width: 280px !important;    /* 限制最大寬度，給予兩側舒展空間 */
     display: block !important;
     object-fit: contain !important;
+    padding: 5px 0 !important;      /* 上下留一點點呼吸空間 */
 }
 
 /* 電腦版選單 */
@@ -127,9 +129,10 @@ html, body {
         padding-left: 0 !important;
     }
 
-    /* 🎯 手機版 Logo 大小微調，防擠壓 */
+    /* 🎯 手機版 Logo 同步大幅調大 */
     .logo-img {
-        height: 46px !important; 
+        height: 58px !important;     /* 從 46px 提升到 58px，防縮小看不清 */
+        max-width: 220px !important;
     }
 
     /* 🎯 手機版灰色區塊高度與文字縮小，絕不換行爆開 */
