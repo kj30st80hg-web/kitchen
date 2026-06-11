@@ -401,8 +401,9 @@ html, body {
 }
 
 /* ==========================================================================
-   7. 側邊欄與內容佈局修正 (絕對緊湊與固定)
+   7. 側邊欄與內容佈局修正 (修正 sticky 失效)
    ========================================================================== */
+/* 關鍵點 1：確保容器沒有 overflow: hidden 或 scroll */
 .appliance-container {
     display: flex;
     gap: 20px;
@@ -410,16 +411,17 @@ html, body {
     margin: 40px auto;
     padding: 0 20px;
     align-items: flex-start;
-    position: relative;
+    /* 移除所有 overflow 設定，若有的話請務必刪除 */
+    position: relative; 
 }
 
+/* 關鍵點 2：側邊欄必須有 top 屬性，且父層不能有 overflow: hidden */
 .appliance-sidebar {
     width: 200px;
     flex-shrink: 0;
     position: sticky;
-    top: 150px;
-    height: calc(100vh - 180px);
-    overflow-y: auto;
+    top: 150px; /* 這裡調整為 navbar 的高度 + 一點間距，這會讓它固定在 navbar 下方 */
+    height: fit-content; /* 改為 fit-content，讓高度隨內容自動調整，避免過長導致無法滾動 */
     background: #fff;
     padding: 20px;
     border: 1px solid #eee;
@@ -432,16 +434,16 @@ html, body {
     min-width: 0;
 }
 
+/* RWD 手機版設定 */
 @media (max-width: 768px) {
     .appliance-container {
         flex-direction: column;
     }
     .appliance-sidebar {
-        position: relative;
+        position: relative; /* 手機版取消固定 */
         top: 0;
         width: 100%;
         height: auto;
-        overflow: visible;
         margin-bottom: 20px;
     }
 }
