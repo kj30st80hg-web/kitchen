@@ -18,18 +18,25 @@ html, body {
 }
 
 /* ==========================================================================
-   2. 導覽列 Navbar (極致放大 Logo 與穩定導覽連結)
+   2. 導覽列 Navbar (置頂固定與分隔橫幅設定)
    ========================================================================== */
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 40px; /* 給大 Logo 完美的呼吸空間 */
+    padding: 20px 40px; 
     background-color: #ffffff;
-    border-bottom: 1px solid #eeeeee;
+    
+    /* 🎯 橫幅隔開與置頂核心設定 */
+    position: fixed;       /* 固定在最上方 */
+    top: 0;
+    left: 0;
     width: 100%;
-    position: relative;
-    z-index: 1000;
+    z-index: 2000;         /* 確保層級最高，不被任何卡片或大圖遮擋 */
+    
+    /* 🎯 隔開導覽列的視覺橫幅設計：精緻下邊框 + 霧面立體陰影 */
+    border-bottom: 2px solid #e5e5e5;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); 
 }
 
 .logo-link {
@@ -60,6 +67,7 @@ html, body {
     position: relative; /* 讓下拉選單能定位在 li 下方 */
     display: flex;
     align-items: center;
+    padding: 10px 0;    /* 稍微擴大滑鼠感應的垂直範圍，移動時更流暢 */
 }
 
 .nav-links a, 
@@ -80,7 +88,7 @@ html, body {
 }
 
 /* ==========================================================================
-   🎯 智能家電下拉選單核心控制區 (解決列表問題)
+   🎯 智能家電下拉選單核心控制區 (桌機自動懸停 Hover 展開)
    ========================================================================== */
 /* 1. 隱藏原生醜醜的 checkbox 框 */
 .nav-links input[type="checkbox"] {
@@ -96,11 +104,11 @@ html, body {
     transform: translateX(-50%); /* 居中對齊按鈕 */
     background-color: #ffffff;
     min-width: 220px;
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
     border-radius: 8px;
     padding: 10px 0;
-    margin-top: 10px;
-    z-index: 1100;
+    margin-top: 5px;             /* 縮減間距，防止滑鼠移過去的空隙中斷懸停 */
+    z-index: 2100;
     border: 1px solid #eeeeee;
 }
 
@@ -121,7 +129,14 @@ html, body {
     color: #0056b3;
 }
 
-/* 🔥 核心觸發機制：當 checkbox 被勾選時，立即顯示下拉列表 */
+/* ⚡【桌機專用懸停機制】滑鼠放到 <li> 上（包含字體與下拉列表本身）自動展開，移開自動收回 */
+@media (min-width: 769px) {
+    .nav-links li:hover .dropdown-content {
+        display: block !important;
+    }
+}
+
+/* 備用點擊機制：保留 checkbox 勾選觸發，確保最大相容性 */
 .nav-links input[type="checkbox"]:checked ~ .dropdown-content {
     display: block !important;
 }
@@ -133,7 +148,10 @@ html, body {
     position: relative;
     width: 100%;
     min-height: 500px; 
-    padding: 140px 20px;
+    
+    /* 🎯 置頂修正：因為導覽列固定了，用大 padding-top 把大圖往下推，防止頂部被導覽列吃掉 */
+    padding: 320px 20px 140px 20px; 
+    
     background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('https://i.meee.com.tw/image_d3433b.jpg');
     background-size: cover;
     background-position: center center;
@@ -353,9 +371,11 @@ html, body {
 
 @media (max-width: 768px) {
     .navbar {
+        position: relative; /* 手機版取消固定置頂，留給螢幕寶貴的空間 */
         flex-direction: column;
         gap: 15px;
         padding: 20px 10px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
     }
     
     .logo-img {
@@ -374,7 +394,7 @@ html, body {
         font-size: 15px;
     }
 
-    /* 手機版的下拉選單改為相對定位，點擊時直接向下推開排版，體驗最好 */
+    /* 手機版下拉選單改為相對定位，點擊點開，體驗最順手 */
     .nav-links .dropdown-content {
         position: relative;
         top: 0;
@@ -392,7 +412,7 @@ html, body {
     }
 
     .hero-section {
-        padding: 70px 15px; 
+        padding: 40px 15px; /* 手機版不需要推這麼高的 padding */
         min-height: 300px;
     }
     
