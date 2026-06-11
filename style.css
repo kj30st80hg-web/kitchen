@@ -150,7 +150,6 @@ html, body {
     min-height: 380px;      /* 🎯 最小高度已調整為 380px */
     padding: 200px 20px 80px 20px; 
     
-    /* 📢【要在哪裡插網域圖片？】請看下面這一行！ */
     /* 📢 請把下方括號內單引號裡的網址，直接換成你要呈現的廚具大圖連結 */
     background: url(https://i.meee.com.tw/R1R8Mmc.jpg);
     
@@ -410,64 +409,4 @@ html, body {
     
     .nav-links .dropdown-content a {
         text-align: center;
-        font-size: 16px;    /* 🎯 手機下拉選單字體 */
-    }
-
-    .hero-section {
-        padding: 40px 15px; /* 手機版不需要推這麼高的 padding */
-        min-height: 300px;
-    }
-    
-    .hero-content h1 {
-        font-size: 28px; 
-        margin-bottom: 10px;
-    }
-    
-    .hero-content p {
-        font-size: 15px;
-    }
-
-    .product-grid {
-        grid-template-columns: 1fr;
-        gap: 25px;
-    }
-
-    .footer-content {
-        flex-direction: column;
-        text-align: center;
-        align-items: center;
-    }
-    .footer-nav { gap: 20px; }
-    .footer-socials { justify-content: center; margin-top: 10px; }
-}
-/* 1. 確保導覽列在最上層，不被 hero 區塊遮擋 */
-.navbar {
-  position: relative; /* 或 fixed/sticky，視你的設計而定 */
-  z-index: 999;       /* 確保層級高於下方所有內容 */
-}
-
-/* 2. 把那個醜醜的 checkbox 框隱藏起來 */
-.dropdown-checkbox {
-  display: none;
-}
-
-/* 3. 讓 label 看起來像個可以點擊的按鈕 */
-.dropdown-label {
-  cursor: pointer;
-  display: inline-block;
-}
-
-/* 4. 下拉選單的基本設定（預設隱藏） */
-.dropdown-content {
-  display: none;      /* 預設先隱藏 */
-  position: absolute;
-  background-color: #ffffff;
-  min-width: 200px;
-  box-shadow: 0px 8px 16px rgba(0,0,0,0.15);
-  z-index: 1000;      /* 確保選單浮在最上面 */
-}
-
-/* 5. 關鍵：當 checkbox 被勾選時，顯示下方的下拉選單 */
-.dropdown-checkbox:checked ~ .dropdown-content {
-  display: block;
-}
+        font-size: 16px;    /*
