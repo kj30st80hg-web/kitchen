@@ -1,46 +1,53 @@
 /* ==========================================================================
-   1. 基礎設定與 Logo 放大優化
+   1. 全域基礎設定
    ========================================================================== */
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box; /* 核心修正：確保 padding 不會把網頁往外撐破 */
+    box-sizing: border-box;
     font-family: "Helvetica Neue", Arial, "Noto Sans TC", sans-serif;
 }
 
 html, body {
     width: 100%;
     max-width: 100%;
-    overflow-x: hidden; /* 徹底禁止手機版橫向滾動 */
+    overflow-x: hidden;
     background-color: #fcfcfc;
     color: #333;
     line-height: 1.6;
 }
 
-/* 導覽列整體設定 */
+/* ==========================================================================
+   2. 導覽列與選單結構優化（徹底防爆）
+   ========================================================================== */
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 40px; /* 內縮調整，防爆開 */
-    background-color: #fff;
-    border-bottom: 1px solid #eee;
+    padding: 18px 5%; /* 使用百分比內縮，適應各種螢幕寬度 */
+    background-color: #ffffff;
+    border-bottom: 1px solid #eeeeee;
     width: 100%;
     position: relative;
     z-index: 1000;
 }
 
-/* 🎯 Logo 大小鎖定：放大電腦版視覺感受 */
-.logo-img {
-    height: 85px !important;       /* 大幅拉高到 85px，讓文字清晰大氣 */
-    width: auto !important;
-    max-width: 280px !important;    /* 限制最大寬度，給予兩側舒展空間 */
-    display: block !important;
-    object-fit: contain !important;
-    padding: 5px 0 !important;      /* 上下留一點點呼吸空間 */
+/* 確保 Logo 的超連結容器不會壓迫到圖片 */
+.logo-link {
+    display: inline-block;
+    line-height: 0;
 }
 
-/* 電腦版選單 */
+/* 🎯 重新精準定位 Logo 大小：優雅大氣，不失真 */
+.logo-img {
+    height: 65px; /* 設定完美的電腦版視覺高度 */
+    width: auto;
+    display: block;
+    object-fit: contain;
+    transition: height 0.3s ease;
+}
+
+/* 電腦版導覽選單 */
 .nav-links {
     display: flex;
     gap: 32px;
@@ -50,10 +57,11 @@ html, body {
 
 .nav-links a {
     text-decoration: none;
-    color: #333;
+    color: #333333;
     font-size: 16px;
     font-weight: 500;
-    transition: color 0.3s;
+    transition: color 0.3s ease;
+    white-space: nowrap; /* 強制文字不換行 */
 }
 
 .nav-links a:hover {
@@ -61,22 +69,20 @@ html, body {
 }
 
 /* ==========================================================================
-   2. 首頁大圖區塊與文字比例優化
+   3. 首頁大圖區塊（Hero Section）
    ========================================================================== */
 .hero-section {
     position: relative;
     width: 100%;
-    padding: 140px 20px; /* 改用 padding 撐開高度，比固定 height 更不易變形 */
-    background: #999999 url('../images/hero-banner.jpg') no-repeat center center; /* 預設灰色背景 */
+    padding: 160px 20px; 
+    background: #999999 url('../images/hero-banner.jpg') no-repeat center center;
     background-size: cover;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
-    box-sizing: border-box;
 }
 
-/* 質感遮罩 */
 .hero-section::before {
     content: '';
     position: absolute;
@@ -84,21 +90,21 @@ html, body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.25);
+    background: rgba(0, 0, 0, 0.3); /* 稍微加深遮罩，襯托不鏽鋼與白緻廚具的質感 */
     z-index: 1;
 }
 
 .hero-content {
     position: relative;
     z-index: 2;
-    color: #fff;
+    color: #ffffff;
     width: 100%;
-    max-width: 800px; /* 限制寬度，防止文字拉得太長 */
+    max-width: 800px;
     padding: 0 20px;
 }
 
 .hero-content h1 {
-    font-size: 38px; /* 適中大小，不壓迫 */
+    font-size: 40px;
     font-weight: 700;
     letter-spacing: 2px;
     margin-bottom: 16px;
@@ -107,89 +113,51 @@ html, body {
 }
 
 .hero-content p {
-    font-size: 16px;
+    font-size: 17px;
     letter-spacing: 1px;
     text-shadow: 0 2px 8px rgba(0,0,0,0.5);
-    line-height: 1.5;
+    line-height: 1.6;
 }
 
 /* ==========================================================================
-   3. 手機版（RWD）極致優化
+   4. RWD 行動裝置自適應調整（768px 以下）
    ========================================================================== */
 @media (max-width: 768px) {
-    /* 手機版導覽列自適應排版 */
+    /* 手機版導覽列排版 */
     .navbar {
-        flex-direction: column !important;
-        gap: 12px !important;
-        padding: 15px 15px !important;
+        flex-direction: column;
+        gap: 14px;
+        padding: 15px 10px;
     }
 
     .nav-links {
-        gap: 16px !important;
-        padding-left: 0 !important;
+        gap: 16px;
+        padding-left: 0;
+        flex-wrap: wrap; /* 容許手機版標籤過多時優雅折行 */
+        justify-content: center;
+    }
+    
+    .nav-links a {
+        font-size: 14px;
     }
 
-    /* 🎯 手機版 Logo 同步大幅調大 */
+    /* 🎯 手機版 Logo 尺寸：在窄螢幕下依然清晰、不突兀 */
     .logo-img {
-        height: 58px !important;     /* 從 46px 提升到 58px，防縮小看不清 */
-        max-width: 220px !important;
+        height: 50px; 
     }
 
-    /* 🎯 手機版灰色區塊高度與文字縮小，絕不換行爆開 */
+    /* 手機版大圖區塊縮減高度 */
     .hero-section {
-        padding: 60px 15px !important;
+        padding: 80px 15px;
     }
     
     .hero-content h1 {
-        font-size: 22px !important; 
-        margin-bottom: 8px !important;
+        font-size: 24px; 
+        margin-bottom: 8px;
     }
 
     .hero-content p {
-        font-size: 13px !important;
-        line-height: 1.4 !important;
-    }
-
-    /* 智能家電：手機版品牌索引區塊 */
-    .brand-index-container {
-        width: 100%;
-        padding: 20px;
-        background-color: #fff;
-        border-radius: 8px;
-        box-shadow: 0 2px 12px rgba(0,0,0,0.05);
-        margin: 15px 0;
-    }
-
-    .brand-index-title {
-        font-size: 18px;
-        font-weight: 600;
-        padding-bottom: 10px;
-        border-bottom: 2px solid #333;
-        margin-bottom: 15px;
-    }
-
-    /* 泡泡標籤按鈕排列 */
-    .brand-tags-grid {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 10px;
-        justify-content: flex-start;
-    }
-
-    .brand-tag-btn {
-        padding: 8px 16px;
-        background-color: #f5f5f5;
-        border: 1px solid #e0e0e0;
-        border-radius: 20px;
         font-size: 14px;
-        color: #444;
-        text-decoration: none;
-        transition: all 0.2s ease;
-    }
-
-    .brand-tag-btn:hover, .brand-tag-btn.active {
-        background-color: #333;
-        color: #fff;
-        border-color: #333;
+        line-height: 1.5;
     }
 }
