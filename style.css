@@ -447,26 +447,22 @@ html, body {
         margin-bottom: 20px;
     }
 }
-/* ==========================================================================
-   最終修復：強制 sticky 生效的補丁 (請放在檔案最底部)
-   ========================================================================== */
+/* 修復 sticky 因 body 的 overflow-x: hidden 而失效的問題 */
 
-/* 1. 為了讓 sticky 生效，我們不能在 body 上強制設定 hidden，改用 clip */
 html, body {
-    overflow-x: clip !important; /* clip 不會創建新的滾動容器，不會截斷 sticky */
-    overflow-y: auto !important;
+
+    overflow-x: hidden;
+
+    overflow-y: visible !important; /* 確保 Y 軸不會被隱藏 */
+
 }
 
-/* 2. 確保容器本身與內容區域絕對不限制 overflow */
-.appliance-container, .appliance-content {
-    overflow: visible !important;
-}
 
-/* 3. 如果你的側邊欄內容太多，強行設定高度會導致 sticky 無法偵測到滾動區塊 */
-.appliance-sidebar {
-    position: sticky !important;
-    top: 150px !important; /* 確保距離導覽列足夠高度 */
-    max-height: calc(100vh - 160px); /* 給一個最大高度，而不是固定高度 */
-    overflow-y: auto; /* 只有側邊欄內部的內容太長時才出現捲軸 */
-}
+
+/* 強制讓包含側邊欄的容器對 sticky 友善 */
+
+.appliance-container {
+
+    overflow: visible !important; 
+
 }
