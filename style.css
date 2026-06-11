@@ -4,14 +4,14 @@
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+    box-sizing: border-box; /* 核心修正：確保 padding 不會把網頁往外撐破 */
     font-family: "Helvetica Neue", Arial, "Noto Sans TC", sans-serif;
 }
 
 html, body {
-    width: 100% !important;
-    max-width: 100% !important;
-    overflow-x: hidden !important;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden; /* 徹底禁止手機版橫向滾動 */
     background-color: #fcfcfc;
     color: #333;
     line-height: 1.6;
@@ -22,7 +22,7 @@ html, body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 48px; /* 電讀版留白增加 */
+    padding: 15px 40px; /* 內縮調整，防爆開 */
     background-color: #fff;
     border-bottom: 1px solid #eee;
     width: 100%;
@@ -30,12 +30,12 @@ html, body {
     z-index: 1000;
 }
 
-/* Logo 放大修復 */
-.navbar-logo img {
-    height: 55px; /* 電腦版 Logo 放大 */
-    width: auto;
-    display: block;
-    object-fit: contain;
+/* 🎯 Logo 大小鎖定（對應 HTML 的 .logo-img class） */
+.logo-img {
+    height: 60px !important; /* 電腦版完美高度 */
+    width: auto !important;
+    display: block !important;
+    object-fit: contain !important;
 }
 
 /* 電腦版選單 */
@@ -59,21 +59,22 @@ html, body {
 }
 
 /* ==========================================================================
-   2. 首頁滿版大圖（Banner）修復
+   2. 首頁大圖區塊與文字比例優化
    ========================================================================== */
 .hero-section {
     position: relative;
     width: 100%;
-    height: 650px; /* 固定電腦版高度 */
-    background: url('../images/hero-banner.jpg') no-repeat center center; /* 請確保路徑與圖片檔名正確 */
+    padding: 140px 20px; /* 改用 padding 撐開高度，比固定 height 更不易變形 */
+    background: #999999 url('../images/hero-banner.jpg') no-repeat center center; /* 預設灰色背景 */
     background-size: cover;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
+    box-sizing: border-box;
 }
 
-/* 防止圖片未載入時變純灰色，加入半透明質感遮罩 */
+/* 質感遮罩 */
 .hero-section::before {
     content: '';
     position: absolute;
@@ -81,7 +82,7 @@ html, body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.25); /* 輕微暗化以突顯白色文字 */
+    background: rgba(0, 0, 0, 0.25);
     z-index: 1;
 }
 
@@ -89,52 +90,64 @@ html, body {
     position: relative;
     z-index: 2;
     color: #fff;
+    width: 100%;
+    max-width: 800px; /* 限制寬度，防止文字拉得太長 */
     padding: 0 20px;
 }
 
 .hero-content h1 {
-    font-size: 42px;
+    font-size: 38px; /* 適中大小，不壓迫 */
     font-weight: 700;
-    letter-spacing: 3px;
+    letter-spacing: 2px;
     margin-bottom: 16px;
     text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+    line-height: 1.3;
 }
 
 .hero-content p {
-    font-size: 18px;
+    font-size: 16px;
     letter-spacing: 1px;
     text-shadow: 0 2px 8px rgba(0,0,0,0.5);
+    line-height: 1.5;
 }
 
 /* ==========================================================================
-   3. 手機版（RWD）極致優化與智能家電選單回歸
+   3. 手機版（RWD）極致優化
    ========================================================================== */
 @media (max-width: 768px) {
+    /* 手機版導覽列自適應排版 */
     .navbar {
-        padding: 15px 20px; /* 手機版縮減內距 */
+        flex-direction: column !important;
+        gap: 12px !important;
+        padding: 15px 15px !important;
     }
 
-    /* 手機版 Logo 同步放大 */
-    .navbar-logo img {
-        height: 42px; 
+    .nav-links {
+        gap: 16px !important;
+        padding-left: 0 !important;
     }
 
-    /* 手機版大圖高度調整，避免過高 */
+    /* 🎯 手機版 Logo 大小微調，防擠壓 */
+    .logo-img {
+        height: 46px !important; 
+    }
+
+    /* 🎯 手機版灰色區塊高度與文字縮小，絕不換行爆開 */
     .hero-section {
-        height: 480px;
+        padding: 60px 15px !important;
     }
     
     .hero-content h1 {
-        font-size: 28px;
-        line-height: 1.4;
+        font-size: 22px !important; 
+        margin-bottom: 8px !important;
     }
 
     .hero-content p {
-        font-size: 14px;
-        line-height: 1.6;
+        font-size: 13px !important;
+        line-height: 1.4 !important;
     }
 
-    /* 智能家電：手機版品牌索引區塊樣式修復 */
+    /* 智能家電：手機版品牌索引區塊 */
     .brand-index-container {
         width: 100%;
         padding: 20px;
