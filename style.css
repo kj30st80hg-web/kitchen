@@ -18,7 +18,7 @@ html, body {
 }
 
 /* ==========================================================================
-   2. 導覽列 Navbar (置頂固定與分隔橫幅設定)
+   2. 導覽列 Navbar (置頂固定)
    ========================================================================== */
 .navbar {
     display: flex;
@@ -26,26 +26,15 @@ html, body {
     align-items: center;
     padding: 20px 40px; 
     background-color: #ffffff;
-    
-    /* 🎯 橫幅隔開與置頂核心設定 */
-    position: fixed;       /* 固定在最上方 */
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    z-index: 2000;         /* 確保層級最高，不被任何卡片或大圖遮擋 */
-    
-    /* 🎯 隔開導覽列的視覺橫幅設計：精緻下邊框 + 霧面立體陰影 */
+    z-index: 2000;
     border-bottom: 2px solid #e5e5e5;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); 
 }
 
-.logo-link {
-    display: flex;
-    align-items: center;
-    text-decoration: none;
-}
-
-/* 桌機版 Logo 高度設定：霸氣大比例 */
 .logo-img {
     height: 140px; 
     width: auto;
@@ -53,109 +42,38 @@ html, body {
     object-fit: contain;
 }
 
-/* 導覽列連結清單 - 基底排版 */
 .nav-links {
     display: flex;
-    gap: 40px;          /* 🎯 配合字體變大，將按鈕間距從 35px 稍微加寬到 40px */
+    gap: 40px;
     list-style: none;
     align-items: center;
-    margin: 0;
-    padding: 0;
 }
 
 .nav-links li {
-    position: relative; /* 讓下拉選單能定位在 li 下方 */
-    display: flex;
-    align-items: center;
-    padding: 10px 0;    /* 稍微擴大滑鼠感應的垂直範圍，移動時更流暢 */
+    position: relative;
+    padding: 10px 0;
 }
 
-.nav-links a, 
-.nav-links label {
+.nav-links a, .nav-links label {
     text-decoration: none;
     color: #333333;
-    font-size: 20px;    /* 🎯 字體大小從 17px 放大到 20px */
+    font-size: 20px;
     font-weight: 500;
-    transition: color 0.3s ease;
-    white-space: nowrap;
-    padding: 5px 0;
     cursor: pointer;
-}
-
-.nav-links a:hover, 
-.nav-links label:hover {
-    color: #0056b3;
+    transition: color 0.3s ease;
 }
 
 /* ==========================================================================
-   🎯 智能家電下拉選單核心控制區 (桌機自動懸停 Hover 展開)
-   ========================================================================== */
-/* 1. 隱藏原生醜醜的 checkbox 框 */
-.nav-links input[type="checkbox"] {
-    display: none !important;
-}
-
-/* 2. 桌機版下拉選單基礎樣式：預設隱藏、絕對定位在按鈕下方 */
-.nav-links .dropdown-content {
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 50%;
-    transform: translateX(-50%); /* 居中對齊按鈕 */
-    background-color: #ffffff;
-    min-width: 240px;            /* 🎯 配合內部字體變大，寬度從 220px 稍微加寬到 240px */
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-    border-radius: 8px;
-    padding: 10px 0;
-    margin-top: 5px;             /* 縮減間距，防止滑鼠移過去的空隙中斷懸停 */
-    z-index: 2100;
-    border: 1px solid #eeeeee;
-}
-
-/* 下拉選單內的 brand 連結項目 */
-.nav-links .dropdown-content a {
-    display: block;
-    padding: 12px 24px;         /* 🎯 稍微加大內襯，讓點擊更舒適 */
-    color: #444444;
-    font-size: 17px;            /* 🎯 下拉選單內的品牌字體從 15px 放大到 17px */
-    text-align: left;
-    white-space: nowrap;
-    transition: background 0.2s ease, color 0.2s ease;
-    width: 100%;
-}
-
-.nav-links .dropdown-content a:hover {
-    background-color: #f5f5f5;
-    color: #0056b3;
-}
-
-/* ⚡【桌機專用懸停機制】滑鼠放到 <li> 上（包含字體與下拉列表本身）自動展開，移開自動收回 */
-@media (min-width: 769px) {
-    .nav-links li:hover .dropdown-content {
-        display: block !important;
-    }
-}
-
-/* 備用點擊機制：保留 checkbox 勾選觸發，確保最大相容性 */
-.nav-links input[type="checkbox"]:checked ~ .dropdown-content {
-    display: block !important;
-}
-
-/* ==========================================================================
-   3. 首頁大圖區塊 (Hero Section) ── 方法 A 縮小與清晰大圖優化
+   3. 首頁大圖區塊 (Hero Section) - 核心修正區
    ========================================================================== */
 .hero-section {
     position: relative;
     width: 100%;
-    min-height: 380px;      /* 🎯 最小高度已調整為 380px */
-    padding: 200px 20px 80px 20px; 
-    
-    /* 📢 請把下方括號內單引號裡的網址，直接換成你要呈現的廚具大圖連結 */
-    background: url(https://i.meee.com.tw/R1R8Mmc.jpg);
-    
-    background-size: cover;
-    background-position: center center;
-    background-repeat: no-repeat;
+    min-height: 380px;
+    /* 【關鍵修正】確保導覽列不會遮住圖片內容 */
+    padding-top: 180px; 
+    padding-bottom: 80px;
+    background: url('https://i.meee.com.tw/R1R8Mmc.jpg') center/cover no-repeat;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -170,243 +88,58 @@ html, body {
     max-width: 800px;
 }
 
-.hero-content h1 {
-    font-size: 42px;
-    font-weight: 700;
-    margin-bottom: 20px;
-    text-shadow: 0 2px 15px rgba(0, 0, 0, 0.6);
-    letter-spacing: 2px;
-    line-height: 1.3;
-}
-
-.hero-content p {
-    font-size: 18px;
-    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.6);
-    letter-spacing: 1px;
-    line-height: 1.5;
-}
-
 /* ==========================================================================
-   4. 精選作品產品卡片區塊 (Product Grid)
+   4. 下拉選單 (Dropdown)
    ========================================================================== */
-.product-section {
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 70px 20px;
-    clear: both;
-}
-
-.product-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 40px;
-}
-
-.product-card {
-    background: #ffffff;
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    text-decoration: none;
-    color: inherit;
-    display: block;
-}
-
-.product-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
-}
-
-.product-img {
-    width: 100%;
-    aspect-ratio: 16 / 10;
-    object-fit: cover;
-    display: block;
-}
-
-.product-info {
-    padding: 30px;
-}
-
-.product-info h3 {
-    font-size: 22px;
-    margin-bottom: 12px;
-    color: #222222;
-    letter-spacing: 1px;
-}
-
-.product-info p {
-    font-size: 15px;
-    color: #666666;
-    line-height: 1.6;
-}
-
-/* ==========================================================================
-   5. 頁尾區塊樣式 (Custom Footer)
-   ========================================================================== */
-.custom-footer {
-    background-color: #222222;
-    color: #cccccc;
-    padding: 60px 20px 20px 20px;
-    letter-spacing: 1px;
-    margin-top: 60px;
-    width: 100%;
-}
-
-.footer-container {
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.footer-nav {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 35px;
-    margin-bottom: 25px;
-}
-
-.footer-nav a {
-    color: #ffffff;
-    text-decoration: none;
-    font-size: 15px;
-    font-weight: 500;
-    transition: color 0.3s ease;
-}
-
-.footer-nav a:hover {
-    color: #0070bb;
-}
-
-.footer-divider {
-    border: 0;
-    height: 1px;
-    background: rgba(255, 255, 255, 0.1);
-    margin-bottom: 35px;
-}
-
-.footer-content {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 30px;
-    margin-bottom: 40px;
-}
-
-.footer-info {
-    flex: 1;
-    min-width: 280px;
-}
-
-.company-name {
-    color: #ffffff;
-    font-size: 18px;
-    margin-bottom: 15px;
-    font-weight: bold;
-}
-
-.footer-info p {
-    font-size: 14px;
-    color: #aaaaaa;
-    margin: 8px 0;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.footer-socials {
-    display: flex;
-    gap: 18px;
-    align-items: center;
-}
-
-.social-icon-btn {
-    display: inline-block;
-    width: 44px;
-    height: 44px;
-    border: 1.5px solid #ffffff;
-    border-radius: 50%;
-    color: #ffffff;
-    font-size: 18px;
-    text-decoration: none;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    background: transparent;
-    box-sizing: border-box;
-    vertical-align: middle;
-    text-align: center;
-}
-
-.social-icon-btn i {
-    line-height: 41px;
-    display: block;
-}
-
-.social-icon-btn:hover {
+.dropdown-content {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
     background-color: #ffffff;
-    color: #222222;
-    transform: translateY(-4px);
-    box-shadow: 0 5px 15px rgba(255, 255, 255, 0.2);
+    min-width: 240px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    border-radius: 8px;
+    padding: 10px 0;
+    z-index: 2100;
 }
 
-.footer-bottom {
-    text-align: center;
-    font-size: 12px;
-    color: #666666;
-    border-top: 1px solid rgba(255, 255, 255, 0.05);
-    padding-top: 20px;
-    margin-top: 20px;
-}
+.nav-links li:hover .dropdown-content { display: block; }
+.dropdown-content a { display: block; padding: 12px 24px; color: #444; font-size: 17px; }
+.dropdown-content a:hover { background-color: #f5f5f5; color: #0056b3; }
 
 /* ==========================================================================
-   6. RWD 響應式斷點優化
+   5. RWD 響應式斷點 (已補完)
    ========================================================================== */
-@media (max-width: 992px) {
-    .product-section { padding: 40px 20px; }
-    .product-grid { gap: 25px; }
-    .product-info { padding: 20px; }
-}
-
 @media (max-width: 768px) {
     .navbar {
-        position: relative; /* 手機版取消固定置頂，留給螢幕寶貴的空間 */
+        position: relative;
         flex-direction: column;
-        gap: 15px;
-        padding: 20px 10px;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        padding: 15px;
     }
     
-    .logo-img {
-        height: 65px; 
+    .hero-section {
+        padding-top: 40px; /* 手機版導覽列不固定，調整上方間距 */
     }
 
     .nav-links {
-        gap: 20px;
-        padding-left: 0;
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-    
-    .nav-links a, 
-    .nav-links label {
-        font-size: 18px;    /* 🎯 手機版同步微調放大到 18px */
+        flex-direction: column;
+        gap: 15px;
+        margin-top: 20px;
     }
 
-    /* 手機版下拉選單改為相對定位，點擊點開，體驗最順手 */
-    .nav-links .dropdown-content {
+    .dropdown-content {
         position: relative;
-        top: 0;
-        left: 0;
-        transform: none;
         width: 100%;
         box-shadow: none;
-        border: none;
-        background-color: #fafafa;
-        margin-top: 5px;
+        background-color: #f9f9f9;
     }
-    
-    .nav-links .dropdown-content a {
-        text-align: center;
-        font-size: 16px;    /*
+}
+
+/* ==========================================================================
+   6. 頁尾與其他
+   ========================================================================== */
+.product-section { width: 100%; max-width: 1200px; margin: 0 auto; padding: 70px 20px; }
+.product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; }
+.custom-footer { background-color: #222; color: #fff; padding: 60px 20px; text-align: center; margin-top: 60px; }
