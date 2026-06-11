@@ -140,17 +140,16 @@ html, body {
 .nav-links input[type="checkbox"]:checked ~ .dropdown-content {
     display: block !important;
 }
-
 /* ==========================================================================
    3. 首頁大圖區塊 (Hero Section)
    ========================================================================== */
 .hero-section {
     position: relative;
     width: 100%;
-    min-height: 500px; 
+    min-height: 380px;      /* 🎯 最小高度從 500px 縮減為 380px */
     
-    /* 🎯 置頂修正：因為導覽列固定了，用大 padding-top 把大圖往下推，防止頂部被導覽列吃掉 */
-    padding: 320px 20px 140px 20px; 
+    /* 🎯 縮減上下內邊距：頂部從 320px 降到 200px，底部從 140px 降到 80px，畫面更緊湊精緻 */
+    padding: 200px 20px 80px 20px; 
     
     background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('https://i.meee.com.tw/image_d3433b.jpg');
     background-size: cover;
@@ -161,7 +160,6 @@ html, body {
     align-items: center;
     text-align: center;
 }
-
 .hero-content {
     position: relative;
     z-index: 2;
