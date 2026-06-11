@@ -1083,3 +1083,24 @@ html, body {
     gap: 30px;
     align-items: flex-start; /* 確保對齊正常 */
 }
+/* 設定側邊欄內每個區塊的共通間距 */
+.sidebar-section {
+    margin-bottom: 40px; /* 增加區塊與區塊之間的垂直間距 */
+    padding-bottom: 20px;
+    border-bottom: 1px solid #f0f0f0; /* 選項：加一條細線增加區隔感 */
+}
+
+/* 針對最後一個區塊移除底線（若有加線的話） */
+.sidebar-section:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+}
+
+/* 調整標題的間距，讓標題與下方的連結不會太擠 */
+.sidebar-title {
+    font-size: 17px;
+    font-weight: 700;
+    color: #222;
+    margin-bottom: 18px; /* 標題下方的空隙 */
+    display: block;
+}
