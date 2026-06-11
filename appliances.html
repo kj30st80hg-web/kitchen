@@ -23,17 +23,18 @@
     }
 
     /* 左側「台灣精選三大家電」滑鼠懸浮向右彈出子選單 */
-    .appliance-sidebar {
-      width: 240px;
-      flex-shrink: 0;
-      position: sticky;
-      top: 180px;
-      height: fit-content;
-      background: #fff;
-      padding: 25px;
-      border-radius: 8px;
-      border: 1px solid #eee;
-      z-index: 100;
+  .appliance-sidebar {
+    width: 240px;
+    flex-shrink: 0;
+    position: sticky;
+    top: 150px; /* 增加一點緩衝距離 */
+    height: fit-content; /* 確保它不會被強制拉伸 */
+    background: #fff;
+    padding: 25px;
+    border-radius: 8px;
+    border: 1px solid #eee;
+    z-index: 100;
+}
     }
     .sidebar-title {
       font-size: 18px;
@@ -1065,3 +1066,15 @@ body {
 </style>
 </body>
 </html>
+/* 移除所有可能干擾 sticky 的 overflow 設定 */
+html, body {
+    overflow-x: hidden; /* 保留這行防止水平溢出 */
+    overflow-y: visible !important; 
+}
+
+.appliance-container {
+    overflow: visible !important; /* 強制開啟，避免 sticky 容器失效 */
+    display: flex;
+    gap: 30px;
+    align-items: flex-start; /* 確保對齊正常 */
+}
