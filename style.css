@@ -56,7 +56,7 @@ html, body {
 /* 導覽列連結清單 - 基底排版 */
 .nav-links {
     display: flex;
-    gap: 35px; 
+    gap: 40px;          /* 🎯 配合字體變大，將按鈕間距從 35px 稍微加寬到 40px */
     list-style: none;
     align-items: center;
     margin: 0;
@@ -74,7 +74,7 @@ html, body {
 .nav-links label {
     text-decoration: none;
     color: #333333;
-    font-size: 17px; 
+    font-size: 20px;    /* 🎯 字體大小從 17px 放大到 20px */
     font-weight: 500;
     transition: color 0.3s ease;
     white-space: nowrap;
@@ -103,7 +103,7 @@ html, body {
     left: 50%;
     transform: translateX(-50%); /* 居中對齊按鈕 */
     background-color: #ffffff;
-    min-width: 220px;
+    min-width: 240px;            /* 🎯 配合內部字體變大，寬度從 220px 稍微加寬到 240px */
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
     border-radius: 8px;
     padding: 10px 0;
@@ -115,9 +115,9 @@ html, body {
 /* 下拉選單內的品牌連結項目 */
 .nav-links .dropdown-content a {
     display: block;
-    padding: 10px 20px;
+    padding: 12px 24px;         /* 🎯 稍微加大內襯，讓點擊更舒適 */
     color: #444444;
-    font-size: 15px;
+    font-size: 17px;            /* 🎯 下拉選單內的品牌字體從 15px 放大到 17px */
     text-align: left;
     white-space: nowrap;
     transition: background 0.2s ease, color 0.2s ease;
@@ -389,7 +389,7 @@ html, body {
     
     .nav-links a, 
     .nav-links label {
-        font-size: 15px;
+        font-size: 18px;    /* 🎯 手機版同步從 15px 微調放大到 18px */
     }
 
     /* 手機版下拉選單改為相對定位，點擊點開，體驗最順手 */
@@ -407,6 +407,7 @@ html, body {
     
     .nav-links .dropdown-content a {
         text-align: center;
+        font-size: 16px;    /* 🎯 手機下拉選單字體 */
     }
 
     .hero-section {
@@ -433,37 +434,4 @@ html, body {
         text-align: center;
         align-items: center;
     }
-    .footer-nav { gap: 20px; }
-    .footer-socials { justify-content: center; margin-top: 10px; }
-}
-/* 1. 確保導覽列在最上層，不被 hero 區塊遮擋 */
-.navbar {
-  position: relative; /* 或 fixed/sticky，視你的設計而定 */
-  z-index: 999;       /* 確保層級高於下方所有內容 */
-}
-
-/* 2. 把那個醜醜的 checkbox 框隱藏起來 */
-.dropdown-checkbox {
-  display: none;
-}
-
-/* 3. 讓 label 看起來像個可以點擊的按鈕 */
-.dropdown-label {
-  cursor: pointer;
-  display: inline-block;
-}
-
-/* 4. 下拉選單的基本設定（預設隱藏） */
-.dropdown-content {
-  display: none;      /* 預設先隱藏 */
-  position: absolute;
-  background-color: #ffffff;
-  min-width: 200px;
-  box-shadow: 0px 8px 16px rgba(0,0,0,0.15);
-  z-index: 1000;      /* 確保選單浮在最上面 */
-}
-
-/* 5. 關鍵：當 checkbox 被勾選時，顯示下方的下拉選單 */
-.dropdown-checkbox:checked ~ .dropdown-content {
-  display: block;
-}
+    .footer-nav { gap: 20
