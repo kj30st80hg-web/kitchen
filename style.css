@@ -90,34 +90,31 @@ html, body {
 /* ==========================================================================
    🎯 智能家電下拉選單核心控制區 (桌機自動懸停 Hover 展開)
    ========================================================================== */
-/* 1. 隱藏原生醜醜的 checkbox 框 */
 .nav-links input[type="checkbox"] {
     display: none !important;
 }
 
-/* 2. 桌機版下拉選單基礎樣式：預設隱藏、絕對定位在按鈕下方 */
 .nav-links .dropdown-content {
     display: none;
     position: absolute;
     top: 100%;
     left: 50%;
-    transform: translateX(-50%); /* 居中對齊按鈕 */
+    transform: translateX(-50%);
     background-color: #ffffff;
-    min-width: 240px;            /* 🎯 配合內部字體變大，寬度從 220px 稍微加寬到 240px */
+    min-width: 240px;
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
     border-radius: 8px;
     padding: 10px 0;
-    margin-top: 5px;             /* 縮減間距，防止滑鼠移過去的空隙中斷懸停 */
+    margin-top: 5px;
     z-index: 2100;
     border: 1px solid #eeeeee;
 }
 
-/* 下拉選單內的 brand 連結項目 */
 .nav-links .dropdown-content a {
     display: block;
-    padding: 12px 24px;         /* 🎯 稍微加大內襯，讓點擊更舒適 */
+    padding: 12px 24px;
     color: #444444;
-    font-size: 17px;            /* 🎯 下拉選單內的品牌字體從 15px 放大到 17px */
+    font-size: 17px;
     text-align: left;
     white-space: nowrap;
     transition: background 0.2s ease, color 0.2s ease;
@@ -129,30 +126,31 @@ html, body {
     color: #0056b3;
 }
 
-/* ⚡【桌機專用懸停機制】滑鼠放到 <li> 上（包含字體與下拉列表本身）自動展開，移開自動收回 */
 @media (min-width: 769px) {
     .nav-links li:hover .dropdown-content {
         display: block !important;
     }
 }
 
-/* 備用點擊機制：保留 checkbox 勾選觸發，確保最大相容性 */
 .nav-links input[type="checkbox"]:checked ~ .dropdown-content {
     display: block !important;
 }
 
 /* ==========================================================================
-   3. 首頁大圖區塊 (Hero Section) ── 方法 A 縮小與清晰大圖優化
+   3. 首頁大圖區塊 (Hero Section) ── 修正：加上 padding-top 避開固定導覽列
    ========================================================================== */
 .hero-section {
     position: relative;
     width: 100%;
     min-height: 380px;      /* 🎯 最小高度已調整為 380px */
-    padding: 200px 20px 80px 20px; 
     
-    /* 📢 請把下方括號內單引號裡的網址，直接換成你要呈現的廚具大圖連結 */
+    /* 🎯 核心修復：增加 padding-top 將圖片往下推，避開 position: fixed 的導覽列 */
+    padding-top: 180px; 
+    padding-bottom: 80px; 
+    padding-left: 20px;
+    padding-right: 20px;
+    
     background: url(https://i.meee.com.tw/R1R8Mmc.jpg);
-    
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
@@ -371,7 +369,7 @@ html, body {
 
 @media (max-width: 768px) {
     .navbar {
-        position: relative; /* 手機版取消固定置頂，留給螢幕寶貴的空間 */
+        position: relative; 
         flex-direction: column;
         gap: 15px;
         padding: 20px 10px;
@@ -391,10 +389,9 @@ html, body {
     
     .nav-links a, 
     .nav-links label {
-        font-size: 18px;    /* 🎯 手機版同步微調放大到 18px */
+        font-size: 18px;    
     }
 
-    /* 手機版下拉選單改為相對定位，點擊點開，體驗最順手 */
     .nav-links .dropdown-content {
         position: relative;
         top: 0;
@@ -409,4 +406,6 @@ html, body {
     
     .nav-links .dropdown-content a {
         text-align: center;
-        font-size: 16px;    /*
+        font-size: 16px;
+    }
+}
