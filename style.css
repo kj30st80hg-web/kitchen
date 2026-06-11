@@ -410,30 +410,52 @@ html, body {
     }
 }
 /* ==========================================================================
-   7. 側邊欄固定修正 (強制鎖定側邊選單)
+   7. 側邊欄與內容佈局修正 (絕對緊湊與固定)
    ========================================================================== */
 .appliance-container {
     display: flex;
-    gap: 30px;
-    max-width: 1280px;
+    gap: 20px;          /* 縮小間距，不再空洞 */
+    max-width: 1200px;
     margin: 40px auto;
     padding: 0 20px;
-    align-items: flex-start; /* 確保選單對齊頂部 */
+    align-items: flex-start;
+    position: relative; /* 確保內容區的參考基準正確 */
 }
 
+/* 側邊欄：使用 sticky 實現「隨滾動固定在左側」且「不會被拉扯」 */
 .appliance-sidebar {
-    width: 240px;
+    width: 200px;       /* 縮小寬度，讓版面更精緻 */
     flex-shrink: 0;
-    /* 【核心修正】固定定位 */
     position: sticky;
-    top: 140px; /* 需大於導覽列高度，防止被遮擋 */
-    height: calc(100vh - 180px); /* 限制高度，防止選單過長超出視窗 */
-    overflow-y: auto; /* 若選單內容過多，自動產生捲軸 */
+    top: 150px;         /* 距離頂部固定高度 */
+    height: calc(100vh - 180px);
+    overflow-y: auto;
     background: #fff;
-    padding: 25px;
-    border-radius: 12px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    padding: 20px;
+    border: 1px solid #eee;
+    border-radius: 8px;
     z-index: 10;
+}
+
+/* 右側內容區：移除 margin-left 強制推擠，改由 flex 自動分配 */
+.appliance-content {
+    flex: 1;
+    min-width: 0;       /* 防止內容溢出 */
+}
+
+/* RWD 手機版設定：側邊欄變回一般排版 */
+@media (max-width: 768px) {
+    .appliance-container {
+        flex-direction: column;
+    }
+    .appliance-sidebar {
+        position: relative;
+        top: 0;
+        width: 100%;
+        height: auto;
+        overflow: visible;
+        margin-bottom: 20px;
+    }
 }
 
 .appliance-content {
