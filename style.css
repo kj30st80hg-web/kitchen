@@ -437,7 +437,7 @@ html, body {
 }
 
 .appliance-content {
-    flex: 1;
+    margin-left: 270px; /* 側邊欄寬度(240px) + 間距(30px) = 270px */
 }
 
 /* 確保側邊欄在手機版變成正常排列 */
@@ -445,11 +445,18 @@ html, body {
     .appliance-container {
         flex-direction: column;
     }
-    .appliance-sidebar {
-        position: relative;
-        top: 0;
-        width: 100%;
-        height: auto;
-        overflow: visible;
-    }
+.appliance-sidebar {
+    width: 240px;
+    /* 【關鍵修正】強制鎖定在瀏覽器視窗左側 */
+    position: fixed;
+    top: 180px; /* 這裡設定它距離螢幕頂端的固定距離 */
+    left: calc(50% - 600px); /* 【核心】這是讓它對齊你內容區塊的關鍵 */
+    
+    height: calc(100vh - 220px);
+    overflow-y: auto;
+    background: #fff;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    z-index: 10;
 }
