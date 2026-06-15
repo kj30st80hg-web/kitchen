@@ -466,3 +466,26 @@ html, body {
     overflow: visible !important; 
 
 }
+/* 讓連結與箭頭水平並排 */
+.dropdown-item {
+    display: flex !important;
+    align-items: center;
+    gap: 8px; /* 文字與箭頭間距 */
+}
+
+/* 原有下拉選單的設定要確保能正確隱藏/顯示 */
+.dropdown-checkbox {
+    display: none !important;
+}
+
+/* 確保下拉選單的位置基準 */
+.dropdown-item {
+    position: relative;
+}
+
+.dropdown-content {
+    /* 這裡維持您原本的 absolute 定位即可 */
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+}
