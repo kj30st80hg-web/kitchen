@@ -32,6 +32,7 @@ html, body {
     left: 0;
     width: 100%;
     z-index: 2000;
+   flex-wrap: nowrap;
     
     border-bottom: 2px solid #e5e5e5;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); 
@@ -44,7 +45,7 @@ html, body {
 }
 
 .logo-img {
-    height: 140px; 
+    height: 80px; 
     width: auto;
     display: block;
     object-fit: contain;
@@ -52,17 +53,20 @@ html, body {
 
 .nav-links {
     display: flex;
+    flex-wrap: nowrap;
     gap: 40px;
     list-style: none;
     align-items: center;
     margin: 0;
     padding: 0;
+    white-space: nowrap;
 }
 
 .nav-links li {
     position: relative;
     display: flex;
     align-items: center;
+   white-space: nowrap;
     padding: 10px 0;
 }
 
