@@ -32,7 +32,7 @@ html, body {
     left: 0;
     width: 100%;
     z-index: 2000;
-   flex-wrap: nowrap;
+    flex-wrap: nowrap; /* 強制不換行 */
     
     border-bottom: 2px solid #e5e5e5;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); 
@@ -42,6 +42,7 @@ html, body {
     display: flex;
     align-items: center;
     text-decoration: none;
+    flex-shrink: 0; /* 防止 LOGO 在寬度不夠時被壓扁 */
 }
 
 .logo-img {
@@ -53,20 +54,20 @@ html, body {
 
 .nav-links {
     display: flex;
-    flex-wrap: nowrap;
+    flex-wrap: nowrap; /* 強制不換行 */
     gap: 40px;
     list-style: none;
     align-items: center;
     margin: 0;
     padding: 0;
-    white-space: nowrap;
+    white-space: nowrap; /* 強制文字維持一行 */
 }
 
 .nav-links li {
     position: relative;
     display: flex;
     align-items: center;
-   white-space: nowrap;
+    white-space: nowrap;
     padding: 10px 0;
 }
 
@@ -362,52 +363,60 @@ html, body {
 }
 
 @media (max-width: 768px) {
+    /* 修正：手機版導覽列維持水平一整行，絕不換行 */
     .navbar {
-        position: relative; 
-        flex-direction: column;
-        gap: 15px;
-        padding: 20px 10px;
+        position: fixed; /* 保持置頂 */
+        flex-direction: row !important; /* 強制水平排列 */
+        justify-content: space-between;
+        gap: 10px;
+        padding: 10px 15px; /* 縮小內邊距留給文字 */
         box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
     }
     
+    /* 手機版 LOGO 縮小，否則文字塞不下 */
     .logo-img {
-        height: 65px; 
+        height: 45px; 
     }
 
+    /* 修正：手機版連結同樣強制水平 row 排列，不准 wrap */
     .nav-links {
-        gap: 20px;
+        flex-direction: row !important;
+        flex-wrap: nowrap !important;
+        gap: 12px; /* 縮小項目之間的間距 */
         padding-left: 0;
-        flex-wrap: wrap;
-        justify-content: center;
+        justify-content: flex-end;
     }
     
+    /* 手機版字體微調小一點點，確保塞得進手機畫面 */
     .nav-links a, 
     .nav-links label {
-        font-size: 18px;    
+        font-size: 14px;    
     }
 
+    /* 手機版下拉選單位置微調 */
     .nav-links .dropdown-content {
-        position: relative;
-        top: 0;
-        left: 0;
+        position: absolute; /* 恢復成絕對定位，才不會撐開 navbar */
+        top: 100%;
+        left: auto;
+        right: 0;
         transform: none;
-        width: 100%;
-        box-shadow: none;
-        border: none;
-        background-color: #fafafa;
+        width: 180px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        border: 1px solid #eeeeee;
+        background-color: #ffffff;
         margin-top: 5px;
     }
     
     .nav-links .dropdown-content a {
-        text-align: center;
-        font-size: 16px;
+        text-align: left;
+        font-size: 14px;
+        padding: 10px 15px;
     }
 }
 
 /* ==========================================================================
    7. 側邊欄與內容佈局修正 (修正 sticky 失效)
    ========================================================================== */
-/* 關鍵點 1：確保容器沒有 overflow: hidden 或 scroll */
 .appliance-container {
     display: flex;
     gap: 20px;
@@ -415,17 +424,15 @@ html, body {
     margin: 40px auto;
     padding: 0 20px;
     align-items: flex-start;
-    /* 移除所有 overflow 設定，若有的話請務必刪除 */
     position: relative; 
 }
 
-/* 關鍵點 2：側邊欄必須有 top 屬性，且父層不能有 overflow: hidden */
 .appliance-sidebar {
     width: 200px;
     flex-shrink: 0;
     position: sticky;
-    top: 150px; /* 這裡調整為 navbar 的高度 + 一點間距，這會讓它固定在 navbar 下方 */
-    height: fit-content; /* 改為 fit-content，讓高度隨內容自動調整，避免過長導致無法滾動 */
+    top: 150px; 
+    height: fit-content; 
     background: #fff;
     padding: 20px;
     border: 1px solid #eee;
@@ -438,97 +445,54 @@ html, body {
     min-width: 0;
 }
 
-/* RWD 手機版設定 */
 @media (max-width: 768px) {
     .appliance-container {
         flex-direction: column;
     }
     .appliance-sidebar {
-        position: relative; /* 手機版取消固定 */
+        position: relative; 
         top: 0;
         width: 100%;
         height: auto;
         margin-bottom: 20px;
     }
 }
-/* 修復 sticky 因 body 的 overflow-x: hidden 而失效的問題 */
 
 html, body {
-
     overflow-x: hidden;
-
-    overflow-y: visible !important; /* 確保 Y 軸不會被隱藏 */
-
+    overflow-y: visible !important; 
 }
-
-
-
-/* 強制讓包含側邊欄的容器對 sticky 友善 */
 
 .appliance-container {
-
     overflow: visible !important; 
-
 }
-/* 讓連結與箭頭水平並排 */
+
 .dropdown-item {
     display: flex !important;
     align-items: center;
-    gap: 8px; /* 文字與箭頭間距 */
+    gap: 8px; 
 }
 
-/* 原有下拉選單的設定要確保能正確隱藏/顯示 */
 .dropdown-checkbox {
     display: none !important;
 }
 
-/* 確保下拉選單的位置基準 */
 .dropdown-item {
     position: relative;
 }
 
 .dropdown-content {
-    /* 這裡維持您原本的 absolute 定位即可 */
     top: 100%;
     left: 50%;
     transform: translateX(-50%);
 }
+
 /* ==========================================================================
    8. 側邊欄標題與區塊間距修正
    ========================================================================== */
-
-/* 確保側邊欄的區塊間距拉大，解決太近的問題 */
 .sidebar-block {
-    margin-bottom: 50px; /* 您可以根據喜好調整這裡的數值 (如 40px 或 60px) */
+    margin-bottom: 50px; 
 }
 
-/* 強制標題單行顯示，並統一與下方連結的字體樣式 */
 .sidebar-title {
-    font-size: 18px;       /* 與下方連結保持一致的字體大小 */
-    font-weight: 700;      /* 加粗 */
-    color: #222222;        /* 深灰色更有質感 */
-    margin-bottom: 20px;   /* 標題與下方連結的間距 */
-    
-    /* 強制單行顯示 */
-    white-space: nowrap;   
-    overflow: hidden;
-    text-overflow: ellipsis; /* 若文字太長會以點點結尾，防止換行跑版 */
-    
-    display: block;
-    border-bottom: 1px solid #eeeeee; /* 增加底線，區分區塊 */
-    padding-bottom: 10px;
-}
-
-/* 確保側邊欄連結的字體與樣式統一 */
-.appliance-sidebar a {
-    font-size: 16px;       /* 確保字體大小適中，看起來專業 */
-    display: block;
-    padding: 8px 0;
-    color: #555555;
-    text-decoration: none;
-    transition: color 0.3s;
-}
-
-.appliance-sidebar a:hover {
-    color: #0056b3;
-}
+    font-size
