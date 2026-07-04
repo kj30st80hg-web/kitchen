@@ -180,7 +180,7 @@ html, body {
 }
 
 /* ==========================================================================
-   4. 精選作品產品卡片區塊 (Product Grid)
+   4. 精選作品產品卡片區塊 (Product Grid) - 已修復圖片歪掉
    ========================================================================== */
 .product-section {
     width: 100%;
@@ -212,11 +212,14 @@ html, body {
     box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
 }
 
+/* --- 核心修改：修正圖片歪掉 --- */
 .product-img {
     width: 100%;
-    aspect-ratio: 16 / 10;
-    object-fit: cover;
+    height: 250px;       /* 設定固定高度 */
+    object-fit: contain;  /* 確保圖片完整顯示，避免變形 */
+    background-color: #f9f9f9;
     display: block;
+    padding: 10px;
 }
 
 .product-info {
@@ -363,39 +366,34 @@ html, body {
 }
 
 @media (max-width: 768px) {
-    /* 修正：手機版導覽列維持水平一整行，絕不換行 */
     .navbar {
-        position: fixed; /* 保持置頂 */
-        flex-direction: row !important; /* 強制水平排列 */
+        position: fixed;
+        flex-direction: row !important;
         justify-content: space-between;
         gap: 10px;
-        padding: 10px 15px; /* 縮小內邊距留給文字 */
+        padding: 10px 15px;
         box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
     }
     
-    /* 手機版 LOGO 縮小，否則文字塞不下 */
     .logo-img {
         height: 45px; 
     }
 
-    /* 修正：手機版連結同樣強制水平 row 排列，不准 wrap */
     .nav-links {
         flex-direction: row !important;
         flex-wrap: nowrap !important;
-        gap: 12px; /* 縮小項目之間的間距 */
+        gap: 12px;
         padding-left: 0;
         justify-content: flex-end;
     }
     
-    /* 手機版字體微調小一點點，確保塞得進手機畫面 */
     .nav-links a, 
     .nav-links label {
         font-size: 14px;    
     }
 
-    /* 手機版下拉選單位置微調 */
     .nav-links .dropdown-content {
-        position: absolute; /* 恢復成絕對定位，才不會撐開 navbar */
+        position: absolute;
         top: 100%;
         left: auto;
         right: 0;
@@ -415,7 +413,7 @@ html, body {
 }
 
 /* ==========================================================================
-   7. 側邊欄與內容佈局修正 (修正 sticky 失效)
+   7. 側邊欄與內容佈局修正
    ========================================================================== */
 .appliance-container {
     display: flex;
@@ -495,4 +493,7 @@ html, body {
 }
 
 .sidebar-title {
-    font-size
+    font-size: 18px;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
