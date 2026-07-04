@@ -26,14 +26,12 @@ html, body {
     align-items: center;
     padding: 20px 40px; 
     background-color: #ffffff;
-    
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     z-index: 2000;
-    flex-wrap: nowrap; /* 強制不換行 */
-    
+    flex-wrap: nowrap;
     border-bottom: 2px solid #e5e5e5;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); 
 }
@@ -42,7 +40,7 @@ html, body {
     display: flex;
     align-items: center;
     text-decoration: none;
-    flex-shrink: 0; /* 防止 LOGO 在寬度不夠時被壓扁 */
+    flex-shrink: 0;
 }
 
 .logo-img {
@@ -54,13 +52,13 @@ html, body {
 
 .nav-links {
     display: flex;
-    flex-wrap: nowrap; /* 強制不換行 */
+    flex-wrap: nowrap;
     gap: 40px;
     list-style: none;
     align-items: center;
     margin: 0;
     padding: 0;
-    white-space: nowrap; /* 強制文字維持一行 */
+    white-space: nowrap;
 }
 
 .nav-links li {
@@ -180,7 +178,7 @@ html, body {
 }
 
 /* ==========================================================================
-   4. 精選作品產品卡片區塊 (Product Grid) - 優化版
+   4. 精選作品產品卡片區塊 (Product Grid) - 修正圖片比例
    ========================================================================== */
 .product-section {
     width: 100%;
@@ -192,7 +190,6 @@ html, body {
 
 .product-grid {
     display: grid;
-    /* 自動計算寬度，當寬度充足時一行四個，不足時自動縮減 */
     grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
     gap: 30px;
 }
@@ -203,7 +200,7 @@ html, body {
     border-radius: 12px;
     overflow: hidden;
     display: flex;
-    flex-direction: column; /* 確保垂直排列：圖片在上，資訊在下 */
+    flex-direction: column;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     text-decoration: none;
@@ -217,16 +214,17 @@ html, body {
 
 .product-img {
     width: 100%;
-    height: 220px;         /* 設定統一高度 */
-    object-fit: contain;   /* 圖片完整顯示，不裁剪、不變形 */
+    aspect-ratio: 4 / 3; /* 強制鎖定容器比例，解決高度不一 */
+    object-fit: contain;
     background-color: #ffffff;
-    padding: 20px;         /* 留白邊距增加精緻感 */
+    padding: 20px;
     display: block;
+    margin: 0 auto;
 }
 
 .product-info {
     padding: 20px;
-    flex-grow: 1;          /* 確保文字區塊能自動撐開高度 */
+    flex-grow: 1;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -380,11 +378,7 @@ html, body {
         padding: 10px 15px;
         box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
     }
-    
-    .logo-img {
-        height: 45px; 
-    }
-
+    .logo-img { height: 45px; }
     .nav-links {
         flex-direction: row !important;
         flex-wrap: nowrap !important;
@@ -392,12 +386,7 @@ html, body {
         padding-left: 0;
         justify-content: flex-end;
     }
-    
-    .nav-links a, 
-    .nav-links label {
-        font-size: 14px;    
-    }
-
+    .nav-links a, .nav-links label { font-size: 14px; }
     .nav-links .dropdown-content {
         position: absolute;
         top: 100%;
@@ -410,7 +399,6 @@ html, body {
         background-color: #ffffff;
         margin-top: 5px;
     }
-    
     .nav-links .dropdown-content a {
         text-align: left;
         font-size: 14px;
@@ -450,9 +438,7 @@ html, body {
 }
 
 @media (max-width: 768px) {
-    .appliance-container {
-        flex-direction: column;
-    }
+    .appliance-container { flex-direction: column; }
     .appliance-sidebar {
         position: relative; 
         top: 0;
@@ -462,14 +448,8 @@ html, body {
     }
 }
 
-html, body {
-    overflow-x: hidden;
-    overflow-y: visible !important; 
-}
-
-.appliance-container {
-    overflow: visible !important; 
-}
+html, body { overflow-y: visible !important; }
+.appliance-container { overflow: visible !important; }
 
 .dropdown-item {
     display: flex !important;
@@ -477,14 +457,8 @@ html, body {
     gap: 8px; 
 }
 
-.dropdown-checkbox {
-    display: none !important;
-}
-
-.dropdown-item {
-    position: relative;
-}
-
+.dropdown-checkbox { display: none !important; }
+.dropdown-item { position: relative; }
 .dropdown-content {
     top: 100%;
     left: 50%;
@@ -494,10 +468,7 @@ html, body {
 /* ==========================================================================
    8. 側邊欄標題與區塊間距修正
    ========================================================================== */
-.sidebar-block {
-    margin-bottom: 50px; 
-}
-
+.sidebar-block { margin-bottom: 50px; }
 .sidebar-title {
     font-size: 18px;
     margin-bottom: 15px;
