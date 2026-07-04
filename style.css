@@ -180,7 +180,7 @@ html, body {
 }
 
 /* ==========================================================================
-   4. 精選作品產品卡片區塊 (Product Grid) - 已修復圖片歪掉
+   4. 精選作品產品卡片區塊 (Product Grid) - 優化版
    ========================================================================== */
 .product-section {
     width: 100%;
@@ -192,19 +192,22 @@ html, body {
 
 .product-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 40px;
+    /* 自動計算寬度，當寬度充足時一行四個，不足時自動縮減 */
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 30px;
 }
 
 .product-card {
     background: #ffffff;
+    border: 1px solid #eeeeee;
     border-radius: 12px;
     overflow: hidden;
+    display: flex;
+    flex-direction: column; /* 確保垂直排列：圖片在上，資訊在下 */
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     text-decoration: none;
     color: inherit;
-    display: block;
 }
 
 .product-card:hover {
@@ -212,31 +215,34 @@ html, body {
     box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
 }
 
-/* --- 核心修改：修正圖片歪掉 --- */
 .product-img {
     width: 100%;
-    height: 250px;       /* 設定固定高度 */
-    object-fit: contain;  /* 確保圖片完整顯示，避免變形 */
-    background-color: #f9f9f9;
+    height: 220px;         /* 設定統一高度 */
+    object-fit: contain;   /* 圖片完整顯示，不裁剪、不變形 */
+    background-color: #ffffff;
+    padding: 20px;         /* 留白邊距增加精緻感 */
     display: block;
-    padding: 10px;
 }
 
 .product-info {
-    padding: 30px;
+    padding: 20px;
+    flex-grow: 1;          /* 確保文字區塊能自動撐開高度 */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
 }
 
 .product-info h3 {
-    font-size: 22px;
-    margin-bottom: 12px;
+    font-size: 20px;
+    margin-bottom: 10px;
     color: #222222;
-    letter-spacing: 1px;
+    letter-spacing: 0.5px;
 }
 
 .product-info p {
-    font-size: 15px;
+    font-size: 14px;
     color: #666666;
-    line-height: 1.6;
+    line-height: 1.5;
 }
 
 /* ==========================================================================
