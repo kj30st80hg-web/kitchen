@@ -194,53 +194,52 @@ html, body {
 }
 
 /* 確保卡片撐滿網格高度 */
-.product-card {
+.product-card, 
+.appliance-card {
     background: #ffffff;
     border: 1px solid #eeeeee;
     border-radius: 12px;
     overflow: hidden;
     display: flex;
     flex-direction: column;
-    height: 100%; /* 關鍵：確保所有卡片高度一致 */
+    height: 100%; /* 強制卡片高度撐滿網格 */
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    text-decoration: none;
-    color: inherit;
+    transition: transform 0.3s ease;
 }
-
 .product-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
 }
 
 /* 修正圖片容器：強制固定高度並置中 */
-.product-img {
+.product-img, 
+.appliance-img-box {
     width: 100%;
-    height: 220px;       /* 固定圖片區塊高度，解決雜亂問題 */
+    height: 220px;       /* 強制統一高度 */
     display: flex;       
     align-items: center;
     justify-content: center;
     background-color: #ffffff;
     padding: 20px;
-    margin: 0;
     flex-shrink: 0;      /* 防止圖片區塊被壓縮 */
+    overflow: hidden;
 }
-
 /* 確保圖片本身完整且不變形 */
-.product-img img {
+/* 確保圖片不變形 */
+.product-img img, 
+.appliance-img-box img {
     max-width: 100%;
     max-height: 100%;
-    object-fit: contain; 
+    object-fit: contain;
 }
 
-/* 確保 info 區塊填滿剩餘高度 */
-.product-info {
+/* 確保資訊區塊填滿空間 */
+.product-info, 
+.appliance-info {
     padding: 20px;
     flex-grow: 1;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
-}
 
 .product-info h3 {
     font-size: 20px;
