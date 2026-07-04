@@ -178,14 +178,13 @@ html, body {
 }
 
 /* ==========================================================================
-   4. 精選作品產品卡片區塊 (Product Grid) - 修正圖片比例
+   4. 精選作品產品卡片區塊 (Product Grid) - 修正圖片比例與對齊
    ========================================================================== */
 .product-section {
     width: 100%;
     max-width: 1200px;
     margin: 0 auto;
     padding: 70px 20px;
-    clear: both;
 }
 
 .product-grid {
@@ -194,6 +193,7 @@ html, body {
     gap: 30px;
 }
 
+/* 確保卡片撐滿網格高度 */
 .product-card {
     background: #ffffff;
     border: 1px solid #eeeeee;
@@ -201,6 +201,7 @@ html, body {
     overflow: hidden;
     display: flex;
     flex-direction: column;
+    height: 100%; /* 關鍵：確保所有卡片高度一致 */
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     text-decoration: none;
@@ -212,16 +213,27 @@ html, body {
     box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
 }
 
+/* 修正圖片容器：強制固定高度並置中 */
 .product-img {
     width: 100%;
-    aspect-ratio: 4 / 3; /* 強制鎖定容器比例，解決高度不一 */
-    object-fit: contain;
+    height: 220px;       /* 固定圖片區塊高度，解決雜亂問題 */
+    display: flex;       
+    align-items: center;
+    justify-content: center;
     background-color: #ffffff;
     padding: 20px;
-    display: block;
-    margin: 0 auto;
+    margin: 0;
+    flex-shrink: 0;      /* 防止圖片區塊被壓縮 */
 }
 
+/* 確保圖片本身完整且不變形 */
+.product-img img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain; 
+}
+
+/* 確保 info 區塊填滿剩餘高度 */
 .product-info {
     padding: 20px;
     flex-grow: 1;
@@ -234,15 +246,14 @@ html, body {
     font-size: 20px;
     margin-bottom: 10px;
     color: #222222;
-    letter-spacing: 0.5px;
 }
 
 .product-info p {
     font-size: 14px;
     color: #666666;
     line-height: 1.5;
+    flex-grow: 1; /* 確保內容區塊能撐開空間 */
 }
-
 /* ==========================================================================
    5. 頁尾區塊樣式 (Custom Footer)
    ========================================================================== */
@@ -416,15 +427,16 @@ html, body {
     margin: 40px auto;
     padding: 0 20px;
     align-items: flex-start;
-    position: relative; 
+    position: relative;
+    overflow: visible !important;
 }
 
 .appliance-sidebar {
     width: 200px;
     flex-shrink: 0;
     position: sticky;
-    top: 150px; 
-    height: fit-content; 
+    top: 150px;
+    height: fit-content;
     background: #fff;
     padding: 20px;
     border: 1px solid #eee;
@@ -440,31 +452,13 @@ html, body {
 @media (max-width: 768px) {
     .appliance-container { flex-direction: column; }
     .appliance-sidebar {
-        position: relative; 
+        position: relative;
         top: 0;
         width: 100%;
         height: auto;
         margin-bottom: 20px;
     }
 }
-
-html, body { overflow-y: visible !important; }
-.appliance-container { overflow: visible !important; }
-
-.dropdown-item {
-    display: flex !important;
-    align-items: center;
-    gap: 8px; 
-}
-
-.dropdown-checkbox { display: none !important; }
-.dropdown-item { position: relative; }
-.dropdown-content {
-    top: 100%;
-    left: 50%;
-    transform: translateX(-50%);
-}
-
 /* ==========================================================================
    8. 側邊欄標題與區塊間距修正
    ========================================================================== */
