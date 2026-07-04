@@ -145,11 +145,11 @@
       letter-spacing: 1px;
     }
 
-    /* 強制設定網格為一排4個 */
-    .appliance-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr); /* 強制固定4欄 */
-      gap: 15px; /* 縮小卡片間距，確保排版緊湊 */
+.appliance-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 30px;
+}
     }
     
     /* 縮小卡片內部比例 */
