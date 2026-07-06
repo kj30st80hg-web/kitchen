@@ -147,9 +147,11 @@
 
 .appliance-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-    gap: 30px;
-}
+    /* 強制將容器劃分為 4 等份 */
+    grid-template-columns: repeat(4, 1fr); 
+    /* 設定您想要的卡片間距 */
+    gap: 20px; 
+}  
     }
     
     /* 縮小卡片內部比例 */
