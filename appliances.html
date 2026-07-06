@@ -165,6 +165,12 @@
       transform: translateY(-5px);
       box-shadow: 0 12px 25px rgba(0,0,0,0.06);
     }
+    .appliance-img-box {
+      display: block;
+    html {
+    overflow-x: hidden; /* 由 html 來負責隱藏橫向溢出 */
+}
+
 body {
     width: 100%;
     max-width: 100%;
@@ -342,6 +348,7 @@ body {
     <!-- 左側快速選單 -->
     <aside class="appliance-sidebar">
       <div class="sidebar-title">品牌索引</div>
+      </div>
       <ul class="sidebar-menu">
         <li class="has-submenu">
           <a href="#brand-sakura">台灣精選三大家電 ➔</a>
@@ -1077,6 +1084,12 @@ body {
 </style>
 </body>
 </html>
+/* 移除所有可能干擾 sticky 的 overflow 設定 */
+html, body {
+    overflow-x: hidden; /* 保留這行防止水平溢出 */
+    overflow-y: visible !important; 
+}
+
 .appliance-container {
     overflow: visible !important; /* 強制開啟，避免 sticky 容器失效 */
     display: flex;
