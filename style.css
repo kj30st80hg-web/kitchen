@@ -85,3 +85,8 @@ html, body { width: 100%; max-width: 100%; overflow-x: hidden; overflow-y: visib
     .appliance-sidebar { position: relative; top: 0; width: 100%; height: auto; margin-bottom: 20px; }
     .product-grid { grid-template-columns: 1fr; }
 }
+/* 移除所有可能干擾 sticky 的 overflow 設定 */
+html, body {
+    overflow-x: hidden; /* 保留這行防止水平溢出 */
+    overflow-y: visible !important; 
+}
