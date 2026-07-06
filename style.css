@@ -124,3 +124,14 @@ html, body {
     overflow-x: hidden; /* 保留這行防止水平溢出 */
     overflow-y: visible !important; 
 }
+@media (max-width: 1200px) { 
+    .appliance-grid { grid-template-columns: repeat(3, 1fr); } 
+}
+@media (max-width: 992px) { 
+    .appliance-grid { grid-template-columns: repeat(2, 1fr); } 
+}
+@media (max-width: 768px) {
+    .appliance-container { flex-direction: column; }
+    .appliance-sidebar { position: relative; top: 0; width: 100%; }
+    .product-grid, .appliance-grid { grid-template-columns: 1fr; } 
+}
