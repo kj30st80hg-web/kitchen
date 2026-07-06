@@ -47,11 +47,28 @@ html, body { width: 100%; max-width: 100%; overflow-x: hidden; overflow-y: visib
     justify-content: center;
     background: #fdfdfd;
 }
-
 .product-img { 
     width: 100%; 
     height: 100%; 
     object-fit: contain; /* 確保圖片完整顯示不變形 */
+}
+/* 1. 設定統一的圖片高度 */
+.appliance-img-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 200px; /* 固定高度，讓所有卡片對齊 */
+    background: #fcfcfc;
+    overflow: hidden;
+    position: relative;
+}
+
+/* 2. 讓圖片在格子內自動縮放 */
+.appliance-img-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* 圖片完整顯示，不會被裁切 */
+    padding: 10px;       /* 增加一點邊距更美觀 */
 }
 /* ==========================================================================
    5. 頁尾區塊
