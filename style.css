@@ -9,7 +9,7 @@ html, body { width: 100%; max-width: 100%; overflow-x: hidden; overflow-y: auto 
    ========================================================================== */
 .navbar { display: flex; justify-content: space-between; align-items: center; padding: 20px 40px; background-color: #ffffff; position: fixed; top: 0; left: 0; width: 100%; z-index: 2000; flex-wrap: nowrap; border-bottom: 2px solid #e5e5e5; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); }
 .logo-link { display: flex; align-items: center; text-decoration: none; flex-shrink: 0; }
-.logo-img { height: 80px; width: auto; display: block; object-fit: contain; }
+.logo-img { height: 110px !important; width: auto !important; max-width: none !important; display: block; object-fit: contain; }
 .nav-links { display: flex; flex-wrap: nowrap; gap: 40px; list-style: none; align-items: center; margin: 0; padding: 0; white-space: nowrap; }
 .nav-links li { position: relative; display: flex; align-items: center; white-space: nowrap; padding: 10px 0; }
 .nav-links a, .nav-links label { text-decoration: none; color: #333333; font-size: 20px; font-weight: 500; transition: color 0.3s ease; white-space: nowrap; padding: 5px 0; cursor: pointer; }
@@ -42,18 +42,18 @@ html, body { width: 100%; max-width: 100%; overflow-x: hidden; overflow-y: auto 
 .product-section .product-grid {
     display: grid !important;
     grid-template-columns: repeat(2, 1fr) !important; /* 強制一排 2 個 */
-    gap: 40px !important;                             /* 舒適的大間距 */
-    max-width: 1250px !important;
+    gap: 40px !important;                          /* 舒適的大間距 */
+    max-width: 1200px !important;
     margin: 0 auto !important;
 }
 
 .product-card {
+    display: flex !important;
+    flex-direction: column !important;
     background: #ffffff !important;
     border-radius: 16px !important;
     overflow: hidden !important;
     box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08) !important;
-    display: flex !important;
-    flex-direction: column !important;
     text-decoration: none !important;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
@@ -66,8 +66,11 @@ html, body { width: 100%; max-width: 100%; overflow-x: hidden; overflow-y: auto 
 /* 放大圖片容器高度，提升整體大器感 */
 .product-img-wrapper {
     width: 100% !important;
-    height: 340px !important; 
+    height: 320px !important; 
     overflow: hidden !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
     background: #f4f4f4 !important;
 }
 
@@ -133,18 +136,32 @@ html, body { width: 100%; max-width: 100%; overflow-x: hidden; overflow-y: auto 
 }
 
 /* ==========================================================================
-   6. 頁尾區塊
+   6. 頁尾區塊 (已統一色系與對齊)
    ========================================================================== */
 .custom-footer { background-color: #222222; color: #cccccc; padding: 60px 20px 20px 20px; letter-spacing: 1px; margin-top: 60px; width: 100%; }
 .footer-container { max-width: 1200px; margin: 0 auto; }
 .footer-nav { display: flex; justify-content: center; flex-wrap: wrap; gap: 35px; margin-bottom: 25px; }
-.footer-nav a { color: #ffffff; text-decoration: none; font-size: 15px; font-weight: 500; transition: color 0.3s ease; }
-.footer-nav a:hover { color: #0070bb; }
+.footer-nav a { color: #ffffff !important; text-decoration: none; font-size: 15px; font-weight: 500; transition: color 0.3s ease; }
+.footer-nav a:hover { color: #0070bb !important; }
 .footer-divider { border: 0; height: 1px; background: rgba(255, 255, 255, 0.1); margin-bottom: 35px; }
 .footer-content { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 30px; margin-bottom: 40px; }
 .footer-info { flex: 1; min-width: 280px; }
 .company-name { color: #ffffff; font-size: 18px; margin-bottom: 15px; font-weight: bold; }
 .footer-info p { font-size: 14px; color: #aaaaaa; margin: 8px 0; display: flex; align-items: center; gap: 10px; }
+
+/* 強制對齊聯絡資訊圖示與文字 */
+.footer-info p {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 8px;
+}
+
+.footer-info p i {
+    width: 20px;
+    text-align: center;
+}
+
 .footer-socials { display: flex; gap: 18px; align-items: center; }
 .social-icon-btn { display: inline-block; width: 44px; height: 44px; border: 1.5px solid #ffffff; border-radius: 50%; color: #ffffff; font-size: 18px; text-decoration: none; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); background: transparent; text-align: center; }
 .social-icon-btn i { line-height: 41px; display: block; }
@@ -164,7 +181,7 @@ html, body { width: 100%; max-width: 100%; overflow-x: hidden; overflow-y: auto 
 
 @media (max-width: 768px) {
     .navbar { position: fixed; flex-direction: row !important; justify-content: space-between; gap: 10px; padding: 10px 15px; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05); }
-    .logo-img { height: 45px; }
+    .logo-img { height: 45px !important; }
     .nav-links { flex-direction: row !important; flex-wrap: nowrap !important; gap: 12px; padding-left: 0; justify-content: flex-end; }
     .nav-links a, .nav-links label { font-size: 14px; }
     .nav-links .dropdown-content { position: absolute; top: 100%; left: auto; right: 0; transform: none; width: 180px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); border: 1px solid #eeeeee; background-color: #ffffff; margin-top: 5px; }
@@ -182,48 +199,4 @@ html, body { width: 100%; max-width: 100%; overflow-x: hidden; overflow-y: auto 
     .product-img-wrapper {
         height: 260px !important;
     }
-}/* ==========================================================================
-   【絕對生效】強制覆寫所有卡片與圖片高度
-   ========================================================================== */
-.product-section .product-grid {
-    display: grid !important;
-    grid-template-columns: repeat(2, 1fr) !important;
-    gap: 40px !important;
-    max-width: 1200px !important;
-    margin: 0 auto !important;
-}
-
-.product-section .product-card {
-    display: flex !important;
-    flex-direction: column !important;
-    background: #ffffff !important;
-    border-radius: 16px !important;
-    overflow: hidden !important;
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08) !important;
-}
-
-/* 強制把圖片區塊拉高 */
-.product-section .product-img-wrapper {
-    width: 100% !important;
-    height: 320px !important;
-    overflow: hidden !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    background: #f4f4f4 !important;
-}
-
-/* 強制圖片用 cover 填滿並切出一致大小 */
-.product-section .product-img {
-    width: 100% !important;
-    height: 100% !important;
-    object-fit: cover !important;
-}
-/* ==========================================================================
-   放大導覽列 LOGO
-   ========================================================================== */
-.navbar .logo-img {
-    height: 110px !important; /* 將原本的 80px 放大至 110px，可視需要微調數字 */
-    width: auto !important;
-    max-width: none !important;
 }
