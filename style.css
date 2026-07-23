@@ -15,10 +15,22 @@ html, body { width: 100%; max-width: 100%; overflow-x: hidden; overflow-y: auto 
 .nav-links a, .nav-links label { text-decoration: none; color: #333333; font-size: 20px; font-weight: 500; transition: color 0.3s ease; white-space: nowrap; padding: 5px 0; cursor: pointer; }
 .nav-links a:hover, .nav-links label:hover { color: #0056b3; }
 .nav-links input[type="checkbox"] { display: none !important; }
-.nav-links .dropdown-content { display: none; position: absolute; top: 100%; left: 50%; transform: translateX(-50%); background-color: #ffffff; min-width: 240px; box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15); border-radius: 8px; padding: 10px 0; margin-top: 5px; z-index: 2100; border: 1px solid #eeeeee; }
+
+/* 下拉選單樣式與防閃爍緩衝設計 */
+.nav-links .dropdown-content { display: none; position: absolute; top: 100%; left: 50%; transform: translateX(-50%); background-color: #ffffff; min-width: 240px; box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15); border-radius: 8px; padding: 10px 0; margin-top: 0px; z-index: 2100; border: 1px solid #eeeeee; }
 .nav-links .dropdown-content a { display: block; padding: 12px 24px; color: #444444; font-size: 17px; text-align: left; white-space: nowrap; transition: background 0.2s ease, color 0.2s ease; width: 100%; }
 .nav-links .dropdown-content a:hover { background-color: #f5f5f5; color: #0056b3; }
-@media (min-width: 769px) { .nav-links li:hover .dropdown-content { display: block !important; } }
+
+@media (min-width: 769px) { 
+  .nav-links li {
+    padding-bottom: 20px; /* 製造隱形滑鼠過渡區，避免滑鼠移向選單時中斷 */
+    margin-bottom: -20px;
+  }
+  .nav-links li:hover .dropdown-content,
+  .nav-links .dropdown-content:hover { 
+    display: block !important; 
+  } 
+}
 .nav-links input[type="checkbox"]:checked ~ .dropdown-content { display: block !important; }
 
 /* ==========================================================================
@@ -147,14 +159,15 @@ html, body { width: 100%; max-width: 100%; overflow-x: hidden; overflow-y: auto 
 .footer-content { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 30px; margin-bottom: 40px; }
 .footer-info { flex: 1; min-width: 280px; }
 .company-name { color: #ffffff; font-size: 18px; margin-bottom: 15px; font-weight: bold; }
-.footer-info p { font-size: 14px; color: #aaaaaa; margin: 8px 0; display: flex; align-items: center; gap: 10px; }
 
 /* 強制對齊聯絡資訊圖示與文字 */
 .footer-info p {
+    font-size: 14px;
+    color: #aaaaaa;
+    margin: 8px 0;
     display: flex;
     align-items: center;
     gap: 10px;
-    margin-bottom: 8px;
 }
 
 .footer-info p i {
