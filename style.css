@@ -182,4 +182,40 @@ html, body { width: 100%; max-width: 100%; overflow-x: hidden; overflow-y: auto 
     .product-img-wrapper {
         height: 260px !important;
     }
+}/* ==========================================================================
+   【絕對生效】強制覆寫所有卡片與圖片高度
+   ========================================================================== */
+.product-section .product-grid {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 40px !important;
+    max-width: 1200px !important;
+    margin: 0 auto !important;
+}
+
+.product-section .product-card {
+    display: flex !important;
+    flex-direction: column !important;
+    background: #ffffff !important;
+    border-radius: 16px !important;
+    overflow: hidden !important;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08) !important;
+}
+
+/* 強制把圖片區塊拉高 */
+.product-section .product-img-wrapper {
+    width: 100% !important;
+    height: 320px !important;
+    overflow: hidden !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    background: #f4f4f4 !important;
+}
+
+/* 強制圖片用 cover 填滿並切出一致大小 */
+.product-section .product-img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
 }
