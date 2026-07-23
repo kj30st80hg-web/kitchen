@@ -48,12 +48,6 @@ html, body { width: 100%; max-width: 100%; overflow-x: hidden; overflow-y: visib
     margin: 0 auto;
 }
 
-/* 手機響應式斷點 (維持原本設定，確保小螢幕時變成一直排) */
-@media (max-width: 768px) {
-    .product-section .product-grid {
-        grid-template-columns: 1fr; /* 改為單欄顯示 */
-    }
-}
 .product-card {background: #ffffff; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05); display: flex; flex-direction: column; /* 確保內容垂直排列 */}
 
 /* 關鍵修正：固定圖片區塊高度，解決上下亂竄 */
