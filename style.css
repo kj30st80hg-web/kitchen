@@ -223,7 +223,7 @@ html, body { width: 100%; max-width: 100%; overflow-x: hidden; overflow-y: auto 
    放大導覽列 LOGO
    ========================================================================== */
 .navbar .logo-img {
-    height: 140px !important; /* 將原本的 80px 放大至 110px，可視需要微調數字 */
+    height: 110px !important; /* 將原本的 80px 放大至 110px，可視需要微調數字 */
     width: auto !important;
     max-width: none !important;
 }
