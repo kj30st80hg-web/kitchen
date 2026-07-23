@@ -34,7 +34,13 @@ html, body { width: 100%; max-width: 100%; overflow-x: hidden; overflow-y: visib
    ========================================================================== */
 .product-section { width: 100%; max-width: 1400px; margin: 0 auto; padding: 70px 20px; }
 /* 修正：將 .product-grid 設定在正確的內容區塊內 */
-.product-grid { display: grid;grid-template-columns: repeat(4, 1fr); /* 強制一排 4 個 */gap: 20px; }
+.product-section .product-grid { 
+    display: grid; 
+    grid-template-columns: repeat(2, 1fr); /* 改回一排 2 個 */
+    gap: 30px; 
+    max-width: 1000px; /* 限制最大寬度避免卡片被拉得太寬 */
+    margin: 0 auto;
+}
 .product-card {background: #ffffff; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05); display: flex; flex-direction: column; /* 確保內容垂直排列 */}
 
 /* 關鍵修正：固定圖片區塊高度，解決上下亂竄 */
@@ -102,7 +108,7 @@ html, body { width: 100%; max-width: 100%; overflow-x: hidden; overflow-y: visib
 @media (max-width: 768px) {
     .appliance-container { flex-direction: column; }
     .appliance-sidebar { position: relative; top: 0; width: 100%; }
-    .product-grid { grid-template-columns: repeat(2, 1fr); } /* 手機板改為 2 個避免過窄 */}
+    .product-grid { grid-template-columns: repeat: 1fr; } /* 手機板改為 2 個避免過窄 */}
 html, body { overflow-x: hidden; overflow-y: auto; }
 /* RWD 響應式調整 */
 
