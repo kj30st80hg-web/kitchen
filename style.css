@@ -143,4 +143,39 @@ html, body { width: 100%; max-width: 100%; overflow-x: hidden; overflow-y: auto 
     .appliance-grid { 
         grid-template-columns: 1fr !important; 
     }
+/* ==========================================================================
+   強制首頁專用：透過 ID 突破所有限制，直接變成 2x2 排版
+   ========================================================================== */
+#home-product-grid {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important; /* 強制一排 2 個 */
+    gap: 30px !important;
+    max-width: 1000px !important;
+    margin: 0 auto !important;
+    padding: 40px 20px !important;
+}
+
+#home-product-grid .product-card {
+    display: flex !important;
+    flex-direction: column !important;
+    background: #ffffff !important;
+    border-radius: 12px !important;
+    overflow: hidden !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05) !important;
+}
+
+#home-product-grid .product-img-wrapper {
+    width: 100% !important;
+    height: 240px !important;
+    overflow: hidden !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    background: #fdfdfd !important;
+}
+
+#home-product-grid .product-img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: contain !important;
 }
