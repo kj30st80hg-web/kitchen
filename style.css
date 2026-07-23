@@ -30,45 +30,80 @@ html, body { width: 100%; max-width: 100%; overflow-x: hidden; overflow-y: auto 
 .hero-content p { font-size: 18px; text-shadow: 0 2px 10px rgba(0, 0, 0, 0.6); letter-spacing: 1px; line-height: 1.5; }
 
 /* ==========================================================================
-   4. 首頁產品區塊 (強制 2x2 四格漫畫排版)
+   4. 首頁產品區塊 (放大卡片、統一照片尺寸與高質感排版)
    ========================================================================== */
-.product-section { width: 100%; max-width: 1200px; margin: 0 auto; padding: 70px 20px; }
+.product-section { 
+    width: 100%; 
+    max-width: 1300px; 
+    margin: 0 auto; 
+    padding: 60px 20px; 
+}
 
 .product-section .product-grid {
     display: grid !important;
     grid-template-columns: repeat(2, 1fr) !important; /* 強制一排 2 個 */
-    gap: 30px !important;
-    max-width: 1000px !important;
+    gap: 40px !important;                             /* 舒適的大間距 */
+    max-width: 1250px !important;
     margin: 0 auto !important;
 }
 
 .product-card {
     background: #ffffff !important;
-    border-radius: 12px !important;
+    border-radius: 16px !important;
     overflow: hidden !important;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05) !important;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08) !important;
     display: flex !important;
     flex-direction: column !important;
+    text-decoration: none !important;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12) !important;
+}
+
+/* 放大圖片容器高度，提升整體大器感 */
 .product-img-wrapper {
     width: 100% !important;
-    height: 240px !important;
+    height: 340px !important; 
     overflow: hidden !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    background: #fdfdfd !important;
+    background: #f4f4f4 !important;
 }
 
+/* 讓所有照片採用 cover 填滿並保持一致大小 */
 .product-img { 
     width: 100% !important; 
     height: 100% !important; 
-    object-fit: contain !important; 
+    object-fit: cover !important; 
+    transition: transform 0.5s ease;
+}
+
+.product-card:hover .product-img {
+    transform: scale(1.03);
+}
+
+/* 字體與內距優化 */
+.product-info {
+    padding: 25px 30px !important;
+}
+
+.product-info h3 {
+    font-size: 22px !important;
+    font-weight: 700 !important;
+    color: #222222 !important;
+    margin-bottom: 12px !important;
+    letter-spacing: 1px !important;
+}
+
+.product-info p {
+    font-size: 15px !important;
+    color: #666666 !important;
+    line-height: 1.7 !important;
 }
 
 /* ==========================================================================
-   5. 內頁與家電容器區塊 (保持一排 4 個，響應式自動縮減)
+   5. 內頁與家電容器區塊
    ========================================================================== */
 .appliance-container { display: flex; gap: 30px; max-width: 1280px; margin: 40px auto; padding: 0 20px; align-items: flex-start; }
 .appliance-sidebar { width: 240px; flex-shrink: 0; position: sticky; top: 150px; background: #fff; padding: 20px; border: 1px solid #eee; border-radius: 8px; }
@@ -76,7 +111,7 @@ html, body { width: 100%; max-width: 100%; overflow-x: hidden; overflow-y: auto 
 
 .appliance-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr); /* 內頁預設一排 4 個 */
+    grid-template-columns: repeat(4, 1fr);
     gap: 20px;
 }
 
@@ -138,44 +173,13 @@ html, body { width: 100%; max-width: 100%; overflow-x: hidden; overflow-y: auto 
     .appliance-container { flex-direction: column; }
     .appliance-sidebar { position: relative; top: 0; width: 100%; height: auto; margin-bottom: 20px; }
     
-    /* 手機板時首頁與內頁全部改為單欄排版 */
+    /* 手機板時改為單欄排版 */
     .product-section .product-grid,
     .appliance-grid { 
         grid-template-columns: 1fr !important; 
     }
-/* ==========================================================================
-   強制首頁專用：透過 ID 突破所有限制，直接變成 2x2 排版
-   ========================================================================== */
-#home-product-grid {
-    display: grid !important;
-    grid-template-columns: repeat(2, 1fr) !important; /* 強制一排 2 個 */
-    gap: 30px !important;
-    max-width: 1000px !important;
-    margin: 0 auto !important;
-    padding: 40px 20px !important;
-}
-
-#home-product-grid .product-card {
-    display: flex !important;
-    flex-direction: column !important;
-    background: #ffffff !important;
-    border-radius: 12px !important;
-    overflow: hidden !important;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05) !important;
-}
-
-#home-product-grid .product-img-wrapper {
-    width: 100% !important;
-    height: 240px !important;
-    overflow: hidden !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    background: #fdfdfd !important;
-}
-
-#home-product-grid .product-img {
-    width: 100% !important;
-    height: 100% !important;
-    object-fit: contain !important;
+    
+    .product-img-wrapper {
+        height: 260px !important;
+    }
 }
