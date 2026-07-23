@@ -35,17 +35,21 @@ html, body { width: 100%; max-width: 100%; overflow-x: hidden; overflow-y: visib
 .product-section { width: 100%; max-width: 1400px; margin: 0 auto; padding: 70px 20px; }
 /* 修正：將 .product-grid 設定在正確的內容區塊內 */
 /* ==========================================================================
-   修正首頁排版為 2x2 (類似四格漫畫)
+   強制首頁排版為 2x2 (最高權重，覆寫所有衝突)
    ========================================================================== */
+body.home-page .product-section .product-grid,
 .product-section .product-grid {
-    display: grid;
-    /* 強制將容器劃分為 2 等份 (取消原本的 repeat(4, 1fr)) */
-    grid-template-columns: repeat(2, 1fr);
-    /* 設定您想要的卡片間距 (維持原本的 20px 或視需要調整) */
-    gap: 20px;
-    /* 為了在大螢幕上避免卡片被拉得太寬，建議加上最大寬度限制 */
-    max-width: 1200px;
-    margin: 0 auto;
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important; /* 強制一排 2 個 */
+    gap: 30px !important;
+    max-width: 1100px !important;
+    margin: 0 auto !important;
+}
+
+/* 確保卡片內部的圖片和排版恢復正常比例 */
+.product-section .product-card {
+    display: flex !important;
+    flex-direction: column !important;
 }
 
 .product-card {background: #ffffff; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05); display: flex; flex-direction: column; /* 確保內容垂直排列 */}
