@@ -54,7 +54,7 @@ html, body { width: 100%; max-width: 100%; overflow-x: hidden; overflow-y: auto 
 .product-section .product-grid {
     display: grid !important;
     grid-template-columns: repeat(2, 1fr) !important; /* 強制一排 2 個 */
-    gap: 40px !important;                          /* 舒適的大間距 */
+    gap: 40px !important;                     /* 舒適的大間距 */
     max-width: 1200px !important;
     margin: 0 auto !important;
 }
@@ -182,38 +182,7 @@ html, body { width: 100%; max-width: 100%; overflow-x: hidden; overflow-y: auto 
 .footer-bottom { text-align: center; font-size: 12px; color: #666666; border-top: 1px solid rgba(255, 255, 255, 0.05); padding-top: 20px; margin-top: 20px; }
 
 /* ==========================================================================
-   7. 響應式斷點 (RWD)
-   ========================================================================== */
-@media (max-width: 1200px) { 
-    .appliance-grid { grid-template-columns: repeat(3, 1fr); } 
-}
-
-@media (max-width: 992px) { 
-    .appliance-grid { grid-template-columns: repeat(2, 1fr); } 
-}
-
-@media (max-width: 768px) {
-    .navbar { position: fixed; flex-direction: row !important; justify-content: space-between; gap: 10px; padding: 10px 15px; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05); }
-    .logo-img { height: 45px !important; }
-    .nav-links { flex-direction: row !important; flex-wrap: nowrap !important; gap: 12px; padding-left: 0; justify-content: flex-end; }
-    .nav-links a, .nav-links label { font-size: 14px; }
-    .nav-links .dropdown-content { position: absolute; top: 100%; left: auto; right: 0; transform: none; width: 180px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); border: 1px solid #eeeeee; background-color: #ffffff; margin-top: 5px; }
-    .nav-links .dropdown-content a { text-align: left; font-size: 14px; padding: 10px 15px; }
-    
-    .appliance-container { flex-direction: column; }
-    .appliance-sidebar { position: relative; top: 0; width: 100%; height: auto; margin-bottom: 20px; }
-    
-    /* 手機板時改為單欄排版 */
-    .product-section .product-grid,
-    .appliance-grid { 
-        grid-template-columns: 1fr !important; 
-    }
-    
-    .product-img-wrapper {
-        height: 260px !important;
-    }
-   /* ==========================================================================
-   懸浮社群按鈕 (固定在右側)
+   7. 懸浮社群按鈕 (固定在右側)
    ========================================================================== */
 .floating-socials {
     position: fixed;
@@ -253,4 +222,37 @@ html, body { width: 100%; max-width: 100%; overflow-x: hidden; overflow-y: auto 
 /* LINE 經典綠背景 */
 .floating-line {
     background-color: #06c755;
+}
+
+/* ==========================================================================
+   8. 響應式斷點 (RWD)
+   ========================================================================== */
+@media (max-width: 1200px) { 
+    .appliance-grid { grid-template-columns: repeat(3, 1fr); } 
+}
+
+@media (max-width: 992px) { 
+    .appliance-grid { grid-template-columns: repeat(2, 1fr); } 
+}
+
+@media (max-width: 768px) {
+    .navbar { position: fixed; flex-direction: row !important; justify-content: space-between; gap: 10px; padding: 10px 15px; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05); }
+    .logo-img { height: 45px !important; }
+    .nav-links { flex-direction: row !important; flex-wrap: nowrap !important; gap: 12px; padding-left: 0; justify-content: flex-end; }
+    .nav-links a, .nav-links label { font-size: 14px; }
+    .nav-links .dropdown-content { position: absolute; top: 100%; left: auto; right: 0; transform: none; width: 180px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); border: 1px solid #eeeeee; background-color: #ffffff; margin-top: 5px; }
+    .nav-links .dropdown-content a { text-align: left; font-size: 14px; padding: 10px 15px; }
+    
+    .appliance-container { flex-direction: column; }
+    .appliance-sidebar { position: relative; top: 0; width: 100%; height: auto; margin-bottom: 20px; }
+    
+    /* 手機板時改為單欄排版 */
+    .product-section .product-grid,
+    .appliance-grid { 
+        grid-template-columns: 1fr !important; 
+    }
+    
+    .product-img-wrapper {
+        height: 260px !important;
+    }
 }
